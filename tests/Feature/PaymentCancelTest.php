@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use Illuminate\Support\Arr;
 use AvtoDev\CloudPayments\Message\Request\CancelPaymentRequest;
 use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentTwoStepRequest;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\SuccessResponse;
+use Illuminate\Support\Arr;
 
 /**
  * @group feature

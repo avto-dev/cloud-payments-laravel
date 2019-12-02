@@ -4,19 +4,19 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Client;
 
+use AvtoDev\CloudPayments\Client\Client;
+use AvtoDev\CloudPayments\Client\ClientInterface;
+use AvtoDev\CloudPayments\Client\Exception\InvalidHttpResponseCodeException;
+use AvtoDev\CloudPayments\Message\Request\RequestInterface;
+use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use AvtoDev\CloudPayments\Client\Exception\InvalidHttpResponseCodeException;
-use AvtoDev\CloudPayments\Message\Request\RequestInterface;
 use PHPUnit\Framework\MockObject\MockObject;
-use Tarampampam\Wrappers\Json;
-use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ResponseInterface;
-use AvtoDev\CloudPayments\Client\Client;
-use AvtoDev\CloudPayments\Client\ClientInterface;
+use Psr\Http\Message\StreamInterface;
+use Tarampampam\Wrappers\Json;
 
 /**
  * @group unit
@@ -51,7 +51,7 @@ class CloudPaymentClientTest extends TestCase
     }
 
     /**
-     * invalid response code
+     * invalid response code.
      */
     public function testFailRequest()
     {
@@ -64,11 +64,10 @@ class CloudPaymentClientTest extends TestCase
     }
 
     /**
-     * network error, an empty response
+     * network error, an empty response.
      */
     public function testInvalidHttpResponseCodeException()
     {
-
         $cloud_payment_client = $this->createCloudPaymentClientException(
             new RequestException('Error', new Request('POST', '/'))
         );
@@ -79,7 +78,7 @@ class CloudPaymentClientTest extends TestCase
     }
 
     /**
-     * Authorisation Error
+     * Authorisation Error.
      */
     public function testInvalidHttpResponseCodeExceptionWithResponse()
     {

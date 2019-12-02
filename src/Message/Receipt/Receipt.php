@@ -9,7 +9,7 @@ use AvtoDev\CloudPayments\Message\Reference\TaxationSystem;
 class Receipt
 {
     /**
-     * Items
+     * Items.
      *
      * @var array|Item[]
      */
@@ -81,7 +81,7 @@ class Receipt
     protected $provision_amount;
 
     /**
-     * Items
+     * Items.
      *
      * @param array $items
      *
@@ -233,7 +233,7 @@ class Receipt
     }
 
     /**
-     * Converting the object to an array using the `array_filter` function to remove empty items
+     * Converting the object to an array using the `array_filter` function to remove empty items.
      *
      * @return array
      */

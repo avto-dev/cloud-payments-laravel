@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\Message\Traits\ModelFeature;
 trait FillObjectFromArray
 {
     /**
-     * Filling an object from an array
+     * Filling an object from an array.
      *
      * @param array $data
      */

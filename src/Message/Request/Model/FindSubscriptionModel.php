@@ -14,7 +14,7 @@ class FindSubscriptionModel extends AbstractModel
     use AccountIdString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

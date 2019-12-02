@@ -16,7 +16,7 @@ class CompletionOf3dSecureModel extends AbstractModel
         PaResString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

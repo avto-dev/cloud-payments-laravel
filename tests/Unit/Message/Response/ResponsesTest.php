@@ -48,38 +48,27 @@ class ResponsesTest extends TestCase
     public function modelDataProvider()
     {
         return [
-            ApplePayStartSessionResponse::class =>
-                [ApplePayStartSessionResponse::class, ApplePayStartSessionModel::class],
+            ApplePayStartSessionResponse::class => [ApplePayStartSessionResponse::class, ApplePayStartSessionModel::class],
 
-            Cryptogram3dSecureAuthRequiredResponse::class =>
-                [Cryptogram3dSecureAuthRequiredResponse::class, Cryptogram3dSecureAuthRequiredModel::class],
+            Cryptogram3dSecureAuthRequiredResponse::class => [Cryptogram3dSecureAuthRequiredResponse::class, Cryptogram3dSecureAuthRequiredModel::class],
 
-            CryptogramTransactionAcceptedResponse::class =>
-                [CryptogramTransactionAcceptedResponse::class, CryptogramTransactionAcceptedModel::class],
+            CryptogramTransactionAcceptedResponse::class => [CryptogramTransactionAcceptedResponse::class, CryptogramTransactionAcceptedModel::class],
 
-            CryptogramTransactionRejectedResponse::class =>
-                [CryptogramTransactionRejectedResponse::class, CryptogramTransactionRejectedModel::class],
+            CryptogramTransactionRejectedResponse::class => [CryptogramTransactionRejectedResponse::class, CryptogramTransactionRejectedModel::class],
 
-            InvalidRequestResponse::class =>
-                [InvalidRequestResponse::class, NullModel::class],
+            InvalidRequestResponse::class => [InvalidRequestResponse::class, NullModel::class],
 
-            SubscriptionResponse::class =>
-                [SubscriptionResponse::class, SubscriptionModel::class],
+            SubscriptionResponse::class => [SubscriptionResponse::class, SubscriptionModel::class],
 
-            SubscriptionsResponse::class =>
-                [SubscriptionsResponse::class, SubscriptionsModel::class],
+            SubscriptionsResponse::class => [SubscriptionsResponse::class, SubscriptionsModel::class],
 
-            SuccessResponse::class =>
-                [SuccessResponse::class, NullModel::class],
+            SuccessResponse::class => [SuccessResponse::class, NullModel::class],
 
-            TokenTransactionAcceptedResponse::class =>
-                [TokenTransactionAcceptedResponse::class, TokenTransactionAcceptedModel::class],
+            TokenTransactionAcceptedResponse::class => [TokenTransactionAcceptedResponse::class, TokenTransactionAcceptedModel::class],
 
-            TokenTransactionRejectedResponse::class =>
-                [TokenTransactionRejectedResponse::class, TokenTransactionRejectedModel::class],
+            TokenTransactionRejectedResponse::class => [TokenTransactionRejectedResponse::class, TokenTransactionRejectedModel::class],
 
-            RefundPaymentResponse::class =>
-                [RefundPaymentResponse::class, RefundPaymentModel::class],
+            RefundPaymentResponse::class => [RefundPaymentResponse::class, RefundPaymentModel::class],
         ];
     }
 

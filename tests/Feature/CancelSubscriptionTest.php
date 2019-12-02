@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use AvtoDev\CloudPayments\Message\Response\SuccessResponse;
 use AvtoDev\CloudPayments\Message\Request\CancelSubscriptionRequest;
+use AvtoDev\CloudPayments\Message\Response\SuccessResponse;
 
 /**
  * @group feature
@@ -14,7 +14,7 @@ use AvtoDev\CloudPayments\Message\Request\CancelSubscriptionRequest;
  * @see   https://developers.cloudpayments.ru/#otmena-podpiski-na-rekurrentnye-platezhi
  * @coversNothing
  */
-class CancelGetSubscriptionTest extends CreateSubscriptionTest
+class CancelSubscriptionTest extends CreateSubscriptionTest
 {
     public function testCreateSubscription(): string
     {

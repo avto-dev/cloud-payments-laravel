@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Strategy;
 
-use PHPUnit\Framework\TestCase;
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
-use AvtoDev\CloudPayments\Message\Strategy\CryptogramPaymentStrategy;
+use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionRejectedResponse;
-use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
+use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
+use AvtoDev\CloudPayments\Message\Strategy\CryptogramPaymentStrategy;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

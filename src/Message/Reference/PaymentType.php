@@ -25,22 +25,22 @@ class PaymentType
     public const PARTIAL_PREPAYMENT = 2;
 
     /**
-     * Prepaid expense
+     * Prepaid expense.
      */
     public const ADVANCE_PAY = 3;
 
     /**
-     * Full settlement
+     * Full settlement.
      */
     public const FULL_PAY = 4;
 
     /**
-     * Partial settlement and credit
+     * Partial settlement and credit.
      */
     public const PARTIAL_PAY_AND_CREDIT = 5;
 
     /**
-     * Credit Transfer
+     * Credit Transfer.
      */
     public const CREDIT = 6;
 

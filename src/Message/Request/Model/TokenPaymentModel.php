@@ -4,15 +4,15 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Request\Model;
 
-use AvtoDev\CloudPayments\Message\Traits\ModelField\AmountFloat;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\TokenString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\AccountIdString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\AmountFloat;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\EmailStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\JsonDataStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\InvoiceIdStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\IpAddressStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\JsonDataStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\TokenString;
 
 /**
  * @see https://developers.cloudpayments.ru/#obrabotka-3-d-secure
@@ -30,7 +30,7 @@ class TokenPaymentModel extends AbstractModel
         JsonDataStringNull;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

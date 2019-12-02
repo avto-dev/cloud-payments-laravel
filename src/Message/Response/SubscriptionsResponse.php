@@ -16,7 +16,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\SubscriptionsModel;
 class SubscriptionsResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

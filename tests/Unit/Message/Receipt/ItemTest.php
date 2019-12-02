@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Receipt;
 
-use Faker\Factory;
 use AvtoDev\CloudPayments\Message\Receipt\Item;
 use AvtoDev\CloudPayments\Message\Reference\PaymentObject;
 use AvtoDev\CloudPayments\Message\Reference\Vat;
+use Faker\Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,7 +29,6 @@ class ItemTest extends TestCase
 
     public function test()
     {
-
         $item = new Item;
         $item
             ->setLabel($label = $this->faker->sentence)

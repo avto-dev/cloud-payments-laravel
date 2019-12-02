@@ -15,7 +15,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\ModelInterface;
 class ApplePayStartSessionResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

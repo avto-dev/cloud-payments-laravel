@@ -18,7 +18,7 @@ class RefundPaymentModel extends AbstractModel
         JsonDataStringNull;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

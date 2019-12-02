@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use AvtoDev\CloudPayments\Message\Response\SubscriptionsResponse;
 use AvtoDev\CloudPayments\Message\Request\FindSubscriptionRequest;
 use AvtoDev\CloudPayments\Message\Response\Model\SubscriptionModel;
+use AvtoDev\CloudPayments\Message\Response\SubscriptionsResponse;
 
 /**
  * @group feature

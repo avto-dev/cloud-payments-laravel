@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit;
 
-use GuzzleHttp\Client as GuzzleHttpClient;
-use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 use AvtoDev\CloudPayments\Client\Client;
 use AvtoDev\CloudPayments\Client\ClientInterface;
 use AvtoDev\Tests\AbstractTestCase;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 
 /**
  * @group  unit
@@ -19,7 +19,6 @@ class CloudPaymentsServiceProviderTest extends AbstractTestCase
 {
     public function test()
     {
-
         $this->app->bind(GuzzleHttpClientInterface::class, function () {
             return new GuzzleHttpClient;
         });

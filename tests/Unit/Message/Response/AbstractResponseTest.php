@@ -24,8 +24,7 @@ class AbstractResponseTest extends TestCase
     {
         parent::setUp();
 
-        $this->response = new class extends AbstractResponse
-        {
+        $this->response = new class extends AbstractResponse {
             public function createModel(): ModelInterface
             {
                 return new NullModel;

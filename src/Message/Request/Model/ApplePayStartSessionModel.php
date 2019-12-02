@@ -14,7 +14,7 @@ class ApplePayStartSessionModel extends AbstractModel
     use ValidationUrlString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

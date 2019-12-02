@@ -12,7 +12,7 @@ namespace AvtoDev\CloudPayments\Message\Request;
 class TokenPaymentTwoStepRequest extends TokenPaymentOneStepRequest
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getRelativeUrl(): string
     {

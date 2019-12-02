@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Strategy;
 
-use PHPUnit\Framework\TestCase;
 use AvtoDev\CloudPayments\Message\Response\Model\NullModel;
 use AvtoDev\CloudPayments\Message\Response\SuccessResponse;
 use AvtoDev\CloudPayments\Message\Strategy\SuccessStrategy;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Receipt;
 
-use AvtoDev\CloudPayments\Message\Reference\Vat;
-use AvtoDev\CloudPayments\Message\Reference\PaymentType;
 use AvtoDev\CloudPayments\Message\Reference\PaymentObject;
+use AvtoDev\CloudPayments\Message\Reference\PaymentType;
+use AvtoDev\CloudPayments\Message\Reference\Vat;
 
 class Item
 {
     /**
-     * Product name
+     * Product name.
      *
      * @var string
      */
@@ -25,7 +25,7 @@ class Item
     protected $price;
 
     /**
-     * Quantity
+     * Quantity.
      *
      * @var float
      */
@@ -187,7 +187,7 @@ class Item
     }
 
     /**
-     * Converting the object to an array using the `array_filter` function to remove empty items
+     * Converting the object to an array using the `array_filter` function to remove empty items.
      *
      * @return array
      */

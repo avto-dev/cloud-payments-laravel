@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Client;
 
-use GuzzleHttp\Psr7\Request;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
-use Tarampampam\Wrappers\Json;
+use AvtoDev\CloudPayments\Client\Exception\InvalidHttpResponseCodeException;
+use AvtoDev\CloudPayments\Message\Request\RequestInterface;
+use AvtoDev\CloudPayments\Message\Response\ResponseInterface;
 use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use AvtoDev\CloudPayments\Message\Request\RequestInterface;
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface as PsrRequestInterface;
-use AvtoDev\CloudPayments\Message\Response\ResponseInterface;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
-use AvtoDev\CloudPayments\Client\Exception\InvalidHttpResponseCodeException;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
+use Tarampampam\Wrappers\Json;
 
 class Client implements ClientInterface
 {
@@ -41,8 +41,7 @@ class Client implements ClientInterface
         GuzzleHttpClientInterface $http_client,
         string $public_id,
         string $api_secret
-    )
-    {
+    ) {
         $this->http_client = $http_client;
         $this->public_id   = $public_id;
         $this->api_secret  = $api_secret;
@@ -68,8 +67,9 @@ class Client implements ClientInterface
     /**
      * @param string $body
      *
-     * @return array
      * @throws JsonEncodeDecodeException
+     *
+     * @return array
      */
     protected function decodeBody(string $body): array
     {
@@ -79,10 +79,10 @@ class Client implements ClientInterface
     /**
      * @param PsrRequestInterface $request
      *
-     * @return PsrResponseInterface
      * @throws InvalidHttpResponseCodeException
      * @throws \InvalidArgumentException
      *
+     * @return PsrResponseInterface
      */
     protected function sendHttpRequest(PsrRequestInterface $request): PsrResponseInterface
     {

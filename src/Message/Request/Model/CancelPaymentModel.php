@@ -14,7 +14,7 @@ class CancelPaymentModel extends AbstractModel
     use TransactionIdInt;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

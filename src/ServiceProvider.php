@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments;
 
+use AvtoDev\CloudPayments\Client\Client;
+use AvtoDev\CloudPayments\Client\ClientInterface;
 use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
-use AvtoDev\CloudPayments\Client\Client;
-use AvtoDev\CloudPayments\Client\ClientInterface;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {

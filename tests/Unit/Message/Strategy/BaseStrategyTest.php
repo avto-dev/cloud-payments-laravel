@@ -23,8 +23,7 @@ class BaseStrategyTest extends TestCase
 {
     public function testSuccessPrepare()
     {
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 InvalidRequestSpecification::class => InvalidRequestResponse::class,
             ];
@@ -40,8 +39,7 @@ class BaseStrategyTest extends TestCase
         $this->expectException(ClassNotFoundException::class);
         $this->expectExceptionMessage('The class not-found-class is not found');
 
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 'not-found-class' => InvalidRequestResponse::class,
             ];
@@ -55,8 +53,7 @@ class BaseStrategyTest extends TestCase
         $this->expectException(ClassNotFoundException::class);
         $this->expectExceptionMessage('The class not-found-class is not found');
 
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 InvalidRequestSpecification::class => 'not-found-class',
             ];
@@ -73,8 +70,7 @@ class BaseStrategyTest extends TestCase
             InvalidRequestResponse::class, SpecificationInterface::class
         ));
 
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 InvalidRequestResponse::class => InvalidRequestResponse::class,
             ];
@@ -91,8 +87,7 @@ class BaseStrategyTest extends TestCase
             InvalidRequestSpecification::class, ResponseInterface::class
         ));
 
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 InvalidRequestSpecification::class => InvalidRequestSpecification::class,
             ];
@@ -105,8 +100,7 @@ class BaseStrategyTest extends TestCase
     {
         $this->expectException(StrategyCannotCreateResponseException::class);
 
-        $strategy = new class extends AbstractStrategy
-        {
+        $strategy                     = new class extends AbstractStrategy {
             protected $specifications = [
                 InvalidRequestSpecification::class => InvalidRequestResponse::class,
             ];

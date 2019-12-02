@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\Message\Strategy\Specification;
 interface SpecificationInterface
 {
     /**
-     * Is a satisfactory request for this specification
+     * Is a satisfactory request for this specification.
      *
      * @param array $response
      *

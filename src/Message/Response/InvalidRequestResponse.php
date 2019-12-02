@@ -13,7 +13,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\NullModel;
 class InvalidRequestResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

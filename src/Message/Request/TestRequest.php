@@ -21,15 +21,7 @@ use AvtoDev\CloudPayments\Message\Strategy\SuccessStrategy;
 class TestRequest extends AbstractRequest
 {
     /**
-     * {@inheritDoc}
-     */
-    protected function getRelativeUrl(): string
-    {
-        return '/test';
-    }
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {
@@ -37,10 +29,18 @@ class TestRequest extends AbstractRequest
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getStrategy(): StrategyInterface
     {
         return new SuccessStrategy;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRelativeUrl(): string
+    {
+        return '/test';
     }
 }

@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Strategy;
 
+use AvtoDev\CloudPayments\Message\Response\Model\SubscriptionsModel;
 use AvtoDev\CloudPayments\Message\Response\SubscriptionsResponse;
 use AvtoDev\CloudPayments\Message\Strategy\SubscriptionsStrategy;
-use AvtoDev\CloudPayments\Message\Response\Model\SubscriptionsModel;
 
 /**
  * @group unit

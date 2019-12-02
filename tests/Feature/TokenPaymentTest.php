@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use Illuminate\Support\Arr;
-use AvtoDev\CloudPayments\Message\Request\TokenPaymentOneStepRequest;
 use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
-use AvtoDev\CloudPayments\Message\Response\TokenTransactionRejectedResponse;
+use AvtoDev\CloudPayments\Message\Request\TokenPaymentOneStepRequest;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
+use AvtoDev\CloudPayments\Message\Response\TokenTransactionRejectedResponse;
+use Illuminate\Support\Arr;
 
 /**
  * @group feature
@@ -40,7 +40,7 @@ class TokenPaymentTest extends AbstractFeatureTest
             ->setAccountId($this->account_id)
             ->setIpAddress($this->ip_address)
             ->setName('CARDHOLDER NAME')
-            ->setCardCryptogramPacket(Arr::get($this->card_cryptograms,'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_VISA'));
+            ->setCardCryptogramPacket(Arr::get($this->card_cryptograms, 'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_VISA'));
 
         /** @var CryptogramTransactionAcceptedResponse $response */
         $response = $this->client->send($request);

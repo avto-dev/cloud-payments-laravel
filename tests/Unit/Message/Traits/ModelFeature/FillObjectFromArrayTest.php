@@ -20,8 +20,7 @@ class FillObjectFromArrayTest extends TestCase
     {
         parent::setUp();
 
-        $this->class = new class
-        {
+        $this->class = new class {
             use FillObjectFromArray;
 
             /** @var string */
@@ -51,7 +50,6 @@ class FillObjectFromArrayTest extends TestCase
 
     public function testSuccessLoad(): void
     {
-
         $this->class->fillObjectFromArray([
             'TestField'     => 'test_value',
             'UnloadedField' => 'value',
@@ -62,7 +60,6 @@ class FillObjectFromArrayTest extends TestCase
 
     public function testFailLoad(): void
     {
-
         $this->class->fillObjectFromArray([
             'test_field' => 'test_value',
         ]);

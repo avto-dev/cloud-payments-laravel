@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Request;
 
+use AvtoDev\CloudPayments\Message\Request\Model\CryptogramPaymentModel;
 use AvtoDev\CloudPayments\Message\Request\Model\ModelInterface;
 use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionRejectedResponse;
 use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 use AvtoDev\CloudPayments\Message\Strategy\CryptogramPaymentStrategy;
-use AvtoDev\CloudPayments\Message\Request\Model\CryptogramPaymentModel;
 use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
 
 /**
@@ -23,15 +23,7 @@ use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
 class CryptogramPaymentOneStepRequest extends AbstractRequest
 {
     /**
-     * {@inheritDoc}
-     */
-    protected function getRelativeUrl(): string
-    {
-        return '/payments/cards/charge';
-    }
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {
@@ -39,10 +31,18 @@ class CryptogramPaymentOneStepRequest extends AbstractRequest
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getStrategy(): StrategyInterface
     {
         return new CryptogramPaymentStrategy;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRelativeUrl(): string
+    {
+        return '/payments/cards/charge';
     }
 }

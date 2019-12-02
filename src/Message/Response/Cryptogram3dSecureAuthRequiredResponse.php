@@ -15,7 +15,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\ModelInterface;
 class Cryptogram3dSecureAuthRequiredResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

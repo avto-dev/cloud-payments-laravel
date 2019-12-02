@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Request\Model;
 
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IdString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PeriodIntNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\AmountFloatNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\MaxPeriodsIntNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IntervalStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\StartDateStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\CustomerReceiptStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IdString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IntervalStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\MaxPeriodsIntNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PeriodIntNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\RequireConfirmationBoolNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\StartDateStringNull;
 
 /**
  * @see https://developers.cloudpayments.ru/#izmenenie-podpiski-na-rekurrentnye-platezhi
@@ -32,7 +32,7 @@ class UpdateSubscriptionModel extends AbstractModel
         CustomerReceiptStringNull;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

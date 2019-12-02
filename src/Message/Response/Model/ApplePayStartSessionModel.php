@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Response\Model;
 
-use AvtoDev\CloudPayments\Message\Traits\ModelField\NonceString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\ExpiresAtInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\SignatureString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\DomainNameString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\DisplayNameString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\DomainNameString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\EpochTimestampInt;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\ExpiresAtInt;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\MerchantIdentifierString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\MerchantSessionIdentifierString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\NonceString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\SignatureString;
 
 class ApplePayStartSessionModel extends AbstractModel
 {
@@ -25,7 +25,7 @@ class ApplePayStartSessionModel extends AbstractModel
         SignatureString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

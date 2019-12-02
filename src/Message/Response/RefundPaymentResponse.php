@@ -15,7 +15,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\RefundPaymentModel;
 class RefundPaymentResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

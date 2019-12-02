@@ -12,15 +12,15 @@ use AvtoDev\CloudPayments\Message\Strategy\Exception\StrategyCannotCreateRespons
 interface StrategyInterface
 {
     /**
-     * Converts raw response to `ResponseInterface`
+     * Converts raw response to `ResponseInterface`.
      *
      * @param array $raw_response
-     *
-     * @return ResponseInterface
      *
      * @throws StrategyCannotCreateResponseException
      * @throws IsNotInstanceOfException
      * @throws ClassNotFoundException
+     *
+     * @return ResponseInterface
      */
     public function prepareRawResponse(array $raw_response): ResponseInterface;
 }

@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Response;
 
-use Illuminate\Contracts\Support\Arrayable;
 use AvtoDev\CloudPayments\Message\Response\Model\ModelInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
 interface ResponseInterface extends Arrayable
 {
@@ -17,14 +17,14 @@ interface ResponseInterface extends Arrayable
     public function getModel(): ModelInterface;
 
     /**
-     * Request status
+     * Request status.
      *
      * @return bool
      */
     public function isSuccess(): bool;
 
     /**
-     * Response message text
+     * Response message text.
      *
      * @return string|null
      */
@@ -36,7 +36,7 @@ interface ResponseInterface extends Arrayable
     public function getInnerResult();
 
     /**
-     * Filling an object from an array
+     * Filling an object from an array.
      *
      * @param array $data
      */

@@ -21,15 +21,7 @@ use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
 class RefundPaymentRequest extends AbstractRequest
 {
     /**
-     * {@inheritDoc}
-     */
-    protected function getRelativeUrl(): string
-    {
-        return '/payments/refund';
-    }
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {
@@ -37,10 +29,18 @@ class RefundPaymentRequest extends AbstractRequest
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getStrategy(): StrategyInterface
     {
         return new RefundPaymentStrategy;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRelativeUrl(): string
+    {
+        return '/payments/refund';
     }
 }

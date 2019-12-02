@@ -4,41 +4,41 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Response\Model;
 
-use AvtoDev\CloudPayments\Message\Traits\ModelField\NameString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\AccountIdStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\AmountFloat;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardExpDateString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardFirstSixString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardHolderMessageString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardLastFourString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardTypeCodeInt;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CardTypeString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CreatedDateIsoString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CreatedDateString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyCodeInt;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\EmailStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\InvoiceIdStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpAddressString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpCityStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpCountryString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpDistrictStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpLatitudeFloatNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpLongitudeFloatNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IpRegionStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\IssuerBankCountryString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\IssuerString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\JsonDataStringNull;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\NameString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentAmountFloat;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentCurrencyCodeInt;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentCurrencyString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\ReasonCodeInt;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\ReasonString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\StatusCodeInt;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\StatusString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\TestModeBool;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\ReasonCodeInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\StatusCodeInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardTypeString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardTypeCodeInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CurrencyCodeInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\EmailStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpAddressString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpCountryString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpCityStringNull;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\TransactionIdInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardExpDateString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CreatedDateString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardFirstSixString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardLastFourString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpRegionStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\JsonDataStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentAmountFloat;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\AccountIdStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\InvoiceIdStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpLatitudeFloatNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CreatedDateIsoString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpDistrictStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IpLongitudeFloatNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\DescriptionStringNull;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentCurrencyString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PaymentCurrencyCodeInt;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\CardHolderMessageString;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\IssuerBankCountryString;
 
 /**
  * @see https://developers.cloudpayments.ru/#oplata-po-kriptogramme
@@ -82,7 +82,7 @@ class CryptogramTransactionRejectedModel extends AbstractModel
         NameString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

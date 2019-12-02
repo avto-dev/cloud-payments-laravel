@@ -57,97 +57,83 @@ class RequestsTest extends TestCase
     public function dataProvider()
     {
         return [
-            ApplePayStartSessionRequest::class =>
-                [
+            ApplePayStartSessionRequest::class => [
                     ApplePayStartSessionRequest::class,
                     ApplePayStartSessionModel::class,
                     'https://api.cloudpayments.ru/applepay/startsession',
                 ],
 
-            CancelSubscriptionRequest::class =>
-                [
+            CancelSubscriptionRequest::class => [
                     CancelSubscriptionRequest::class,
                     CancelSubscriptionModel::class,
                     'https://api.cloudpayments.ru/subscriptions/cancel',
                 ],
 
-            CompletionOf3dSecureRequest::class =>
-                [
+            CompletionOf3dSecureRequest::class => [
                     CompletionOf3dSecureRequest::class,
                     CompletionOf3dSecureModel::class,
                     'https://api.cloudpayments.ru/payments/cards/post3ds',
                 ],
 
-            CreateSubscriptionRequest::class =>
-                [
+            CreateSubscriptionRequest::class => [
                     CreateSubscriptionRequest::class,
                     CreateSubscriptionModel::class,
                     'https://api.cloudpayments.ru/subscriptions/create',
                 ],
 
-            CryptogramPaymentOneStepRequest::class =>
-                [
+            CryptogramPaymentOneStepRequest::class => [
                     CryptogramPaymentOneStepRequest::class,
                     CryptogramPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/cards/charge',
                 ],
 
-            CryptogramPaymentTwoStepRequest::class =>
-                [
+            CryptogramPaymentTwoStepRequest::class => [
                     CryptogramPaymentTwoStepRequest::class,
                     CryptogramPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/cards/auth',
                 ],
 
-            FindSubscriptionRequest::class =>
-                [
+            FindSubscriptionRequest::class => [
                     FindSubscriptionRequest::class,
                     FindSubscriptionModel::class,
                     'https://api.cloudpayments.ru/subscriptions/find',
                 ],
 
-            GetSubscriptionRequest::class =>
-                [
+            GetSubscriptionRequest::class => [
                     GetSubscriptionRequest::class,
                     GetSubscriptionModel::class,
                     'https://api.cloudpayments.ru/subscriptions/get',
                 ],
 
-            TestRequest::class =>
-                [
+            TestRequest::class => [
                     TestRequest::class,
                     NullModel::class,
                     'https://api.cloudpayments.ru/test',
                 ],
 
-            TokenPaymentOneStepRequest::class =>
-                [
+            TokenPaymentOneStepRequest::class => [
                     TokenPaymentOneStepRequest::class,
                     TokenPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/tokens/charge',
                 ],
 
-            TokenPaymentTwoStepRequest::class =>
-                [
+            TokenPaymentTwoStepRequest::class => [
                     TokenPaymentTwoStepRequest::class,
                     TokenPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/tokens/auth',
                 ],
 
-            UpdateSubscriptionRequest::class =>
-                [
+            UpdateSubscriptionRequest::class => [
                     UpdateSubscriptionRequest::class,
                     UpdateSubscriptionModel::class,
                     'https://api.cloudpayments.ru/subscriptions/update',
                 ],
-            CancelPaymentRequest::class      =>
-                [
+            CancelPaymentRequest::class      => [
                     CancelPaymentRequest::class,
                     CancelPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/void',
                 ],
-            RefundPaymentRequest::class      =>
-                [
+            RefundPaymentRequest::class      => [
                     RefundPaymentRequest::class,
                     RefundPaymentModel::class,
                     'https://api.cloudpayments.ru/payments/refund',

@@ -4,25 +4,25 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Strategy;
 
-use AvtoDev\CloudPayments\Message\Strategy\Exception\ClassNotFoundException;
-use Tarampampam\Wrappers\Json;
 use AvtoDev\CloudPayments\Message\Response\ResponseInterface;
+use AvtoDev\CloudPayments\Message\Strategy\Exception\ClassNotFoundException;
 use AvtoDev\CloudPayments\Message\Strategy\Exception\IsNotInstanceOfException;
-use AvtoDev\CloudPayments\Message\Strategy\Specification\SpecificationInterface;
 use AvtoDev\CloudPayments\Message\Strategy\Exception\StrategyCannotCreateResponseException;
+use AvtoDev\CloudPayments\Message\Strategy\Specification\SpecificationInterface;
+use Tarampampam\Wrappers\Json;
 
 abstract class AbstractStrategy implements StrategyInterface
 {
     /**
      * Map matching between the `SpecificationInterface` and the `ResponseInterface`.
-     * If the raw request meets a `SpecificationInterface`, a `ResponseInterface` is returned
+     * If the raw request meets a `SpecificationInterface`, a `ResponseInterface` is returned.
      *
      * @var array
      */
     protected $specifications = [];
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function prepareRawResponse(array $raw_response): ResponseInterface
     {
@@ -71,7 +71,7 @@ abstract class AbstractStrategy implements StrategyInterface
      */
     protected function throwCannotCreateResponseException(array $response): StrategyCannotCreateResponseException
     {
-        /**
+        /*
          * @todo can do logging $response
          */
         return new StrategyCannotCreateResponseException(

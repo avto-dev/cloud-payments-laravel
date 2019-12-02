@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
+use AvtoDev\CloudPayments\Client\Client;
+use AvtoDev\Tests\AbstractTestCase;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Illuminate\Support\Arr;
-use AvtoDev\Tests\AbstractTestCase;
-use AvtoDev\CloudPayments\Client\Client;
 
 abstract class AbstractFeatureTest extends AbstractTestCase
 {
@@ -25,20 +25,15 @@ abstract class AbstractFeatureTest extends AbstractTestCase
         $private_key = Arr::get($config, 'cloud_payments.private_key');
 
         $this->card_cryptograms = [
-            'CARD_CRYPTOGRAM_PACKET_WITH_3D_SUCCESS'                =>
-                Arr::get($config,
+            'CARD_CRYPTOGRAM_PACKET_WITH_3D_SUCCESS'                => Arr::get($config,
                     'cloud_payments.CARD_CRYPTOGRAM_PACKET_WITH_3D_SUCCESS'),
-            'CARD_CRYPTOGRAM_PACKET_WITH_3D_FAIL'                   =>
-                Arr::get($config,
+            'CARD_CRYPTOGRAM_PACKET_WITH_3D_FAIL'                   => Arr::get($config,
                     'cloud_payments.CARD_CRYPTOGRAM_PACKET_WITH_3D_FAIL'),
-            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_VISA'        =>
-                Arr::get($config,
+            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_VISA'        => Arr::get($config,
                     'cloud_payments.CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_VISA'),
-            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_MASTER_CARD' =>
-                Arr::get($config,
+            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_MASTER_CARD' => Arr::get($config,
                     'cloud_payments.CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_MASTER_CARD'),
-            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_FAIL'                =>
-                Arr::get($config,
+            'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_FAIL'                => Arr::get($config,
                     'cloud_payments.CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_FAIL'),
         ];
 

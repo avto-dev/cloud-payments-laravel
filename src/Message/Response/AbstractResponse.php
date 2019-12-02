@@ -29,7 +29,7 @@ abstract class AbstractResponse implements ResponseInterface
     protected $inner_result;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function fillObjectFromArray(array $data): void
     {
@@ -49,7 +49,7 @@ abstract class AbstractResponse implements ResponseInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getModel(): ModelInterface
     {
@@ -61,12 +61,7 @@ abstract class AbstractResponse implements ResponseInterface
     }
 
     /**
-     * @return ModelInterface
-     */
-    abstract protected function createModel(): ModelInterface;
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function isSuccess(): bool
     {
@@ -74,7 +69,7 @@ abstract class AbstractResponse implements ResponseInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getMessage(): ?string
     {
@@ -82,7 +77,7 @@ abstract class AbstractResponse implements ResponseInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getInnerResult()
     {
@@ -90,7 +85,7 @@ abstract class AbstractResponse implements ResponseInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {
@@ -101,4 +96,9 @@ abstract class AbstractResponse implements ResponseInterface
             'InnerResult' => $this->getInnerResult(),
         ];
     }
+
+    /**
+     * @return ModelInterface
+     */
+    abstract protected function createModel(): ModelInterface;
 }

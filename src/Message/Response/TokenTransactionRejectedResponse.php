@@ -15,7 +15,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\TokenTransactionRejectedModel;
 class TokenTransactionRejectedResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

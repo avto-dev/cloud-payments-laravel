@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use Illuminate\Support\Arr;
-use AvtoDev\CloudPayments\Message\Response\SubscriptionResponse;
 use AvtoDev\CloudPayments\Message\Request\CreateSubscriptionRequest;
 use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
+use AvtoDev\CloudPayments\Message\Response\SubscriptionResponse;
+use Illuminate\Support\Arr;
 
 /**
  * @group feature

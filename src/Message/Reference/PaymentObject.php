@@ -45,7 +45,7 @@ class PaymentObject
     public const GAMBLING_WIN = 6;
 
     /**
-     * Lottery ticket
+     * Lottery ticket.
      */
     public const LOTTERY_TICKET = 7;
 

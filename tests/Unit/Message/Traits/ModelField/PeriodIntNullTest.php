@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Traits\ModelField;
 
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PeriodIntNull;
 use Faker\Factory;
 use PHPUnit\Framework\TestCase;
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PeriodIntNull;
 
 /**
  * @group unit
@@ -19,13 +19,12 @@ class PeriodIntNullTest extends TestCase
     protected $facker;
 
     protected function setUp(): void
-{
+    {
         parent::setUp();
 
         $this->facker = Factory::create();
 
-        $this->class = new class
-        {
+        $this->class = new class {
             use PeriodIntNull;
         };
     }

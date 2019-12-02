@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Strategy;
 
-use PHPUnit\Framework\TestCase;
-use AvtoDev\CloudPayments\Message\Strategy\TokenPaymentStrategy;
 use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 use AvtoDev\CloudPayments\Message\Response\TokenTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\TokenTransactionRejectedResponse;
+use AvtoDev\CloudPayments\Message\Strategy\TokenPaymentStrategy;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 use AvtoDev\CloudPayments\Message\Request\ApplePayStartSessionRequest;
 use AvtoDev\CloudPayments\Message\Response\ApplePayStartSessionResponse;
+use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 
 /**
  * @group feature

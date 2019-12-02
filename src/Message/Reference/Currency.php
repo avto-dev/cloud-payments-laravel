@@ -45,7 +45,7 @@ class Currency
     public const KZT = 'KZT';
 
     /**
-     * Azerbaijani manat
+     * Azerbaijani manat.
      */
     public const AZN = 'AZN';
 
@@ -60,7 +60,7 @@ class Currency
     public const CZK = 'CZK';
 
     /**
-     * Canadian dollar
+     * Canadian dollar.
      */
     public const CAD = 'CAD';
 
@@ -100,7 +100,7 @@ class Currency
     public const ZAR = 'ZAR';
 
     /**
-     * Uzbek sum
+     * Uzbek sum.
      */
     public const UZS = 'UZS';
 

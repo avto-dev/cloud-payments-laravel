@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Request;
 
+use AvtoDev\CloudPayments\Message\Request\Model\CreateSubscriptionModel;
 use AvtoDev\CloudPayments\Message\Request\Model\ModelInterface;
+use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 use AvtoDev\CloudPayments\Message\Response\SubscriptionResponse;
 use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
 use AvtoDev\CloudPayments\Message\Strategy\SubscriptionStrategy;
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
-use AvtoDev\CloudPayments\Message\Request\Model\CreateSubscriptionModel;
 
 /**
  * @method CreateSubscriptionModel getModel()
@@ -21,15 +21,7 @@ use AvtoDev\CloudPayments\Message\Request\Model\CreateSubscriptionModel;
 class CreateSubscriptionRequest extends AbstractRequest
 {
     /**
-     * {@inheritDoc}
-     */
-    protected function getRelativeUrl(): string
-    {
-        return '/subscriptions/create';
-    }
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {
@@ -37,10 +29,18 @@ class CreateSubscriptionRequest extends AbstractRequest
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getStrategy(): StrategyInterface
     {
         return new SubscriptionStrategy;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRelativeUrl(): string
+    {
+        return '/subscriptions/create';
     }
 }

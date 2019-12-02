@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\Message\Request\Model;
 class NullModel extends AbstractModel
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

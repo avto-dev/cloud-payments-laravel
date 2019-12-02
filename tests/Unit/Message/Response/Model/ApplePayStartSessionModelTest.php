@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Response\Model;
 
-use Faker\Factory;
 use AvtoDev\CloudPayments\Message\Response\Model\ApplePayStartSessionModel;
+use Faker\Factory;
 use PHPUnit\Framework\TestCase;
 
 /**

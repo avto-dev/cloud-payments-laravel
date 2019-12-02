@@ -15,7 +15,7 @@ use AvtoDev\CloudPayments\Message\Response\Model\ModelInterface;
 class CryptogramTransactionRejectedResponse extends AbstractResponse
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function createModel(): ModelInterface
     {

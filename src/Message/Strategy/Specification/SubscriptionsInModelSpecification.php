@@ -10,7 +10,7 @@ namespace AvtoDev\CloudPayments\Message\Strategy\Specification;
 class SubscriptionsInModelSpecification implements SpecificationInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function isSatisfiedBy(array $response): bool
     {

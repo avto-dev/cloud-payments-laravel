@@ -31,5 +31,4 @@ class IsMessageSpecificationTest extends TestCase
 
         $this->assertTrue($this->specification->isSatisfiedBy($raw_response));
     }
-
 }

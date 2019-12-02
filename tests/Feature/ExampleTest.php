@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use GuzzleHttp\Client as GuzzleHttpClient;
-use Illuminate\Support\Arr;
 use AvtoDev\CloudPayments\Client\Client;
 use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use Illuminate\Support\Arr;
 
 /**
  * @group feature
@@ -38,7 +38,7 @@ class ExampleTest extends AbstractFeatureTest
             ->setCurrency('RUB')
             ->setIpAddress('127.0.0.1')
             ->setName('CARDHOLDER NAME')
-            ->setCardCryptogramPacket(Arr::get($this->card_cryptograms,'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_MASTER_CARD'));
+            ->setCardCryptogramPacket(Arr::get($this->card_cryptograms, 'CARD_CRYPTOGRAM_PACKET_WITHOUT_3D_SUCCESS_MASTER_CARD'));
 
         $response = $request->send();
 

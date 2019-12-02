@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use AvtoDev\CloudPayments\Message\Response\SubscriptionResponse;
 use AvtoDev\CloudPayments\Message\Request\GetSubscriptionRequest;
+use AvtoDev\CloudPayments\Message\Response\SubscriptionResponse;
 
 /**
  * @group feature

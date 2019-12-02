@@ -10,7 +10,7 @@ use AvtoDev\CloudPayments\Message\Response\ResponseInterface;
 interface ClientInterface
 {
     /**
-     * Sending request
+     * Sending request.
      *
      * @param RequestInterface $request
      *

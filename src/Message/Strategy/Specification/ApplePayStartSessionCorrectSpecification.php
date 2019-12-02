@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\Message\Strategy\Specification;
 class ApplePayStartSessionCorrectSpecification implements SpecificationInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function isSatisfiedBy(array $response): bool
     {

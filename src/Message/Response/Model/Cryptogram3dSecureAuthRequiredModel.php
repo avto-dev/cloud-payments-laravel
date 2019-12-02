@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Response\Model;
 
-use AvtoDev\CloudPayments\Message\Traits\ModelField\PaReqString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\AcsUrlString;
+use AvtoDev\CloudPayments\Message\Traits\ModelField\PaReqString;
 use AvtoDev\CloudPayments\Message\Traits\ModelField\TransactionIdInt;
 
 /**
@@ -18,7 +18,7 @@ class Cryptogram3dSecureAuthRequiredModel extends AbstractModel
         AcsUrlString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

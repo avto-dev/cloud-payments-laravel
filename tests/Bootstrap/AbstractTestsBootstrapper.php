@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Bootstrap;
 
-use TypeError;
+use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
+use TypeError;
 
 abstract class AbstractTestsBootstrapper
 {

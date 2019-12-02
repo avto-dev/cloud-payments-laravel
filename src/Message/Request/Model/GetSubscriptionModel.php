@@ -14,7 +14,7 @@ class GetSubscriptionModel extends AbstractModel
     use IdString;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function toArray(): array
     {

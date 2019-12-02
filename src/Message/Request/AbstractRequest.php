@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Message\Request;
 
-use AvtoDev\CloudPayments\Message\Request\Exception\ClientCannotBeNull;
-use Tarampampam\Wrappers\Json;
 use AvtoDev\CloudPayments\Client\ClientInterface;
+use AvtoDev\CloudPayments\Message\Request\Exception\ClientCannotBeNull;
+use AvtoDev\CloudPayments\Message\Request\Model\ModelInterface;
 use AvtoDev\CloudPayments\Message\Response\ResponseInterface;
 use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
-use AvtoDev\CloudPayments\Message\Request\Model\ModelInterface;
+use Tarampampam\Wrappers\Json;
 
 abstract class AbstractRequest implements RequestInterface
 {
@@ -50,14 +50,7 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * Returns relative url of request (without domain part)
-     *
-     * @return string
-     */
-    abstract protected function getRelativeUrl(): string;
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUrl(): string
     {
@@ -65,17 +58,7 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * Main domain name of cloud payments api server
-     *
-     * @return string
-     */
-    protected function getDomain(): string
-    {
-        return static::API_CLOUD_PAYMENT_DOMAIN;
-    }
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getModel(): ModelInterface
     {
@@ -87,17 +70,12 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * @return ModelInterface
-     */
-    abstract protected function createModel(): ModelInterface;
-
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     abstract public function getStrategy(): StrategyInterface;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getBody(): ?string
     {
@@ -105,7 +83,7 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getMethod(): string
     {
@@ -113,7 +91,7 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getHeaders(): array
     {
@@ -121,7 +99,7 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setClient(ClientInterface $client): RequestInterface
     {
@@ -131,8 +109,39 @@ abstract class AbstractRequest implements RequestInterface
     }
 
     /**
-     * @return ClientInterface
+     * {@inheritdoc}
+     */
+    public function send(): ResponseInterface
+    {
+        return $this->getClient()->send($this);
+    }
+
+    /**
+     * Returns relative url of request (without domain part).
+     *
+     * @return string
+     */
+    abstract protected function getRelativeUrl(): string;
+
+    /**
+     * Main domain name of cloud payments api server.
+     *
+     * @return string
+     */
+    protected function getDomain(): string
+    {
+        return static::API_CLOUD_PAYMENT_DOMAIN;
+    }
+
+    /**
+     * @return ModelInterface
+     */
+    abstract protected function createModel(): ModelInterface;
+
+    /**
      * @throws \LogicException
+     *
+     * @return ClientInterface
      */
     protected function getClient(): ClientInterface
     {
@@ -141,13 +150,5 @@ abstract class AbstractRequest implements RequestInterface
         }
 
         return $this->client;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function send(): ResponseInterface
-    {
-        return $this->getClient()->send($this);
     }
 }

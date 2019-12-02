@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
-use Illuminate\Support\Arr;
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
 use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
+use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
 use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionRejectedResponse;
-use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
+use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
+use Illuminate\Support\Arr;
 
 /**
  * @group feature

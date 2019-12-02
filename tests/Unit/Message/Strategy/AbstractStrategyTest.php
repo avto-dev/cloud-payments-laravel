@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Message\Strategy;
 
-use PHPUnit\Framework\TestCase;
-use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
 use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
+use AvtoDev\CloudPayments\Message\Strategy\StrategyInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

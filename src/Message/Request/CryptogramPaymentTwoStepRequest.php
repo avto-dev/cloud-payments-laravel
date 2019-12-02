@@ -6,12 +6,13 @@ namespace AvtoDev\CloudPayments\Message\Request;
 
 /**
  * @see https://developers.cloudpayments.ru/#oplata-po-kriptogramme
+ *
  * @method static CryptogramPaymentTwoStepRequest create()
  */
 class CryptogramPaymentTwoStepRequest extends CryptogramPaymentOneStepRequest
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getRelativeUrl(): string
     {

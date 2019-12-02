@@ -24,30 +24,30 @@ class AbstractRequestTest extends TestCase
     /** @var RequestInterface */
     protected $request;
 
-   /* protected function setUp(): void
-    {
-        parent::setUp();
+    /* protected function setUp(): void
+     {
+         parent::setUp();
 
-        $this->request = new class extends AbstractRequest
-        {
-            protected $method = 'POST';
+         $this->request = new class extends AbstractRequest
+         {
+             protected $method = 'POST';
 
-            protected function getRelativeUrl(): string
-            {
-                return '/test';
-            }
+             protected function getRelativeUrl(): string
+             {
+                 return '/test';
+             }
 
-            public function createModel(): ModelInterface
-            {
-                return new NullModel;
-            }
+             public function createModel(): ModelInterface
+             {
+                 return new NullModel;
+             }
 
-            public function getStrategy(): StrategyInterface
-            {
-                return new SuccessStrategy;
-            }
-        };
-    }*/
+             public function getStrategy(): StrategyInterface
+             {
+                 return new SuccessStrategy;
+             }
+         };
+     }*/
 
     /*public function test()
     {
