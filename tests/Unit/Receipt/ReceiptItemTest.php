@@ -5,13 +5,13 @@ declare(strict_types = 1);
 namespace AvtoDev\Tests\Unit\Receipt;
 
 use AvtoDev\CloudPayments\Receipts\Item;
-use AvtoDev\Tests\Unit\AbstractUnitTestCase;
+use AvtoDev\Tests\AbstractTestCase;
 use Illuminate\Support\Str;
 
 /**
  * @covers \AvtoDev\CloudPayments\Receipts\Item
  */
-class ReceiptItemTest extends AbstractUnitTestCase
+class ReceiptItemTest extends AbstractTestCase
 {
     /**
      * @var Item

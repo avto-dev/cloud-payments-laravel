@@ -5,13 +5,13 @@ declare(strict_types = 1);
 namespace AvtoDev\Tests\Unit\Requests\Traits;
 
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
-use AvtoDev\Tests\Unit\AbstractUnitTestCase;
+use AvtoDev\Tests\AbstractTestCase;
 use Illuminate\Support\Str;
 
 /**
  * @covers \AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait
  */
-class PaymentRequestTraitTest extends AbstractUnitTestCase
+class PaymentRequestTraitTest extends AbstractTestCase
 {
     protected $request_builder;
 

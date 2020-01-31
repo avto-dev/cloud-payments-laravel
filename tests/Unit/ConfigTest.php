@@ -5,12 +5,13 @@ declare(strict_types = 1);
 namespace AvtoDev\Tests\Unit;
 
 use AvtoDev\CloudPayments\Config;
+use AvtoDev\Tests\AbstractTestCase;
 use Illuminate\Support\Str;
 
 /**
  * @covers \AvtoDev\CloudPayments\Config
  */
-class ConfigTest extends AbstractUnitTestCase
+class ConfigTest extends AbstractTestCase
 {
     public function test()
     {

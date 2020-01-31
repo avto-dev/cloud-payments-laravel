@@ -10,10 +10,6 @@ use AvtoDev\CloudPayments\ResponseParser;
  */
 class TestRequestTest extends AbstractFeatureTestCase
 {
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException
-     */
     public function testIdempotenceTest(): void
     {
         $request = new TestRequestBuilder;

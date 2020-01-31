@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Unit\Requests;
 
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\Tests\Unit\AbstractUnitTestCase;
+use AvtoDev\Tests\AbstractTestCase;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
@@ -14,7 +14,7 @@ use Tarampampam\Wrappers\Json;
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder
  */
-class AbstractRequestTest extends AbstractUnitTestCase
+class AbstractRequestTest extends AbstractTestCase
 {
     /**
      * @var AbstractRequestBuilder
@@ -26,7 +26,7 @@ class AbstractRequestTest extends AbstractUnitTestCase
         parent::setUp();
 
         $this->request_builder = new class extends AbstractRequestBuilder {
-            public $uri        = 'test/uri';
+            public $uri    = 'test/uri';
 
             public $params = [
                 'foo' => 'bar',
@@ -48,8 +48,6 @@ class AbstractRequestTest extends AbstractUnitTestCase
      * @covers ::buildRequest
      * @covers ::setRequestId
      * @covers ::getRequestId
-     *
-     * @throws \Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException
      */
     public function testRequestId()
     {
@@ -90,8 +88,6 @@ class AbstractRequestTest extends AbstractUnitTestCase
 
     /**
      * @covers ::buildRequest
-     *
-     * @throws \Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException
      */
     public function testBuildRequest()
     {

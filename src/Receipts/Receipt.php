@@ -69,19 +69,7 @@ class Receipt
     {
         return $this->items;
     }
-
-    /**
-     * @param Item[] $items
-     *
-     * @return $this
-     */
-    public function setItems(array $items): self
-    {
-        $this->items = $items;
-
-        return $this;
-    }
-
+    
     /**
      * @param Item $item
      *

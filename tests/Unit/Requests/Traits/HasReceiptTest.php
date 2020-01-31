@@ -6,12 +6,12 @@ namespace Unit\Requests\Traits;
 
 use AvtoDev\CloudPayments\Receipts\Receipt;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
-use AvtoDev\Tests\Unit\AbstractUnitTestCase;
+use AvtoDev\Tests\AbstractTestCase;
 
 /**
  * @covers \AvtoDev\CloudPayments\Requests\Traits\HasReceipt
  */
-class HasReceiptTest extends AbstractUnitTestCase
+class HasReceiptTest extends AbstractTestCase
 {
     protected $request_builder;
 

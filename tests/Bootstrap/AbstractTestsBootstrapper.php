@@ -34,7 +34,6 @@ abstract class AbstractTestsBootstrapper
     /**
      * Constructor.
      *
-     * @throws Exception
      */
     public function __construct()
     {

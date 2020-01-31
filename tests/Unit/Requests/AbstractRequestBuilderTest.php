@@ -5,11 +5,11 @@ declare(strict_types = 1);
 namespace AvtoDev\Tests\Unit\Requests;
 
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\Tests\Unit\AbstractUnitTestCase;
+use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
 
-abstract class AbstractRequestBuilderTest extends AbstractUnitTestCase
+abstract class AbstractRequestBuilderTest extends AbstractTestCase
 {
     /**
      * @return AbstractRequestBuilder
@@ -31,7 +31,6 @@ abstract class AbstractRequestBuilderTest extends AbstractUnitTestCase
     /**
      * @covers ::getUri
      *
-     * @throws \Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException
      */
     public function testUri()
     {

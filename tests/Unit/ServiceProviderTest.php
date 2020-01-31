@@ -6,6 +6,7 @@ namespace AvtoDev\Tests\Unit;
 
 use AvtoDev\CloudPayments\Client;
 use AvtoDev\CloudPayments\ServiceProvider;
+use AvtoDev\Tests\AbstractTestCase;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -17,7 +18,7 @@ use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
 /**
  * @covers \AvtoDev\CloudPayments\ServiceProvider
  */
-class ServiceProviderTest extends AbstractUnitTestCase
+class ServiceProviderTest extends AbstractTestCase
 {
     /**
      * @var UrlsMockHandler

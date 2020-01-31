@@ -1,6 +1,6 @@
 FROM composer:1.8.6 AS composer
 
-FROM php:7.1-alpine
+FROM php:7.1.3-alpine
 
 LABEL \
     org.label-schema.schema-version="1.0" \
