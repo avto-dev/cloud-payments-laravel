@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\CloudPayments\Exceptions;
 
 use Psr\Http\Message\RequestInterface;

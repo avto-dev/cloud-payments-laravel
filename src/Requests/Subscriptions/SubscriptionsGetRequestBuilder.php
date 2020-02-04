@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
 use GuzzleHttp\Psr7\Uri;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\CloudPayments\Requests\ApplePay;
 
 use GuzzleHttp\Psr7\Uri;
