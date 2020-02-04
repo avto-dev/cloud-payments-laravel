@@ -2,11 +2,11 @@
 
 namespace AvtoDev\Tests\Feature;
 
-use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder;
 use Carbon\Carbon;
 use Tarampampam\Wrappers\Json;
 use AvtoDev\CloudPayments\References\Currency;
 use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder;
+use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCreateRequestBuilder;
 
 /**

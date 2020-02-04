@@ -35,8 +35,9 @@ class Client
     /**
      * @param RequestInterface $request
      *
-     * @return ResponseInterface
      * @throws CloudPaymentsRequestException
+     *
+     * @return ResponseInterface
      */
     public function send(RequestInterface $request): ResponseInterface
     {

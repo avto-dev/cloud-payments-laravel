@@ -12,10 +12,10 @@ use AvtoDev\CloudPayments\Client;
 use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
-use AvtoDev\CloudPayments\ServiceProvider;
-use Illuminate\Contracts\Config\Repository;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use AvtoDev\CloudPayments\ServiceProvider;
+use Illuminate\Contracts\Config\Repository;
 use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
 
 /**
