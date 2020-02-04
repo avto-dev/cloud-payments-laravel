@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests\Payments\Cards;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
-use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
+use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
 
 /**
  * @see https://developers.cloudpayments.ru/#oplata-po-kriptogramme
@@ -78,7 +78,7 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    public function getRequestParams(): array
+    public function getRequestPayload(): array
     {
         $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
 

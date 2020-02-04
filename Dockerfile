@@ -27,5 +27,5 @@ RUN set -xe \
     && php -v \
     && php -m
 
-WORKDIR /app
+WORKDIR /src
 

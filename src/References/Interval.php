@@ -5,7 +5,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#sozdanie-podpiski-na-rekurrentnye-platezhi
  */
-class Interval
+interface Interval
 {
     public const DAY   = 'Day';
 

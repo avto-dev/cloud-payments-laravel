@@ -4,22 +4,22 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder
  */
-class SubscriptionsFindRequestBuilderTest extends AbstractRequestBuilderTest
+class SubscriptionsFindRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var SubscriptionsFindRequestBuilder
      */
     protected $request_builder;
 
-    public function testAccountId()
+    public function testAccountId(): void
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
         $this->request_builder->setAccountId('some');

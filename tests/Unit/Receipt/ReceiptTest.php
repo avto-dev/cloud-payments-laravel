@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Receipt;
 
+use Illuminate\Support\Str;
+use AvtoDev\Tests\AbstractTestCase;
 use AvtoDev\CloudPayments\Receipts\Item;
 use AvtoDev\CloudPayments\Receipts\Receipt;
-use AvtoDev\Tests\AbstractTestCase;
-use Illuminate\Support\Str;
 
 /**
  * @covers \AvtoDev\CloudPayments\Receipts\Receipt
@@ -19,7 +19,7 @@ class ReceiptTest extends AbstractTestCase
      */
     protected $receipt;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->receipt = new Receipt;
@@ -40,7 +40,7 @@ class ReceiptTest extends AbstractTestCase
         }
     }
 
-    public function testReseiptItemsGettersAndSetters()
+    public function testReceiptItemsGettersAndSetters(): void
     {
         $this->assertSame([], $this->receipt->getItems());
 
@@ -49,28 +49,15 @@ class ReceiptTest extends AbstractTestCase
         $this->receipt->addItem($item);
 
         $this->assertSame([$item], $this->receipt->getItems());
-
-        $this->receipt->setItems([]);
-
-        $this->assertSame([], $this->receipt->getItems());
-
-        $this->receipt->setItems([$item]);
-
-        $this->assertSame([$item], $this->receipt->getItems());
     }
 
-    public function testItemsToArray()
+    public function testItemsToArray(): void
     {
         $item = new Item;
 
         $item->setLabel(Str::random());
 
-        $items = [
-            $item,
-            new \stdClass,
-        ];
-
-        $this->receipt->setItems($items);
+        $this->receipt->addItem($item);
 
         $receipt_array = $this->receipt->toArray();
 
@@ -79,7 +66,7 @@ class ReceiptTest extends AbstractTestCase
         $this->assertSame($item->getLabel(), $receipt_array['Items'][0]['label']);
     }
 
-    public function testAmounts()
+    public function testAmounts(): void
     {
         $this->assertArrayHasKey('amounts', $this->receipt->toArray());
 
@@ -102,14 +89,10 @@ class ReceiptTest extends AbstractTestCase
 
             $this->assertArrayHasKey($property_name, $this->receipt->toArray()['amounts']);
 
-            $this->assertSame(\number_format((float) $value, 2, '.', ''),
-                $this->receipt->toArray()['amounts'][$property_name]);
-
-            $this->receipt->{'set' . $method_postfix}(null);
-
-            $this->assertNull($this->receipt->{'get' . $method_postfix}());
-
-            $this->assertSame('0.00', $this->receipt->toArray()['amounts'][$property_name]);
+            $this->assertSame(
+                \number_format((float) $value, 2, '.', ''),
+                $this->receipt->toArray()['amounts'][$property_name]
+            );
         }
     }
 
@@ -127,11 +110,5 @@ class ReceiptTest extends AbstractTestCase
         $this->assertArrayHasKey($property_name, $this->receipt->toArray());
 
         $this->assertSame($value, $this->receipt->toArray()[$property_name]);
-
-        $this->receipt->{'set' . $method_postfix}(null);
-
-        $this->assertNull($this->receipt->{'get' . $method_postfix}());
-
-        $this->assertArrayNotHasKey($property_name, $this->receipt->toArray());
     }
 }

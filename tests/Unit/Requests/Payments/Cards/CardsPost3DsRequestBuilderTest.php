@@ -4,15 +4,15 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Payments\Cards;
 
-use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder
  */
-class CardsPost3DsRequestBuilderTest extends AbstractRequestBuilderTest
+class CardsPost3DsRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var CardsPost3DsRequestBuilder

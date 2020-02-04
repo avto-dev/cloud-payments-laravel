@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Bootstrap;
 
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Exception;
+use TypeError;
+use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Str;
+use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use TypeError;
 
 abstract class AbstractTestsBootstrapper
 {
@@ -33,11 +33,10 @@ abstract class AbstractTestsBootstrapper
 
     /**
      * Constructor.
-     *
      */
     public function __construct()
     {
-        set_exception_handler(function ($e) {
+        set_exception_handler(function ($e): void {
             if ($e instanceof Exception || $e instanceof TypeError) {
                 echo sprintf(
                     'Exception: "%s" (file: %s, line: %d)' . PHP_EOL,
@@ -78,7 +77,7 @@ abstract class AbstractTestsBootstrapper
      * @param string|null $message
      * @param string      $style
      */
-    protected function log($message = null, $style = 'info')
+    protected function log($message = null, $style = 'info'): void
     {
         /** @var ConsoleOutput|null $output */
         static $output = null;
@@ -87,7 +86,8 @@ abstract class AbstractTestsBootstrapper
             $output = $this->app->make(ConsoleOutput::class);
         }
 
-        $output->writeln(empty((string) $message)
+        $output->writeln(
+            empty((string) $message)
             ? ''
             : sprintf('<%1$s>> Bootstrap:</%1$s> <%2$s>%3$s</%2$s>', 'comment', $style, $message)
         );

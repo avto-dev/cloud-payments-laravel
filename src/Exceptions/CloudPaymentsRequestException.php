@@ -2,13 +2,15 @@
 
 namespace AvtoDev\CloudPayments\Exceptions;
 
-use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Exception\RequestException;
 
 class CloudPaymentsRequestException extends RequestException
 {
     /**
      * {@inheritdoc}
+     *
+     * @return CloudPaymentsRequestException
      */
     public static function wrapException(RequestInterface $request, \Exception $e)
     {

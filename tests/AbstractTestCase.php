@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests;
 
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Illuminate\Foundation\Testing\TestCase;
+use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 
 abstract class AbstractTestCase extends TestCase
 {

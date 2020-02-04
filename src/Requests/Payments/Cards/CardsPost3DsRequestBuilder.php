@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests\Payments\Cards;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @see https://developers.cloudpayments.ru/#obrabotka-3-d-secure
@@ -78,7 +78,7 @@ class CardsPost3DsRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    public function getRequestParams(): array
+    public function getRequestPayload(): array
     {
         return [
             'TransactionId' => $this->transaction_id,

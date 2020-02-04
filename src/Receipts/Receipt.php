@@ -6,6 +6,9 @@ namespace AvtoDev\CloudPayments\Receipts;
 
 use AvtoDev\CloudPayments\References\TaxationSystem;
 
+/**
+ * @see https://developers.cloudpayments.ru/#format-peredachi-dannyh-dlya-onlayn-cheka
+ */
 class Receipt
 {
     /**
@@ -69,7 +72,7 @@ class Receipt
     {
         return $this->items;
     }
-    
+
     /**
      * @param Item $item
      *
@@ -91,11 +94,11 @@ class Receipt
     }
 
     /**
-     * @param string|null $calculation_place
+     * @param string $calculation_place
      *
      * @return $this
      */
-    public function setCalculationPlace(?string $calculation_place): self
+    public function setCalculationPlace(string $calculation_place): self
     {
         $this->calculation_place = $calculation_place;
 
@@ -111,11 +114,11 @@ class Receipt
     }
 
     /**
-     * @param int|null $taxation_system
+     * @param int $taxation_system
      *
      * @return $this
      */
-    public function setTaxationSystem(?int $taxation_system): self
+    public function setTaxationSystem(int $taxation_system): self
     {
         $this->taxation_system = $taxation_system;
 
@@ -131,11 +134,11 @@ class Receipt
     }
 
     /**
-     * @param string|null $email
+     * @param string $email
      *
      * @return $this
      */
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -151,11 +154,11 @@ class Receipt
     }
 
     /**
-     * @param string|null $phone
+     * @param string $phone
      *
      * @return $this
      */
-    public function setPhone(?string $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
@@ -171,11 +174,11 @@ class Receipt
     }
 
     /**
-     * @param bool|null $is_bso
+     * @param bool $is_bso
      *
      * @return $this
      */
-    public function setIsBso(?bool $is_bso): self
+    public function setIsBso(bool $is_bso): self
     {
         $this->is_bso = $is_bso;
 
@@ -191,11 +194,11 @@ class Receipt
     }
 
     /**
-     * @param float|null $electronic_amount
+     * @param float $electronic_amount
      *
      * @return $this
      */
-    public function setElectronicAmount(?float $electronic_amount): self
+    public function setElectronicAmount(float $electronic_amount): self
     {
         $this->electronic_amount = $electronic_amount;
 
@@ -211,11 +214,11 @@ class Receipt
     }
 
     /**
-     * @param float|null $advance_payment_amount
+     * @param float $advance_payment_amount
      *
      * @return $this
      */
-    public function setAdvancePaymentAmount(?float $advance_payment_amount): self
+    public function setAdvancePaymentAmount(float $advance_payment_amount): self
     {
         $this->advance_payment_amount = $advance_payment_amount;
 
@@ -231,11 +234,11 @@ class Receipt
     }
 
     /**
-     * @param float|null $credit_amount
+     * @param float $credit_amount
      *
      * @return $this
      */
-    public function setCreditAmount(?float $credit_amount): self
+    public function setCreditAmount(float $credit_amount): self
     {
         $this->credit_amount = $credit_amount;
 
@@ -251,11 +254,11 @@ class Receipt
     }
 
     /**
-     * @param float|null $provision_amount
+     * @param float $provision_amount
      *
      * @return $this
      */
-    public function setProvisionAmount(?float $provision_amount): self
+    public function setProvisionAmount(float $provision_amount): self
     {
         $this->provision_amount = $provision_amount;
 
@@ -263,15 +266,13 @@ class Receipt
     }
 
     /**
-     * @return array
+     * @return array<string, array<mixed>|bool|int|string|null>
      */
     public function toArray(): array
     {
         $receipt_items = [];
         foreach ($this->items as $receipt_item) {
-            if ($receipt_item instanceof Item) {
-                $receipt_items[] = $receipt_item->toArray();
-            }
+            $receipt_items[] = $receipt_item->toArray();
         }
 
         return \array_filter([
@@ -287,7 +288,7 @@ class Receipt
                 'credit'         => \number_format((float) $this->credit_amount, 2, '.', ''),
                 'provision'      => \number_format((float) $this->provision_amount, 2, '.', ''),
             ],
-        ], static function ($value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

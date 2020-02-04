@@ -2,8 +2,8 @@
 
 namespace AvtoDev\CloudPayments\Requests\Traits;
 
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 use Tarampampam\Wrappers\Json;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 trait PaymentRequestTrait
 {
@@ -58,7 +58,7 @@ trait PaymentRequestTrait
      * in the registry of operations uploaded to the Personal Account: name, firstName, middleName, lastName, nick,
      * phone, address, comment, birthDate.
      *
-     * @var array|null
+     * @var array<mixed>|null
      */
     protected $json_data;
 
@@ -143,11 +143,11 @@ trait PaymentRequestTrait
     }
 
     /**
-     * @param string|null $invoice_id
+     * @param string $invoice_id
      *
      * @return $this
      */
-    public function setInvoiceId(?string $invoice_id): self
+    public function setInvoiceId(string $invoice_id): self
     {
         $this->invoice_id = $invoice_id;
 
@@ -163,11 +163,11 @@ trait PaymentRequestTrait
     }
 
     /**
-     * @param string|null $description
+     * @param string $description
      *
      * @return $this
      */
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -183,11 +183,11 @@ trait PaymentRequestTrait
     }
 
     /**
-     * @param string|null $email
+     * @param string $email
      *
      * @return $this
      */
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -207,11 +207,11 @@ trait PaymentRequestTrait
     /**
      * Required if subscription or payment token needed.
      *
-     * @param string|null $account_id
+     * @param string $account_id
      *
      * @return $this
      */
-    public function setAccountId(?string $account_id): self
+    public function setAccountId(string $account_id): self
     {
         $this->account_id = $account_id;
 
@@ -224,7 +224,7 @@ trait PaymentRequestTrait
      * in the registry of operations uploaded to the Personal Account: name, firstName, middleName, lastName, nick,
      * phone, address, comment, birthDate.
      *
-     * @return array|null
+     * @return array<mixed>|null
      */
     public function getJsonData(): ?array
     {
@@ -237,11 +237,11 @@ trait PaymentRequestTrait
      * in the registry of operations uploaded to the Personal Account: name, firstName, middleName, lastName, nick,
      * phone, address, comment, birthDate.
      *
-     * @param array|null $json_data
+     * @param array<mixed> $json_data
      *
      * @return $this
      */
-    public function setJsonData(?array $json_data): self
+    public function setJsonData(array $json_data): self
     {
         $this->json_data = $json_data;
 
@@ -249,9 +249,9 @@ trait PaymentRequestTrait
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @throws JsonEncodeDecodeException
+     *
+     * @return array<string, float|string>
      */
     protected function getCommonPaymentParams(): array
     {

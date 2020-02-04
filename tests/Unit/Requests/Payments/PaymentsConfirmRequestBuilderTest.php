@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace Unit\Requests\Payments;
 
-use AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
-use Psr\Http\Message\UriInterface;
 use Tarampampam\Wrappers\Json;
+use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder
  */
-class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTest
+class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var PaymentsConfirmRequestBuilder

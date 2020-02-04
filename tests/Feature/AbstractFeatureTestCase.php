@@ -18,12 +18,15 @@ abstract class AbstractFeatureTestCase extends AbstractTestCase
      */
     protected $config = [];
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->config = require __DIR__ . '/config.php';
 
-        $this->cloud_payments_client = Client::factory(new Config($this->config['cloud_payments']));
+        $this->cloud_payments_client = new Client(
+            new \GuzzleHttp\Client,
+            new Config($this->config['cloud_payments']['public_id'], $this->config['cloud_payments']['api_key'])
+        );
     }
 }

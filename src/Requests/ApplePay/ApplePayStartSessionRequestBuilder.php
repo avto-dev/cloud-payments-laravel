@@ -2,9 +2,9 @@
 
 namespace AvtoDev\CloudPayments\Requests\ApplePay;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @see https://developers.cloudpayments.ru/#zapusk-sessii-dlya-oplaty-cherez-apple-pay
@@ -39,7 +39,7 @@ class ApplePayStartSessionRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return ['ValidationUrl' => $this->validation_url];
     }

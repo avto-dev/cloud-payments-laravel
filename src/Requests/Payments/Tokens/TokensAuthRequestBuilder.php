@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests\Payments\Tokens;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
-use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
+use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
 use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 /**
@@ -36,11 +36,11 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $token
+     * @param string $token
      *
      * @return $this
      */
-    public function setToken(?string $token): self
+    public function setToken(string $token): self
     {
         $this->token = $token;
 
@@ -52,7 +52,7 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
      *
      * @throws JsonEncodeDecodeException
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
 

@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Receipt;
 
-use AvtoDev\CloudPayments\Receipts\Item;
-use AvtoDev\Tests\AbstractTestCase;
 use Illuminate\Support\Str;
+use AvtoDev\Tests\AbstractTestCase;
+use AvtoDev\CloudPayments\Receipts\Item;
 
 /**
  * @covers \AvtoDev\CloudPayments\Receipts\Item
@@ -18,7 +18,7 @@ class ReceiptItemTest extends AbstractTestCase
      */
     protected $receipt_item;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->receipt_item = new Item;
@@ -56,11 +56,5 @@ class ReceiptItemTest extends AbstractTestCase
         $this->assertArrayHasKey($property_name, $this->receipt_item->toArray());
 
         $this->assertSame($value, $this->receipt_item->toArray()[$property_name]);
-
-        $this->receipt_item->{'set' . $method_postfix}(null);
-
-        $this->assertNull($this->receipt_item->{'get' . $method_postfix}());
-
-        $this->assertArrayNotHasKey($property_name, $this->receipt_item->toArray());
     }
 }

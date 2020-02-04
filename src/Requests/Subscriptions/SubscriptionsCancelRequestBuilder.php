@@ -2,9 +2,9 @@
 
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @see https://developers.cloudpayments.ru/#otmena-podpiski-na-rekurrentnye-platezhi
@@ -31,11 +31,11 @@ class SubscriptionsCancelRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $id
+     * @param string $id
      *
      * @return SubscriptionsCancelRequestBuilder
      */
-    public function setId(?string $id): self
+    public function setId(string $id): self
     {
         $this->id = $id;
 
@@ -45,7 +45,7 @@ class SubscriptionsCancelRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [
             'Id' => $this->id,

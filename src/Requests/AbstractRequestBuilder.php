@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests;
 
-use GuzzleHttp\Psr7\Request;
-use function GuzzleHttp\Psr7\stream_for;
 use GuzzleHttp\Psr7\Uri;
-use GuzzleHttp\Psr7\UriResolver;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\UriInterface;
+use GuzzleHttp\Psr7\Request;
 use Tarampampam\Wrappers\Json;
+use GuzzleHttp\Psr7\UriResolver;
+use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\RequestInterface;
+use function GuzzleHttp\Psr7\stream_for;
 
 abstract class AbstractRequestBuilder
 {
@@ -65,9 +65,7 @@ abstract class AbstractRequestBuilder
         /** @var RequestInterface $request */
         $request = $request->withHeader('Content-Type', 'application/json');
 
-        $request_data = \array_filter($this->getRequestParams(), static function ($value) {
-            return $value !== null && $value !== [];
-        });
+        $request_data = $this->filterPayload($this->getRequestPayload());
 
         if ($request_data !== []) {
             /** @var RequestInterface $request */
@@ -78,11 +76,23 @@ abstract class AbstractRequestBuilder
     }
 
     /**
+     * @param array<string,mixed> $payload
+     *
+     * @return array<string,mixed>
+     */
+    protected function filterPayload(array $payload): array
+    {
+        return \array_filter($payload, function ($value) {
+            return $value !== null && $value !== [];
+        });
+    }
+
+    /**
      * Returns request parameters.
      *
-     * @return array
+     * @return array<string,mixed>
      */
-    abstract protected function getRequestParams(): array;
+    abstract protected function getRequestPayload(): array;
 
     /**
      * @return UriInterface

@@ -2,12 +2,12 @@
 
 namespace AvtoDev\CloudPayments\Requests\Payments;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use GuzzleHttp\Psr7\Uri;
-use Psr\Http\Message\UriInterface;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 use Tarampampam\Wrappers\Json;
+use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 /**
  * @see https://developers.cloudpayments.ru/#podtverzhdenie-oplaty
@@ -31,7 +31,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     protected $amount;
 
     /**
-     * @var array
+     * @var array<mixed>
      */
     protected $json_data;
 
@@ -84,7 +84,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return array
+     * @return array<mixed>
      */
     public function getJsonData(): array
     {
@@ -92,7 +92,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param array $json_data
+     * @param array<mixed> $json_data
      *
      * @return $this
      */
@@ -108,7 +108,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
      *
      * @throws JsonEncodeDecodeException
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
 

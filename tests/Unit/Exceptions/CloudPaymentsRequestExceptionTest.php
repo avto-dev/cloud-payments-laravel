@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Exceptions;
 
-use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
-use AvtoDev\Tests\AbstractTestCase;
 use GuzzleHttp\Psr7\Request;
+use AvtoDev\Tests\AbstractTestCase;
+use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
 
 /**
  * @covers \AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException
  */
 class CloudPaymentsRequestExceptionTest extends AbstractTestCase
 {
-    public function testWrap()
+    public function testWrap(): void
     {
         $request = new Request('GET', 'example.com');
 

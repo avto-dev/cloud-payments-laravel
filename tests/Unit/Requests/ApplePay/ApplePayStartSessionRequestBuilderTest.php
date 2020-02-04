@@ -4,17 +4,17 @@ declare(strict_types = 1);
 
 namespace Unit\Requests\ApplePay;
 
-use AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Str;
-use Psr\Http\Message\UriInterface;
 use Tarampampam\Wrappers\Json;
+use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder
  */
-class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTest
+class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var ApplePayStartSessionRequestBuilder
@@ -22,9 +22,9 @@ class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTest
     protected $request_builder;
 
     /**
-     * @covers ::setValidationUrl
+     * @covers ::getRequestPayload
      * @covers ::getValidationUrl
-     * @covers ::getRequestParams
+     * @covers ::setValidationUrl
      */
     public function testGetters(): void
     {

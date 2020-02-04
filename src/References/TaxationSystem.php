@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#sistemy-nalogooblozheniya
  */
-class TaxationSystem
+interface TaxationSystem
 {
     /**
      * General taxation system.

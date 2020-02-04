@@ -4,15 +4,15 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Payments\Cards;
 
-use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder
  */
-class CardsAuthRequestBuilderTest extends AbstractRequestBuilderTest
+class CardsAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var CardsAuthRequestBuilder

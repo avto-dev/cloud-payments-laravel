@@ -2,11 +2,11 @@
 
 namespace AvtoDev\CloudPayments;
 
-use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\GuzzleException;
+use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
 
 class Client
 {
@@ -21,7 +21,7 @@ class Client
     protected $config;
 
     /**
-     * Client constructor.
+     * Create a new Client instance.
      *
      * @param ClientInterface $client
      * @param Config          $config
@@ -35,23 +35,28 @@ class Client
     /**
      * @param RequestInterface $request
      *
-     * @throws GuzzleException
-     *
      * @return ResponseInterface
+     * @throws CloudPaymentsRequestException
      */
     public function send(RequestInterface $request): ResponseInterface
     {
+        $request = $this->updateRequest($request);
         try {
-            return $this->client->send($request, $this->getRequestOptions());
-        } catch (\Exception $exception) {
+            return $this->client->send($request);
+        } catch (GuzzleException $exception) {
+            /** @var \Exception $exception */
             throw CloudPaymentsRequestException::wrapException($request, $exception);
         }
     }
 
-    protected function getRequestOptions(): array
+    public function updateRequest(RequestInterface $request): RequestInterface
     {
-        return [
-            'auth' => [$this->config->getPublicId(), $this->config->getApiKey()],
-        ];
+        /** @var RequestInterface $request */
+        $request = $request->withHeader(
+            'Authorization',
+            'Basic ' . base64_encode($this->config->getPublicId() . ':' . $this->config->getApiKey())
+        );
+
+        return $request;
     }
 }

@@ -23,7 +23,7 @@ class TestRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [];
     }

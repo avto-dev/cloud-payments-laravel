@@ -34,6 +34,9 @@ trait HasReceipt
         return $this;
     }
 
+    /**
+     * @return array<string, array<mixed>>
+     */
     protected function getReceiptData(): array
     {
         $receipt_data = [];

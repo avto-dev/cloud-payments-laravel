@@ -2,8 +2,8 @@
 
 namespace AvtoDev\Tests\Feature;
 
+use Tarampampam\Wrappers\Json;
 use AvtoDev\CloudPayments\Requests\TestRequestBuilder;
-use AvtoDev\CloudPayments\ResponseParser;
 
 /**
  * @coversNothing
@@ -18,10 +18,10 @@ class TestRequestTest extends AbstractFeatureTestCase
 
         $response = $this->cloud_payments_client->send($request->buildRequest());
 
-        $message = ResponseParser::parseSimpleResponse($response)->getMessage();
+        $message = Json::decode($response->getBody()->getContents())['Message'];
 
         $response = $this->cloud_payments_client->send($request->buildRequest());
 
-        $this->assertSame($message, ResponseParser::parseSimpleResponse($response)->getMessage());
+        $this->assertSame($message, Json::decode($response->getBody()->getContents())['Message']);
     }
 }

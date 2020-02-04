@@ -14,10 +14,16 @@ class Config
      */
     protected $public_id;
 
-    public function __construct(array $config)
+    /**
+     * Create new Config instance.
+     *
+     * @param string $public_id
+     * @param string $api_key
+     */
+    public function __construct(string $public_id, string $api_key)
     {
-        $this->api_key   = $config['api_key'];
-        $this->public_id = $config['public_id'];
+        $this->public_id = $public_id;
+        $this->api_key   = $api_key;
     }
 
     /**

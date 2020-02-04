@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#sposoby-rascheta
  */
-class PaymentType
+interface PaymentType
 {
     public const UNKNOWN = 0;
 

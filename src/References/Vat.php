@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#znacheniya-stavki-VAT
  */
-class Vat
+interface Vat
 {
     public const NO_VAT = null;
 

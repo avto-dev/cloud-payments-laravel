@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests;
 
-use AvtoDev\CloudPayments\Requests\TestRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\TestRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\TestRequestBuilder
  */
-class TestRequestBuilderTest extends AbstractRequestBuilderTest
+class TestRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var TestRequestBuilder

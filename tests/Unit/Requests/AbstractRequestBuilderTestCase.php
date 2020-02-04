@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
+use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
-abstract class AbstractRequestBuilderTest extends AbstractTestCase
+abstract class AbstractRequestBuilderTestCase extends AbstractTestCase
 {
     /**
      * @return AbstractRequestBuilder
@@ -21,7 +21,7 @@ abstract class AbstractRequestBuilderTest extends AbstractTestCase
      */
     protected $uri;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->request_builder = $this->getRequestBuilder();
@@ -30,9 +30,8 @@ abstract class AbstractRequestBuilderTest extends AbstractTestCase
 
     /**
      * @covers ::getUri
-     *
      */
-    public function testUri()
+    public function testUri(): void
     {
         $uri = $this->request_builder->buildRequest()->getUri();
 
@@ -45,7 +44,7 @@ abstract class AbstractRequestBuilderTest extends AbstractTestCase
     /**
      * @coversNothing
      */
-    public function testHeaders()
+    public function testHeaders(): void
     {
         /** @var RequestInterface $request */
         $request = $this->request_builder->buildRequest();

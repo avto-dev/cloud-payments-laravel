@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#spisok-valyut
  */
-class Currency
+interface Currency
 {
     /**
      * Russian Rouble.

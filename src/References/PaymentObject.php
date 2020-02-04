@@ -7,7 +7,7 @@ namespace AvtoDev\CloudPayments\References;
 /**
  * @see https://developers.cloudpayments.ru/#predmety-rascheta
  */
-class PaymentObject
+interface PaymentObject
 {
     public const UNKNOWN           = 0;
 

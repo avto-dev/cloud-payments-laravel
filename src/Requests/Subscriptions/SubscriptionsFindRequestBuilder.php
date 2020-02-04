@@ -2,9 +2,9 @@
 
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @see https://developers.cloudpayments.ru/#poisk-podpisok
@@ -35,7 +35,7 @@ class SubscriptionsFindRequestBuilder extends AbstractRequestBuilder
      *
      * @return $this
      */
-    public function setAccountId(?string $account_id): self
+    public function setAccountId(string $account_id): self
     {
         $this->account_id = $account_id;
 
@@ -45,7 +45,7 @@ class SubscriptionsFindRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [
             'AccountId' => $this->account_id,

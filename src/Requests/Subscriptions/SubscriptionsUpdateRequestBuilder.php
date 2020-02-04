@@ -2,12 +2,12 @@
 
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Receipts\Receipt;
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use Carbon\Carbon;
+use Psy\Util\Json;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
-use Psy\Util\Json;
+use AvtoDev\CloudPayments\Receipts\Receipt;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @see https://developers.cloudpayments.ru/#izmenenie-podpiski-na-rekurrentnye-platezhi
@@ -88,11 +88,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $id
+     * @param string $id
      *
      * @return $this
      */
-    public function setId(?string $id): self
+    public function setId(string $id): self
     {
         $this->id = $id;
 
@@ -108,11 +108,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param string|null $description
+     * @param string $description
      *
      * @return $this
      */
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -128,11 +128,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param string|null $email
+     * @param string $email
      *
      * @return $this
      */
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -148,11 +148,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param float|null $amount
+     * @param float $amount
      *
      * @return $this
      */
-    public function setAmount(?float $amount): self
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
 
@@ -168,11 +168,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param string|null $currency
+     * @param string $currency
      *
      * @return $this
      */
-    public function setCurrency(?string $currency): self
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
 
@@ -188,11 +188,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param bool|null $require_confirmation
+     * @param bool $require_confirmation
      *
      * @return $this
      */
-    public function setRequireConfirmation(?bool $require_confirmation): self
+    public function setRequireConfirmation(bool $require_confirmation): self
     {
         $this->require_confirmation = $require_confirmation;
 
@@ -208,16 +208,13 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param Carbon|null $start_date
+     * @param Carbon $start_date
      *
      * @return $this
      */
-    public function setStartDate(?Carbon $start_date): self
+    public function setStartDate(Carbon $start_date): self
     {
-        if ($start_date instanceof Carbon) {
-            $start_date = clone $start_date;
-        }
-        $this->start_date = $start_date;
+        $this->start_date = clone $start_date;
 
         return $this;
     }
@@ -231,11 +228,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param string|null $interval
+     * @param string $interval
      *
      * @return $this
      */
-    public function setInterval(?string $interval): self
+    public function setInterval(string $interval): self
     {
         $this->interval = $interval;
 
@@ -251,11 +248,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param int|null $period
+     * @param int $period
      *
      * @return $this
      */
-    public function setPeriod(?int $period): self
+    public function setPeriod(int $period): self
     {
         $this->period = $period;
 
@@ -271,11 +268,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param int|null $max_periods
+     * @param int $max_periods
      *
      * @return $this
      */
-    public function setMaxPeriods(?int $max_periods): self
+    public function setMaxPeriods(int $max_periods): self
     {
         $this->max_periods = $max_periods;
 
@@ -291,11 +288,11 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param Receipt|null $customer_receipt
+     * @param Receipt $customer_receipt
      *
      * @return $this
      */
-    public function setCustomerReceipt(?Receipt $customer_receipt): self
+    public function setCustomerReceipt(Receipt $customer_receipt): self
     {
         $this->customer_receipt = $customer_receipt;
 
@@ -305,7 +302,7 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [
             'Id'                  => $this->id,

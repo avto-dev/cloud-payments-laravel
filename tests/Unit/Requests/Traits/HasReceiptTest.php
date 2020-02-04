@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace Unit\Requests\Traits;
 
+use AvtoDev\Tests\AbstractTestCase;
 use AvtoDev\CloudPayments\Receipts\Receipt;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
-use AvtoDev\Tests\AbstractTestCase;
 
 /**
  * @covers \AvtoDev\CloudPayments\Requests\Traits\HasReceipt
@@ -15,7 +15,7 @@ class HasReceiptTest extends AbstractTestCase
 {
     protected $request_builder;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->request_builder = new class {
@@ -28,7 +28,7 @@ class HasReceiptTest extends AbstractTestCase
         };
     }
 
-    public function testGettersAndSetters()
+    public function testGettersAndSetters(): void
     {
         $receipt = new Receipt;
 

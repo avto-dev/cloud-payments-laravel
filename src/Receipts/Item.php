@@ -4,10 +4,13 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Receipts;
 
-use AvtoDev\CloudPayments\References\PaymentObject;
-use AvtoDev\CloudPayments\References\PaymentType;
 use AvtoDev\CloudPayments\References\Vat;
+use AvtoDev\CloudPayments\References\PaymentType;
+use AvtoDev\CloudPayments\References\PaymentObject;
 
+/**
+ * @see https://developers.cloudpayments.ru/#format-peredachi-dannyh-dlya-onlayn-cheka
+ */
 class Item
 {
     /**
@@ -65,11 +68,11 @@ class Item
     }
 
     /**
-     * @param string|null $label
+     * @param string $label
      *
      * @return $this
      */
-    public function setLabel(?string $label): self
+    public function setLabel(string $label): self
     {
         $this->label = $label;
 
@@ -85,11 +88,11 @@ class Item
     }
 
     /**
-     * @param float|null $price
+     * @param float $price
      *
      * @return $this
      */
-    public function setPrice(?float $price): self
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
@@ -105,11 +108,11 @@ class Item
     }
 
     /**
-     * @param float|null $quantity
+     * @param float $quantity
      *
      * @return $this
      */
-    public function setQuantity(?float $quantity): self
+    public function setQuantity(float $quantity): self
     {
         $this->quantity = $quantity;
 
@@ -125,11 +128,11 @@ class Item
     }
 
     /**
-     * @param float|null $amount
+     * @param float $amount
      *
      * @return $this
      */
-    public function setAmount(?float $amount): self
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
 
@@ -145,11 +148,11 @@ class Item
     }
 
     /**
-     * @param int|null $vat
+     * @param int $vat
      *
      * @return $this
      */
-    public function setVat(?int $vat): self
+    public function setVat(int $vat): self
     {
         $this->vat = $vat;
 
@@ -165,11 +168,11 @@ class Item
     }
 
     /**
-     * @param int|null $method
+     * @param int $method
      *
      * @return $this
      */
-    public function setMethod(?int $method): self
+    public function setMethod(int $method): self
     {
         $this->method = $method;
 
@@ -185,11 +188,11 @@ class Item
     }
 
     /**
-     * @param int|null $object
+     * @param int $object
      *
      * @return $this
      */
-    public function setObject(?int $object): self
+    public function setObject(int $object): self
     {
         $this->object = $object;
 
@@ -205,11 +208,11 @@ class Item
     }
 
     /**
-     * @param string|null $measurement_unit
+     * @param string $measurement_unit
      *
      * @return $this
      */
-    public function setMeasurementUnit(?string $measurement_unit): self
+    public function setMeasurementUnit(string $measurement_unit): self
     {
         $this->measurement_unit = $measurement_unit;
 
@@ -217,7 +220,7 @@ class Item
     }
 
     /**
-     * @return array
+     * @return array<string,float|int|string|null>
      */
     public function toArray(): array
     {

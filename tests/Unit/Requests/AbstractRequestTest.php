@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace Unit\Requests;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use AvtoDev\Tests\AbstractTestCase;
 use GuzzleHttp\Psr7\Uri;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\UriInterface;
 use Tarampampam\Wrappers\Json;
+use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\AbstractTestCase;
+use Psr\Http\Message\RequestInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder
@@ -21,18 +21,18 @@ class AbstractRequestTest extends AbstractTestCase
      */
     protected $request_builder;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->request_builder = new class extends AbstractRequestBuilder {
-            public $uri    = 'test/uri';
+            public $uri        = 'test/uri';
 
             public $params = [
                 'foo' => 'bar',
             ];
 
-            protected function getRequestParams(): array
+            protected function getRequestPayload(): array
             {
                 return $this->params;
             }
@@ -46,10 +46,10 @@ class AbstractRequestTest extends AbstractTestCase
 
     /**
      * @covers ::buildRequest
-     * @covers ::setRequestId
      * @covers ::getRequestId
+     * @covers ::setRequestId
      */
-    public function testRequestId()
+    public function testRequestId(): void
     {
         $this->assertSame('', $this->request_builder->getRequestId());
 
@@ -71,7 +71,7 @@ class AbstractRequestTest extends AbstractTestCase
     /**
      * @covers ::buildRequest
      */
-    public function testUriResolve()
+    public function testUriResolve(): void
     {
         $request = $this->request_builder->buildRequest();
 
@@ -89,7 +89,7 @@ class AbstractRequestTest extends AbstractTestCase
     /**
      * @covers ::buildRequest
      */
-    public function testBuildRequest()
+    public function testBuildRequest(): void
     {
         $request = $this->request_builder->buildRequest();
 

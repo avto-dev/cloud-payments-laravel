@@ -4,22 +4,22 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder
  */
-class SubscriptionsCancelRequestBuilderTest extends AbstractRequestBuilderTest
+class SubscriptionsCancelRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var SubscriptionsCancelRequestBuilder
      */
     protected $request_builder;
 
-    public function testId()
+    public function testId(): void
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
         $this->request_builder->setId('some');

@@ -2,9 +2,9 @@
 
 namespace AvtoDev\CloudPayments\Requests\Payments;
 
-use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 class PaymentsVoidRequestBuilder extends AbstractRequestBuilder
 {
@@ -42,7 +42,7 @@ class PaymentsVoidRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [
             'TransactionId' => $this->transaction_id,

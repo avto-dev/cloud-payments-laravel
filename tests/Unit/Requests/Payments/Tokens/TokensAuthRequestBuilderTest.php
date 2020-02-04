@@ -4,22 +4,22 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Payments\Tokens;
 
-use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder
  */
-class TokensAuthRequestBuilderTest extends AbstractRequestBuilderTest
+class TokensAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var TokensAuthRequestBuilder
      */
     protected $request_builder;
 
-    public function testToken()
+    public function testToken(): void
     {
         $this->assertNull($this->request_builder->getToken());
 

@@ -4,26 +4,26 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Subscriptions;
 
-use AvtoDev\CloudPayments\Receipts\Receipt;
-use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCreateRequestBuilder;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTest;
 use Carbon\Carbon;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Str;
-use Psr\Http\Message\UriInterface;
 use Tarampampam\Wrappers\Json;
+use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Receipts\Receipt;
+use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCreateRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCreateRequestBuilder
  */
-class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTest
+class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**
      * @var SubscriptionsCreateRequestBuilder
      */
     protected $request_builder;
 
-    public function testFields()
+    public function testFields(): void
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
 
@@ -53,7 +53,7 @@ class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTest
         }
     }
 
-    public function testStartDay()
+    public function testStartDay(): void
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
         $carbon_now = Carbon::now();

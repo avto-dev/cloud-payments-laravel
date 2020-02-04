@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Payments\Tokens;
 
-use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder;
-use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder;
+use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder;
 
 /**
  * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder

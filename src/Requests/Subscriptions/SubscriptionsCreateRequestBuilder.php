@@ -2,14 +2,14 @@
 
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
+use Carbon\Carbon;
+use Psy\Util\Json;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Receipts\Receipt;
 use AvtoDev\CloudPayments\References\Currency;
 use AvtoDev\CloudPayments\References\Interval;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use Carbon\Carbon;
-use GuzzleHttp\Psr7\Uri;
-use Psr\Http\Message\UriInterface;
-use Psy\Util\Json;
 
 /**
  * @see https://developers.cloudpayments.ru/#sozdanie-podpiski-na-rekurrentnye-platezhi
@@ -113,11 +113,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $token
+     * @param string $token
      *
      * @return $this
      */
-    public function setToken(?string $token): self
+    public function setToken(string $token): self
     {
         $this->token = $token;
 
@@ -137,11 +137,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $account_id
+     * @param string $account_id
      *
      * @return $this
      */
-    public function setAccountId(?string $account_id): self
+    public function setAccountId(string $account_id): self
     {
         $this->account_id = $account_id;
 
@@ -161,11 +161,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $description
+     * @param string $description
      *
      * @return $this
      */
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -185,11 +185,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $email
+     * @param string $email
      *
      * @return $this
      */
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -209,11 +209,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param float|null $amount
+     * @param float $amount
      *
      * @return $this
      */
-    public function setAmount(?float $amount): self
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
 
@@ -233,11 +233,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $currency
+     * @param string $currency
      *
      * @return $this
      */
-    public function setCurrency(?string $currency): self
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
 
@@ -257,11 +257,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param bool|null $require_confirmation
+     * @param bool $require_confirmation
      *
      * @return $this
      */
-    public function setRequireConfirmation(?bool $require_confirmation): self
+    public function setRequireConfirmation(bool $require_confirmation): self
     {
         $this->require_confirmation = $require_confirmation;
 
@@ -281,11 +281,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param Carbon|null $start_date
+     * @param Carbon $start_date
      *
      * @return $this
      */
-    public function setStartDate(?Carbon $start_date): self
+    public function setStartDate(Carbon $start_date): self
     {
         if ($start_date instanceof Carbon) {
             $start_date = clone $start_date;
@@ -309,11 +309,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param string|null $interval
+     * @param string $interval
      *
      * @return $this
      */
-    public function setInterval(?string $interval): self
+    public function setInterval(string $interval): self
     {
         $this->interval = $interval;
 
@@ -333,11 +333,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param int|null $period
+     * @param int $period
      *
      * @return $this
      */
-    public function setPeriod(?int $period): self
+    public function setPeriod(int $period): self
     {
         $this->period = $period;
 
@@ -353,11 +353,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param int|null $max_periods
+     * @param int $max_periods
      *
      * @return $this
      */
-    public function setMaxPeriods(?int $max_periods): self
+    public function setMaxPeriods(int $max_periods): self
     {
         $this->max_periods = $max_periods;
 
@@ -373,11 +373,11 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @param Receipt|null $customer_receipt
+     * @param Receipt $customer_receipt
      *
      * @return $this
      */
-    public function setCustomerReceipt(?Receipt $customer_receipt): self
+    public function setCustomerReceipt(Receipt $customer_receipt): self
     {
         $this->customer_receipt = $customer_receipt;
 
@@ -387,7 +387,7 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    protected function getRequestParams(): array
+    protected function getRequestPayload(): array
     {
         return [
             'Token'               => $this->token,

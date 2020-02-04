@@ -4,15 +4,18 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit;
 
-use AvtoDev\CloudPayments\Client;
-use AvtoDev\CloudPayments\ServiceProvider;
-use AvtoDev\Tests\AbstractTestCase;
-use GuzzleHttp\Client as GuzzleClient;
+use Illuminate\Support\Str;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use AvtoDev\CloudPayments\Client;
+use AvtoDev\Tests\AbstractTestCase;
+use Psr\Http\Client\ClientInterface;
+use GuzzleHttp\Client as GuzzleClient;
+use AvtoDev\CloudPayments\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Support\Str;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
 
 /**
@@ -51,7 +54,7 @@ class ServiceProviderTest extends AbstractTestCase
         );
     }
 
-    public function testRegister()
+    public function testRegister(): void
     {
         $this->assertFalse($this->app->bound(Client::class));
 
@@ -67,8 +70,42 @@ class ServiceProviderTest extends AbstractTestCase
         $client->send(new Request('GET', 'https://example.com'));
 
         $this->assertSame(
-            [$this->config['public_id'], $this->config['api_key']],
-            $this->handler->getLastOptions()['auth']
+            'Basic ' . base64_encode($this->config['public_id'] . ':' . $this->config['api_key']),
+            $this->handler->getLastRequest()->getHeader('Authorization')[0]
         );
+    }
+
+    public function testRegisterByClientInterface(): void
+    {
+        $stack = HandlerStack::create($this->handler);
+
+        $stack->push(function (callable $handler) {
+            return function (
+                RequestInterface $request,
+                array $options
+            ) use ($handler) {
+                $promise = $handler($request, $options);
+
+                return $promise->then(
+                    function (ResponseInterface $response) {
+                        return $response->withHeader('test', 'value');
+                    }
+                );
+            };
+        });
+
+        $client_instance = new GuzzleClient(['handler' => $stack]);
+
+        $this->handler->onUriRequested('https://example.com', 'GET', new Response);
+
+        $this->app->instance(ClientInterface::class, $client_instance);
+        $this->app->register(ServiceProvider::class);
+
+        /** @var Client $client */
+        $client = $this->app->make(Client::class);
+
+        $response = $client->send(new Request('GET', 'https://example.com'));
+
+        $this->assertSame('value', $response->getHeader('test')[0]);
     }
 }
