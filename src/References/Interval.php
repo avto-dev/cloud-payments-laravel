@@ -10,10 +10,10 @@ namespace AvtoDev\CloudPayments\References;
 interface Interval
 {
     /**
-     * Supported intervals
+     * Supported intervals.
      */
     public const
-        DAY = 'Day',
-        WEEK = 'Week',
+        DAY   = 'Day',
+        WEEK  = 'Week',
         MONTH = 'Month';
 }

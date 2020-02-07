@@ -38,7 +38,7 @@ abstract class AbstractRequestBuilderTestCase extends AbstractTestCase
         $this->assertSame($uri->getScheme(), $this->getUri()->getScheme());
         $this->assertSame($uri->getHost(), $this->getUri()->getHost());
         $this->assertSame($uri->getPath(), $this->getUri()->getPath());
-        $this->assertEquals($uri, $this->getUri());
+        $this->assertSame($uri, $this->getUri());
     }
 
     /**

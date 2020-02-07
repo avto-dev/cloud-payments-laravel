@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Feature;
 
+use Dotenv\Dotenv;
 use AvtoDev\CloudPayments\Client;
 use AvtoDev\CloudPayments\Config;
 use AvtoDev\Tests\AbstractTestCase;
-use Dotenv\Dotenv;
 
 abstract class AbstractFeatureTestCase extends AbstractTestCase
 {

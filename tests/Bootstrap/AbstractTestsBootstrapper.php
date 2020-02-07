@@ -19,7 +19,7 @@ abstract class AbstractTestsBootstrapper
     /**
      * Prefix for 'magic' bootstrap methods.
      */
-    const MAGIC_METHODS_PREFIX = 'boot';
+    public const MAGIC_METHODS_PREFIX = 'boot';
 
     /**
      * @var Application
@@ -39,7 +39,7 @@ abstract class AbstractTestsBootstrapper
         set_exception_handler(function ($e): void {
             if ($e instanceof Exception || $e instanceof TypeError) {
                 echo sprintf(
-                    'Exception: "%s" (file: %s, line: %d)' . PHP_EOL,
+                    'Exception: "%s" (file: %s, line: %d)' . \PHP_EOL,
                     $e->getMessage(),
                     $e->getFile(),
                     $e->getLine()

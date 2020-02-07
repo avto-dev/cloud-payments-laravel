@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Frameworks\Laravel;
 
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Illuminate\Support\Str;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -14,10 +13,11 @@ use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
-use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
 use Illuminate\Foundation\Testing\TestCase;
+use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
+use AvtoDev\Tests\Traits\CreatesApplicationTrait;
+use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 
 /**
  * @covers \AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider

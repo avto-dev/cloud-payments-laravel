@@ -13,10 +13,10 @@ interface TaxationSystem
      * Taxation systems.
      */
     public const
-        OSN = 0, // General taxation system.
-        USN_INCOME = 1, // Simplified tax system (Income).
+        OSN                = 0, // General taxation system.
+        USN_INCOME         = 1, // Simplified tax system (Income).
         USN_INCOME_OUTCOME = 2, // Simplified tax system (Income - Outcome).
-        ENVD = 3, // A single tax on imputed income.
-        ESHN = 4, // Single agricultural tax.
-        PATENT = 5; // Patent Tax System.
+        ENVD               = 3, // A single tax on imputed income.
+        ESHN               = 4, // Single agricultural tax.
+        PATENT             = 5; // Patent Tax System.
 }
