@@ -52,6 +52,13 @@ class Client
         }
     }
 
+    /**
+     * Put authorization header into request.
+     *
+     * @param RequestInterface $request
+     *
+     * @return RequestInterface
+     */
     public function updateRequest(RequestInterface $request): RequestInterface
     {
         /** @var RequestInterface $request */
