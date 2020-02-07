@@ -32,7 +32,7 @@ Laravel 5.5 and above uses Package Auto-Discovery, so doesn't require you to man
 ```php
 'providers' => [
     // ...
-    AvtoDev\CloudPayments\ServiceProvider::class,
+    AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider::class,
 ]
 ```
 

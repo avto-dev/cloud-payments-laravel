@@ -11,7 +11,7 @@ composer.lock
 # Temp dirs & trash
 /temp
 /tmp
-/tests/Feature/config.php
+/tests/.env
 /install
 /build
 /coverage
