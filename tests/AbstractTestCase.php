@@ -4,10 +4,8 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests;
 
-use Illuminate\Foundation\Testing\TestCase;
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
+use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
-    use CreatesApplicationTrait;
 }

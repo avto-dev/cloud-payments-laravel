@@ -10,32 +10,13 @@ namespace AvtoDev\CloudPayments\References;
 interface TaxationSystem
 {
     /**
-     * General taxation system.
+     * Taxation systems.
      */
-    public const OSN = 0;
-
-    /**
-     * Simplified tax system (Income).
-     */
-    public const USN_INCOME = 1;
-
-    /**
-     * Simplified tax system (Income - Outcome).
-     */
-    public const USN_INCOME_OUTCOME = 2;
-
-    /**
-     * A single tax on imputed income.
-     */
-    public const ENVD = 3;
-
-    /**
-     * Single agricultural tax.
-     */
-    public const ESHN = 4;
-
-    /**
-     * Patent Tax System.
-     */
-    public const PATENT = 5;
+    public const
+        OSN = 0, // General taxation system.
+        USN_INCOME = 1, // Simplified tax system (Income).
+        USN_INCOME_OUTCOME = 2, // Simplified tax system (Income - Outcome).
+        ENVD = 3, // A single tax on imputed income.
+        ESHN = 4, // Single agricultural tax.
+        PATENT = 5; // Patent Tax System.
 }

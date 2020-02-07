@@ -9,37 +9,19 @@ namespace AvtoDev\CloudPayments\References;
  */
 interface PaymentObject
 {
-    public const UNKNOWN           = 0;
-
-    public const COMMODITY         = 1;
-
-    public const EXCISED_COMMODITY = 2;
-
-    public const JOB               = 3;
-
-    public const SERVICE           = 4;
-
-    public const GAMBLING_BET      = 5;
-
-    public const GAMBLING_WIN      = 6;
-
-    public const LOTTERY_TICKET    = 7;
-
-    public const LOTTERY_WIN       = 8;
-
-    /**
-     * Research and technological development.
-     */
-    public const RTD_ACCESS   = 9;
-
-    public const PAYMENT      = 10;
-
-    public const AGENT_REWARD = 11;
-
-    public const COMPOSITE    = 12;
-
-    /**
-     * All other type.
-     */
-    public const ANOTHER = 13;
+    public const
+        UNKNOWN = 0,
+        COMMODITY = 1,
+        EXCISED_COMMODITY = 2,
+        JOB = 3,
+        SERVICE = 4,
+        GAMBLING_BET = 5,
+        GAMBLING_WIN = 6,
+        LOTTERY_TICKET = 7,
+        LOTTERY_WIN = 8,
+        RTD_ACCESS = 9, // Research and technological development.
+        PAYMENT = 10,
+        AGENT_REWARD = 11,
+        COMPOSITE = 12,
+        ANOTHER = 13; // All other types.
 }

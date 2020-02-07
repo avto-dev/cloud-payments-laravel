@@ -10,102 +10,27 @@ namespace AvtoDev\CloudPayments\References;
 interface Currency
 {
     /**
-     * Russian Rouble.
+     * Supported currencies.
      */
-    public const RUB = 'RUB';
-
-    /**
-     * Euro.
-     */
-    public const EUR = 'EUR';
-
-    /**
-     * USA Dollar.
-     */
-    public const USD = 'USD';
-
-    /**
-     * British pound.
-     */
-    public const GBP = 'GBP';
-
-    /**
-     * Ukraine Hryvnia.
-     */
-    public const UAH = 'UAH';
-
-    /**
-     * Belarusian Ruble.
-     */
-    public const BYN = 'BYN';
-
-    /**
-     * Kazakhstan Tenge.
-     */
-    public const KZT = 'KZT';
-
-    /**
-     * Azerbaijan Manat.
-     */
-    public const AZN = 'AZN';
-
-    /**
-     * Swiss Franc.
-     */
-    public const CHF = 'CHF';
-
-    /**
-     * Czech Koruna.
-     */
-    public const CZK = 'CZK';
-
-    /**
-     * Canadian Dollar.
-     */
-    public const CAD = 'CAD';
-
-    /**
-     * Zloty.
-     */
-    public const PLN = 'PLN';
-
-    /**
-     * Swedish Krona.
-     */
-    public const SEK = 'SEK';
-
-    /**
-     * Turkish Lira.
-     */
-    public const TRY = 'TRY';
-
-    /**
-     * Yuan Renminbi.
-     */
-    public const CNY = 'CNY';
-
-    /**
-     * Indian Rupee.
-     */
-    public const INR = 'INR';
-
-    /**
-     * Brazilian Real.
-     */
-    public const BRL = 'BRL';
-
-    /**
-     * Rand.
-     */
-    public const ZAR = 'ZAR';
-
-    /**
-     * Uzbekistan Sum.
-     */
-    public const UZS = 'UZS';
-
-    /**
-     * Bulgarian Lev.
-     */
-    public const BGL = 'BGL';
+    public const
+        RUB = 'RUB', // Russian Rouble.
+        EUR = 'EUR', // Euro.
+        USD = 'USD', // USA Dollar.
+        GBP = 'GBP', // British pound.
+        UAH = 'UAH', // Ukraine Hryvnia.
+        BYN = 'BYN', // Belarusian Ruble.
+        KZT = 'KZT', // Kazakhstan Tenge.
+        AZN = 'AZN', // Azerbaijan Manat.
+        CHF = 'CHF', // Swiss Franc.
+        CZK = 'CZK', // Czech Koruna.
+        CAD = 'CAD', // Canadian Dollar.
+        PLN = 'PLN', // Zloty.
+        SEK = 'SEK', // Swedish Krona.
+        TRY = 'TRY', // Turkish Lira.
+        CNY = 'CNY', // Yuan Renminbi.
+        INR = 'INR', // Indian Rupee.
+        BRL = 'BRL', // Brazilian Real.
+        ZAR = 'ZAR', // Rand.
+        UZS = 'UZS', // Uzbekistan Sum.
+        BGL = 'BGL'; // Bulgarian Lev.
 }

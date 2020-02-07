@@ -2,27 +2,30 @@
 
 declare(strict_types = 1);
 
-namespace AvtoDev\Tests\Unit;
+namespace AvtoDev\Tests\Unit\Frameworks\Laravel;
 
+use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use Illuminate\Support\Str;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use AvtoDev\CloudPayments\Client;
-use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use AvtoDev\CloudPayments\ServiceProvider;
+use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
+use Illuminate\Foundation\Testing\TestCase;
 
 /**
- * @covers \AvtoDev\CloudPayments\ServiceProvider
+ * @covers \AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider
  */
-class ServiceProviderTest extends AbstractTestCase
+class ServiceProviderTest extends TestCase
 {
+    use CreatesApplicationTrait;
+
     /**
      * @var UrlsMockHandler
      */

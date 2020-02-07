@@ -2,8 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace AvtoDev\CloudPayments;
+namespace AvtoDev\CloudPayments\Frameworks\Laravel;
 
+use AvtoDev\CloudPayments\Client;
+use AvtoDev\CloudPayments\Config;
 use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Contracts\Config\Repository;
