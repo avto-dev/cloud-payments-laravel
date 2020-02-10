@@ -38,20 +38,20 @@ $config = new Config('pk_some_key', 'some_api_key');
 
 ## Usage
 
-Select one of [requset builders](#request-builders)
+Select one of [requset builders](#request-builders):
 
 ```php
 $request_builder = new CardsAuthRequestBuilder;
 ```
 
-Set all necessary parameters through the setters
+Set all necessary parameters through the setters:
 
 ```php
 $request_builder->setAccountId('some_id');
 $request_builder->setName('name');
 ```
 
-Get PSR7 requset
+Get PSR7 request:
 
 ```php
 use Psr\Http\Message\RequestInterface;
@@ -60,7 +60,7 @@ use Psr\Http\Message\RequestInterface;
 $request = $request_builder->buildRequest();
 ```
 
-Set up client, and send the request
+Set up client, and send the request:
 
 ```php
 use AvtoDev\CloudPayments\Config;
@@ -76,7 +76,7 @@ $response = $client->send($request);
 
 ## Api client
 
-### Construct
+### Constructing
 
 Constructor requires any `GuzzleHttp\ClientInterface` instance and `Config` instance
 
@@ -87,7 +87,7 @@ use GuzzleHttp\Client as GuzzleClient;
 $client = new Client(new GuzzleClient, $config);
 ```
 
-### Send
+### Sending
 
 This method allows to send any `Psr\Http\Message\RequestInterface` and returns only `Psr\Http\Message\ResponseInterface`,
 that allow you to build own requests as you want or use one of provided requests builders. 
@@ -144,7 +144,7 @@ To enable idempotency, it is necessary to call `setRequestId('request_id')` meth
 
 ## Frameworks integration
 
-### Laravel 5
+### Laravel
 
 Laravel 5.5 and above uses Package Auto-Discovery, so doesn't require you to manually register the service-provider. Otherwise you must add the service provider to the `providers` array in `./config/app.php`:
 
@@ -184,7 +184,6 @@ return [
 For package testing we use `phpunit` framework. Just write into your terminal:
 
 ```shell
-$ git clone ... && cd $_
 $ make build
 $ make install
 $ make test
