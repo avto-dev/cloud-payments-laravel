@@ -25,7 +25,7 @@ class ReceiptTest extends AbstractTestCase
         $this->receipt = new Receipt;
     }
 
-    public function testGettersAndSetters(): void
+    public function testSetters(): void
     {
         $properties = [
             'calculationPlace' => Str::random(),
@@ -40,22 +40,11 @@ class ReceiptTest extends AbstractTestCase
         }
     }
 
-    public function testReceiptItemsGettersAndSetters(): void
-    {
-        $this->assertSame([], $this->receipt->getItems());
-
-        $item = new Item;
-
-        $this->receipt->addItem($item);
-
-        $this->assertSame([$item], $this->receipt->getItems());
-    }
-
     public function testItemsToArray(): void
     {
         $item = new Item;
 
-        $item->setLabel(Str::random());
+        $item->setLabel($label = Str::random());
 
         $this->receipt->addItem($item);
 
@@ -63,7 +52,7 @@ class ReceiptTest extends AbstractTestCase
 
         $this->assertArrayHasKey('Items', $receipt_array);
         $this->assertCount(1, $receipt_array['Items']);
-        $this->assertSame($item->getLabel(), $receipt_array['Items'][0]['label']);
+        $this->assertSame($label, $receipt_array['Items'][0]['label']);
     }
 
     public function testAmounts(): void
@@ -81,11 +70,8 @@ class ReceiptTest extends AbstractTestCase
             $method_postfix = Str::studly($property_name) . 'Amount';
 
             $this->assertTrue(\method_exists($this->receipt, 'set' . $method_postfix));
-            $this->assertTrue(\method_exists($this->receipt, 'get' . $method_postfix));
 
             $this->receipt->{'set' . $method_postfix}($value);
-
-            $this->assertSame($value, $this->receipt->{'get' . $method_postfix}());
 
             $this->assertArrayHasKey($property_name, $this->receipt->toArray()['amounts']);
 
@@ -101,11 +87,8 @@ class ReceiptTest extends AbstractTestCase
         $method_postfix = Str::studly($property_name);
 
         $this->assertTrue(\method_exists($this->receipt, 'set' . $method_postfix));
-        $this->assertTrue(\method_exists($this->receipt, 'get' . $method_postfix));
 
         $this->receipt->{'set' . $method_postfix}($value);
-
-        $this->assertSame($value, $this->receipt->{'get' . $method_postfix}());
 
         $this->assertArrayHasKey($property_name, $this->receipt->toArray());
 

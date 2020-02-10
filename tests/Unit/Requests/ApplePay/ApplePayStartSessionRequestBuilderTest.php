@@ -23,14 +23,12 @@ class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTestC
 
     /**
      * @covers ::getRequestPayload
-     * @covers ::getValidationUrl
      * @covers ::setValidationUrl
      */
-    public function testGetters(): void
+    public function testSetValidationUrl(): void
     {
         $request_builder = $this->getRequestBuilder();
         $request_builder->setValidationUrl($validation_uri = Str::random());
-        $this->assertSame($validation_uri, $request_builder->getValidationUrl());
 
         $request = $request_builder->buildRequest();
 

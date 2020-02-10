@@ -30,16 +30,6 @@ class CardsPost3DsRequestBuilder extends AbstractRequestBuilder
     /**
      * MD parameter value.
      *
-     * @return int
-     */
-    public function getTransactionId(): ?int
-    {
-        return $this->transaction_id;
-    }
-
-    /**
-     * MD parameter value.
-     *
      * @param int $transaction_id
      *
      * @return CardsPost3DsRequestBuilder
@@ -49,16 +39,6 @@ class CardsPost3DsRequestBuilder extends AbstractRequestBuilder
         $this->transaction_id = $transaction_id;
 
         return $this;
-    }
-
-    /**
-     * PaRes parameter value.
-     *
-     * @return string
-     */
-    public function getPaRes(): ?string
-    {
-        return $this->pa_res;
     }
 
     /**
@@ -78,7 +58,7 @@ class CardsPost3DsRequestBuilder extends AbstractRequestBuilder
     /**
      * {@inheritdoc}
      */
-    public function getRequestPayload(): array
+    protected function getRequestPayload(): array
     {
         return [
             'TransactionId' => $this->transaction_id,

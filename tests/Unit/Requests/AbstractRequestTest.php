@@ -46,13 +46,10 @@ class AbstractRequestTest extends AbstractTestCase
 
     /**
      * @covers ::buildRequest
-     * @covers ::getRequestId
      * @covers ::setRequestId
      */
     public function testRequestId(): void
     {
-        $this->assertSame('', $this->request_builder->getRequestId());
-
         $request = $this->request_builder->buildRequest();
 
         $this->assertFalse($request->hasHeader('X-Request-ID'));
@@ -60,8 +57,6 @@ class AbstractRequestTest extends AbstractTestCase
         $request_id = 'some_id';
 
         $this->request_builder->setRequestId($request_id);
-
-        $this->assertSame($request_id, $this->request_builder->getRequestId());
 
         $request = $this->request_builder->buildRequest();
 

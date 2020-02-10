@@ -41,11 +41,7 @@ class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTestCa
         ];
 
         foreach ($fields as $field => $value) {
-            $this->assertNull($this->request_builder->{'get' . $field}());
-
             $this->request_builder->{'set' . $field}($value);
-
-            $this->assertSame($value, $this->request_builder->{'get' . $field}());
 
             $request_data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
             $this->assertArrayHasKey($field, $request_data);
@@ -60,9 +56,6 @@ class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTestCa
 
         $this->request_builder->setStartDate($carbon_now);
 
-        $this->assertSame($carbon_now->timestamp, $this->request_builder->getStartDate()->timestamp);
-        $this->assertNotSame($carbon_now, $this->request_builder->getStartDate());
-
         $request_data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->assertArrayHasKey('StartDate', $request_data);
@@ -76,7 +69,6 @@ class SubscriptionsCreateRequestBuilderTest extends AbstractRequestBuilderTestCa
         $receipt = new Receipt;
 
         $this->request_builder->setCustomerReceipt($receipt);
-        $this->assertSame($receipt->toArray(), $this->request_builder->getCustomerReceipt()->toArray());
 
         $this->assertSame(
             Json::encode(['CustomerReceipt' => Json::encode($receipt->toArray())]),

@@ -20,16 +20,6 @@ class PaymentsVoidRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return int
-     */
-    public function getTransactionId(): int
-    {
-        return $this->transaction_id;
-    }
-
-    /**
-     * Required.
-     *
      * @param int $transaction_id
      *
      * @return PaymentsVoidRequestBuilder

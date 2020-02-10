@@ -26,14 +26,6 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
     protected $token;
 
     /**
-     * @return string|null
-     */
-    public function getToken(): ?string
-    {
-        return $this->token;
-    }
-
-    /**
      * Required.
      *
      * @param string $token

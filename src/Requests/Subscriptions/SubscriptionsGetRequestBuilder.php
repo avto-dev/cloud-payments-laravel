@@ -21,14 +21,6 @@ class SubscriptionsGetRequestBuilder extends AbstractRequestBuilder
     protected $id;
 
     /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
      * @param string $id
      *
      * @return SubscriptionsGetRequestBuilder

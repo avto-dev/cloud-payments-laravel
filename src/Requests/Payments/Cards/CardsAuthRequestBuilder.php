@@ -9,6 +9,7 @@ use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
+use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 /**
  * @see https://developers.cloudpayments.ru/#oplata-po-kriptogramme
@@ -48,22 +49,6 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCardCryptogramPacket(): string
-    {
-        return $this->card_cryptogram_packet;
-    }
-
-    /**
      * @param string $card_cryptogram_packet
      *
      * @return CardsAuthRequestBuilder
@@ -77,8 +62,10 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
 
     /**
      * {@inheritdoc}
+     *
+     * @throws JsonEncodeDecodeException
      */
-    public function getRequestPayload(): array
+    protected function getRequestPayload(): array
     {
         $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
 

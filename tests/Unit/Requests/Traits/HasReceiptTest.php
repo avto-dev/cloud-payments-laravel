@@ -36,8 +36,6 @@ class HasReceiptTest extends AbstractTestCase
 
         $this->request_builder->setReceipt($receipt);
 
-        $this->assertSame($receipt, $this->request_builder->getReceipt());
-
         $this->assertSame(
             ['cloudPayments' => ['customerReceipt' => $receipt->toArray()]],
             $this->request_builder->getData()

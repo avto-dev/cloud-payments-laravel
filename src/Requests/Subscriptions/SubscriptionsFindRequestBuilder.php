@@ -23,16 +23,6 @@ class SubscriptionsFindRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return string|null
-     */
-    public function getAccountId(): ?string
-    {
-        return $this->account_id;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $account_id
      *
      * @return $this

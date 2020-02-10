@@ -80,16 +80,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $id
      *
      * @return $this
@@ -99,14 +89,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
         $this->id = $id;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
     }
 
     /**
@@ -122,14 +104,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    /**
      * @param string $email
      *
      * @return $this
@@ -139,14 +113,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
         $this->email = $email;
 
         return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getAmount(): ?float
-    {
-        return $this->amount;
     }
 
     /**
@@ -162,14 +128,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    /**
      * @param string $currency
      *
      * @return $this
@@ -179,14 +137,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
         $this->currency = $currency;
 
         return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getRequireConfirmation(): ?bool
-    {
-        return $this->require_confirmation;
     }
 
     /**
@@ -202,14 +152,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return Carbon|null
-     */
-    public function getStartDate(): ?Carbon
-    {
-        return $this->start_date;
-    }
-
-    /**
      * @param Carbon $start_date
      *
      * @return $this
@@ -219,14 +161,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
         $this->start_date = clone $start_date;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getInterval(): ?string
-    {
-        return $this->interval;
     }
 
     /**
@@ -242,14 +176,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return int|null
-     */
-    public function getPeriod(): ?int
-    {
-        return $this->period;
-    }
-
-    /**
      * @param int $period
      *
      * @return $this
@@ -262,14 +188,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return int|null
-     */
-    public function getMaxPeriods(): ?int
-    {
-        return $this->max_periods;
-    }
-
-    /**
      * @param int $max_periods
      *
      * @return $this
@@ -279,14 +197,6 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
         $this->max_periods = $max_periods;
 
         return $this;
-    }
-
-    /**
-     * @return Receipt|null
-     */
-    public function getCustomerReceipt(): ?Receipt
-    {
-        return $this->customer_receipt;
     }
 
     /**
