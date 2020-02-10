@@ -60,14 +60,6 @@ class Item
     protected $measurement_unit;
 
     /**
-     * @return string|null
-     */
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    /**
      * @param string $label
      *
      * @return $this
@@ -77,14 +69,6 @@ class Item
         $this->label = $label;
 
         return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getPrice(): ?float
-    {
-        return $this->price;
     }
 
     /**
@@ -100,14 +84,6 @@ class Item
     }
 
     /**
-     * @return float|null
-     */
-    public function getQuantity(): ?float
-    {
-        return $this->quantity;
-    }
-
-    /**
      * @param float $quantity
      *
      * @return $this
@@ -117,14 +93,6 @@ class Item
         $this->quantity = $quantity;
 
         return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getAmount(): ?float
-    {
-        return $this->amount;
     }
 
     /**
@@ -140,14 +108,6 @@ class Item
     }
 
     /**
-     * @return int|null
-     */
-    public function getVat(): ?int
-    {
-        return $this->vat;
-    }
-
-    /**
      * @param int $vat
      *
      * @return $this
@@ -157,14 +117,6 @@ class Item
         $this->vat = $vat;
 
         return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getMethod(): ?int
-    {
-        return $this->method;
     }
 
     /**
@@ -180,14 +132,6 @@ class Item
     }
 
     /**
-     * @return int|null
-     */
-    public function getObject(): ?int
-    {
-        return $this->object;
-    }
-
-    /**
      * @param int $object
      *
      * @return $this
@@ -197,14 +141,6 @@ class Item
         $this->object = $object;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMeasurementUnit(): ?string
-    {
-        return $this->measurement_unit;
     }
 
     /**
@@ -233,7 +169,7 @@ class Item
             'method'          => $this->method,
             'object'          => $this->object,
             'measurementUnit' => $this->measurement_unit,
-        ], function ($value) {
+        ], static function ($value) {
             return $value !== null;
         });
     }

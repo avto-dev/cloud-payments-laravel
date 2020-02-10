@@ -17,14 +17,6 @@ trait HasReceipt
     protected $receipt;
 
     /**
-     * @return Receipt
-     */
-    public function getReceipt(): Receipt
-    {
-        return $this->receipt;
-    }
-
-    /**
      * @param Receipt $receipt
      *
      * @return $this

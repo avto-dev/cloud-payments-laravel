@@ -66,14 +66,6 @@ class Receipt
     protected $provision_amount;
 
     /**
-     * @return Item[]
-     */
-    public function getItems(): array
-    {
-        return $this->items;
-    }
-
-    /**
      * @param Item $item
      *
      * @return $this
@@ -83,14 +75,6 @@ class Receipt
         $this->items[] = $item;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCalculationPlace(): ?string
-    {
-        return $this->calculation_place;
     }
 
     /**
@@ -106,14 +90,6 @@ class Receipt
     }
 
     /**
-     * @return int|null
-     */
-    public function getTaxationSystem(): ?int
-    {
-        return $this->taxation_system;
-    }
-
-    /**
      * @param int $taxation_system
      *
      * @return $this
@@ -123,14 +99,6 @@ class Receipt
         $this->taxation_system = $taxation_system;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
     }
 
     /**
@@ -146,14 +114,6 @@ class Receipt
     }
 
     /**
-     * @return string|null
-     */
-    public function getPhone(): ?string
-    {
-        return $this->phone;
-    }
-
-    /**
      * @param string $phone
      *
      * @return $this
@@ -163,14 +123,6 @@ class Receipt
         $this->phone = $phone;
 
         return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsBso(): ?bool
-    {
-        return $this->is_bso;
     }
 
     /**
@@ -186,14 +138,6 @@ class Receipt
     }
 
     /**
-     * @return float|null
-     */
-    public function getElectronicAmount(): ?float
-    {
-        return $this->electronic_amount;
-    }
-
-    /**
      * @param float $electronic_amount
      *
      * @return $this
@@ -203,14 +147,6 @@ class Receipt
         $this->electronic_amount = $electronic_amount;
 
         return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getAdvancePaymentAmount(): ?float
-    {
-        return $this->advance_payment_amount;
     }
 
     /**
@@ -226,14 +162,6 @@ class Receipt
     }
 
     /**
-     * @return float|null
-     */
-    public function getCreditAmount(): ?float
-    {
-        return $this->credit_amount;
-    }
-
-    /**
      * @param float $credit_amount
      *
      * @return $this
@@ -243,14 +171,6 @@ class Receipt
         $this->credit_amount = $credit_amount;
 
         return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getProvisionAmount(): ?float
-    {
-        return $this->provision_amount;
     }
 
     /**
@@ -288,7 +208,7 @@ class Receipt
                 'credit'         => \number_format((float) $this->credit_amount, 2, '.', ''),
                 'provision'      => \number_format((float) $this->provision_amount, 2, '.', ''),
             ],
-        ], function ($value) {
+        ], static function ($value) {
             return $value !== null;
         });
     }

@@ -23,7 +23,6 @@ class SubscriptionsCancelRequestBuilderTest extends AbstractRequestBuilderTestCa
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
         $this->request_builder->setId('some');
-        $this->assertSame('some', $this->request_builder->getId());
         $this->assertSame('{"Id":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
     }
 

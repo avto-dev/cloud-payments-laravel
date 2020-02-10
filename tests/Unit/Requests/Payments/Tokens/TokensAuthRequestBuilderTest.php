@@ -21,10 +21,7 @@ class TokensAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
 
     public function testToken(): void
     {
-        $this->assertNull($this->request_builder->getToken());
-
         $this->request_builder->setToken('some');
-        $this->assertSame('some', $this->request_builder->getToken());
 
         $this->assertSame('{"Token":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
     }

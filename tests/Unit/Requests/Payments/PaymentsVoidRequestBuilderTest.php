@@ -24,7 +24,6 @@ class PaymentsVoidRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('', $this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setTransactionId(1);
-        $this->assertSame(1, $this->request_builder->getTransactionId());
 
         $this->assertSame('{"TransactionId":1}', $this->request_builder->buildRequest()->getBody()->getContents());
     }

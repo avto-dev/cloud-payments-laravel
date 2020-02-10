@@ -53,8 +53,6 @@ class PaymentRequestTraitTest extends AbstractTestCase
 
         $this->request_builder->setJsonData(['some']);
 
-        $this->assertSame(['some'], $this->request_builder->getJsonData());
-
         $common_payment_params = $this->request_builder->getCommonPaymentParamsData();
 
         $this->assertArrayHasKey('JsonData', $common_payment_params);
@@ -67,8 +65,6 @@ class PaymentRequestTraitTest extends AbstractTestCase
         $method_postfix = Str::studly($property_name);
 
         $this->request_builder->{'set' . $method_postfix}($value);
-
-        $this->assertSame($value, $this->request_builder->{'get' . $method_postfix}());
 
         $this->assertSame($value, $this->request_builder->getCommonPaymentParamsData()[$method_postfix]);
     }
