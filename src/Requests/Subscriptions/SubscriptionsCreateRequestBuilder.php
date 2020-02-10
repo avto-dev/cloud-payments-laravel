@@ -4,8 +4,9 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
-use Carbon\Carbon;
+use DateTime;
 use Psy\Util\Json;
+use DateTimeInterface;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Receipts\Receipt;
@@ -72,7 +73,7 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @var Carbon|null
+     * @var DateTimeInterface|null
      */
     protected $start_date;
 
@@ -203,17 +204,13 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @param Carbon $start_date
+     * @param DateTimeInterface $start_date
      *
      * @return $this
      */
-    public function setStartDate(Carbon $start_date): self
+    public function setStartDate(DateTimeInterface $start_date): self
     {
-        if ($start_date instanceof Carbon) {
-            $start_date = clone $start_date;
-        }
-
-        $this->start_date = $start_date;
+        $this->start_date = clone $start_date;
 
         return $this;
     }
@@ -284,7 +281,7 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
             'Currency'            => $this->currency,
             'RequireConfirmation' => $this->require_confirmation,
             'StartDate'           => $this->start_date
-                ? $this->start_date->toRfc3339String()
+                ? $this->start_date->format(DateTime::RFC3339)
                 : null,
             'Interval'            => $this->interval,
             'Period'              => $this->period,
