@@ -8,11 +8,11 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Changed
 
-- This package was recreated [#2]
+- This package was recreated
 
 ### Removed
 
-- Removed getters
+- Removed getters [#2]
 
 ## v0.0.1
 
