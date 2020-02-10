@@ -24,7 +24,6 @@ class CardsAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('', $this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setName('some');
-        $this->assertSame('some', $this->request_builder->getName());
 
         $this->assertSame('{"Name":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
     }
@@ -34,7 +33,6 @@ class CardsAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('', $this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setCardCryptogramPacket('some');
-        $this->assertSame('some', $this->request_builder->getCardCryptogramPacket());
 
         $this->assertSame(
             '{"CardCryptogramPacket":"some"}',

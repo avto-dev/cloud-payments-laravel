@@ -20,28 +20,31 @@ class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
      */
     protected $request_builder;
 
-    public function testFields(): void
+    public function testTransactionId(): void
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setTransactionId(123);
-        $this->assertSame(123, $this->request_builder->getTransactionId());
 
         $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->assertArrayHasKey('TransactionId', $data);
         $this->assertSame(123, $data['TransactionId']);
+    }
 
+    public function testAmount(): void
+    {
         $this->request_builder->setAmount(32.1);
-        $this->assertSame(32.1, $this->request_builder->getAmount());
 
         $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->assertArrayHasKey('Amount', $data);
         $this->assertSame(32.1, $data['Amount']);
+    }
 
+    public function testJsonData(): void
+    {
         $this->request_builder->setJsonData(['some']);
-        $this->assertSame(['some'], $this->request_builder->getJsonData());
 
         $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
 

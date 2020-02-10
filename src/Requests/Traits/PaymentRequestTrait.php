@@ -67,16 +67,6 @@ trait PaymentRequestTrait
     /**
      * Required.
      *
-     * @return float
-     */
-    public function getAmount(): float
-    {
-        return $this->amount;
-    }
-
-    /**
-     * Required.
-     *
      * @param float $amount
      *
      * @return $this
@@ -86,16 +76,6 @@ trait PaymentRequestTrait
         $this->amount = $amount;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return string
-     */
-    public function getCurrency(): string
-    {
-        return $this->currency;
     }
 
     /**
@@ -115,16 +95,6 @@ trait PaymentRequestTrait
     /**
      * Required.
      *
-     * @return string
-     */
-    public function getIpAddress(): string
-    {
-        return $this->ip_address;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $ip_address
      *
      * @return $this
@@ -134,14 +104,6 @@ trait PaymentRequestTrait
         $this->ip_address = $ip_address;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getInvoiceId(): ?string
-    {
-        return $this->invoice_id;
     }
 
     /**
@@ -157,14 +119,6 @@ trait PaymentRequestTrait
     }
 
     /**
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
      * @param string $description
      *
      * @return $this
@@ -174,14 +128,6 @@ trait PaymentRequestTrait
         $this->description = $description;
 
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
     }
 
     /**
@@ -199,16 +145,6 @@ trait PaymentRequestTrait
     /**
      * Required if subscription or payment token needed.
      *
-     * @return string|null
-     */
-    public function getAccountId(): ?string
-    {
-        return $this->account_id;
-    }
-
-    /**
-     * Required if subscription or payment token needed.
-     *
      * @param string $account_id
      *
      * @return $this
@@ -218,19 +154,6 @@ trait PaymentRequestTrait
         $this->account_id = $account_id;
 
         return $this;
-    }
-
-    /**
-     * Any other data that will be associated with the transaction, including instructions for creating a subscription
-     * or generating an online check. We have reserved the names of the following parameters and display their contents
-     * in the registry of operations uploaded to the Personal Account: name, firstName, middleName, lastName, nick,
-     * phone, address, comment, birthDate.
-     *
-     * @return array<mixed>|null
-     */
-    public function getJsonData(): ?array
-    {
-        return $this->json_data;
     }
 
     /**

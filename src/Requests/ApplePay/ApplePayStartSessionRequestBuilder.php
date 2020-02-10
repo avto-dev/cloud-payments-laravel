@@ -19,14 +19,6 @@ class ApplePayStartSessionRequestBuilder extends AbstractRequestBuilder
     protected $validation_url;
 
     /**
-     * @return string
-     */
-    public function getValidationUrl(): string
-    {
-        return $this->validation_url;
-    }
-
-    /**
      * @param string $validation_url
      *
      * @return ApplePayStartSessionRequestBuilder

@@ -23,7 +23,6 @@ class SubscriptionsFindRequestBuilderTest extends AbstractRequestBuilderTestCase
     {
         $this->assertEmpty($this->request_builder->buildRequest()->getBody()->getContents());
         $this->request_builder->setAccountId('some');
-        $this->assertSame('some', $this->request_builder->getAccountId());
         $this->assertSame('{"AccountId":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
     }
 

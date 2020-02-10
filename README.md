@@ -23,6 +23,125 @@ $ composer require avto-dev/cloud-payments-laravel
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
 
+## Configuration
+
+> You can find laravel framework integration [here](#frameworks-integration)
+
+For client configuration use `Config` instance. It constructor require **Public ID** and **API Secret**
+that you can find in ClodPayments personal area.
+
+```php
+use AvtoDev\CloudPayments\Config;
+
+$config = new Config('pk_some_key', 'some_api_key');
+```
+
+## Usage
+
+Select one of [requset builders](#request-builders)
+
+```php
+$request_builder = new CardsAuthRequestBuilder;
+```
+
+Set all necessary parameters through the setters
+
+```php
+$request_builder->setAccountId('some_id');
+$request_builder->setName('name');
+```
+
+Get PSR7 requset
+
+```php
+use Psr\Http\Message\RequestInterface;
+
+/** @var RequestInterface $request **/
+$request = $request_builder->buildRequest();
+```
+
+Set up client, and send the request
+
+```php
+use AvtoDev\CloudPayments\Config;
+use AvtoDev\CloudPayments\Clinet;
+use GuzzleHttp\Client as GuzzleClient;
+use Psr\Http\Message\ResponseInterface;
+
+$clinet = new Client(new GuzzleClient, new Config('public_id', 'api_key'));
+
+/** @var ResponseInterface $response **/
+$response = $client->send($request);
+```
+
+## Api client
+
+### Construct
+
+Constructor requires any `GuzzleHttp\ClientInterface` instance and `Config` instance
+
+```php
+use AvtoDev\CloudPayments\Client;
+use GuzzleHttp\Client as GuzzleClient;
+
+$client = new Client(new GuzzleClient, $config);
+```
+
+### Send
+
+This method allows to send any `Psr\Http\Message\RequestInterface` and returns only `Psr\Http\Message\ResponseInterface`,
+that allow you to build own requests as you want or use one of provided requests builders. 
+
+This client does only one thing: authorizes requests for CloudPayments and sends them.
+
+```php
+use GuzzleHttp\Psr7\Request;
+
+$request = new Request('POST','https://api',[],'{"foo":"bar"}');
+
+$response = $client->send($request);
+```
+
+## Request builders
+
+Supported builders:
+
+Builder | Description | Documentation link
+:----- | :---------- | :----:
+`TestRequestBuilder` | The method to test the interaction with the API | [Link][method_test_doc]
+`CardsAuthRequestBuilder` | The method to make a payment by a cryptogram | [Link][method_payment_by_cryptogram]
+`CardsChargeRequestBuilder` | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram]
+`CardsPost3DsRequestBuilder` | 3-D Secure Processing | [Link][method_payment_3ds]
+`TokensAuthRequestBuilder` | The method to make a payment by a token | [Link][method_payment_token]
+`TokensChargeRequestBuilder` | The method to make a payment by a token. Charge only | [Link][method_payment_token] 
+`PaymentsConfirmRequestBuilder` | Payment Confirmation | [Link][method_payment_confirm]
+`PaymentsVoidRequestBuilder` | Payment Cancellation | [Link][method_payment_cancel]
+`SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments | [Link][method_subscription_create]
+`SubscriptionsGetRequestBuilder` | Subscription Details | [Link][method_subscription_get]
+`SubscriptionsFindRequestBuilder` | Subscriptions Search | [Link][method_subscription_find]
+`SubscriptionsUpdateRequestBuilder` | Recurrent Payments Subscription Change | [Link][method_subscription_update]
+`SubscriptionsCancelRequestBuilder` | Subscription on Recurrent Payments Cancellation | [Link][method_subscription_cancel]
+
+> How to get [card cryptogram packet](https://developers.cloudpayments.ru/#skript-checkout)?
+
+### Idempotency
+
+**Idempotency** is an ability of API to produce the same result as the first one without re-processing in case of repeated requests. That means you can send several requests to the system with the same identifier, and only one request will be processed. All the responses will be identical. Thus the protection against network errors is implemented which can lead to creation of duplicate records and actions.
+
+To enable idempotency, it is necessary to call `setRequestId('request_id')` method with a unique identifier in API request. Generation of request identifier remains on your side - it can be a guid, a combination of an order number, date and amount, or other values of your choice. Each new request that needs to be processed must include new `request_id` value. The processed result is stored in the system for 1 hour.
+
+[method_test_doc]:https://developers.cloudpayments.ru/en/#test-method
+[method_payment_by_cryptogram]:https://developers.cloudpayments.ru/en/#payment-by-a-cryptogram
+[method_payment_3ds]:https://developers.cloudpayments.ru/en/#3-d-secure-processing
+[method_payment_token]:https://developers.cloudpayments.ru/en/#payment-by-a-token-recurring
+[method_payment_confirm]:https://developers.cloudpayments.ru/en/#payment-confirmation
+[method_payment_cancel]:https://developers.cloudpayments.ru/en/#payment-cancellation
+[method_subscription_create]:https://developers.cloudpayments.ru/en/#creation-of-subscriptions-on-recurrent-payments
+[method_subscription_get]:https://developers.cloudpayments.ru/en/#subscription-details
+[method_subscription_find]:https://developers.cloudpayments.ru/en/#subscriptions-search
+[method_subscription_update]:https://developers.cloudpayments.ru/en/#recurrent-payments-subscription-change
+[method_subscription_cancel]:https://developers.cloudpayments.ru/en/#subscription-on-recurrent-payments-cancellation
+
 ## Frameworks integration
 
 ### Laravel 5
@@ -36,224 +155,39 @@ Laravel 5.5 and above uses Package Auto-Discovery, so doesn't require you to man
 ]
 ```
 
+#### Laravel configuration
 
-## Usage
-
-### How to get a client instance
-
-If using Laravel framework, then you can get an instance of `ClientInterface` using `make` method to resolve.
-
-```php
-$client = $this->app->make(AvtoDev\CloudPayments\Client\ClientInterface::class);
-```
-
-You can send a request using the `send` method:
+Service provider pick configuration from `services.cloud_payments` config. So you need to put it into
+`config/services.php` file.  
+For example:
 
 ```php
-$client->send($request);
-```
-
-Where `$request` is an instance of `RequestInterface`.
-
-You can also call the `send` method on the `RequestInterface` instance.
-Before that, you must call the `setClient` method on the `RequestInterface` with `ClientInterface`
-
-```php
-$request->setClient($client)->send();
-```
-
-You can choose the way you like.
-
-### How to create a request
-
-List of available requests: 
-
-#### Cryptogram payment
-
-[Cryptogram payment docs here](https://developers.cloudpayments.ru/#oplata-po-kriptogramme).
-
-`CryptogramPaymentOneStepRequest` - for one-step payment;
-
-`CryptogramPaymentTwoStepRequest` - for two-step payment.
-
-Creating and sending a request:
-
-```php
-<?php
-
-use AvtoDev\CloudPayments\Client\ClientInterface;
-use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
-use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentTwoStepRequest;
-use AvtoDev\CloudPayments\Message\Response\Cryptogram3dSecureAuthRequiredResponse;
-use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
-use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionRejectedResponse;
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
-
-/** @var ClientInterface $client */
-$client = $this->app->make(ClientInterface::class);
-
-$request = CryptogramPaymentOneStepRequest::create();
-/*
-or we can also use:
-
-$request = new CryptogramPaymentTwoStepRequest;
-*/
-
-$request
-    ->getModel()
-    ->setAmount(100.0)
-    ->setCurrency('RUB')
-    ->setIpAddress('127.0.0.1')
-    ->setName('CARDHOLDER NAME')
-    ->setCardCryptogramPacket('CARD_CRYPTOGRAM_PACKET');
-
-/** @var InvalidRequestResponse|Cryptogram3dSecureAuthRequiredResponse|CryptogramTransactionRejectedResponse|CryptogramTransactionAcceptedResponse $response */
-$response = $request->setClient($client)->send();
-```
-Before calling the `send` method to send a request, we must fill out the request data model. To do that, call the `getModel` method on `RequestInterface` and use setters to set values. Use autocomplete of your IDE for to access setters.
-
-The `$response` must be an instance of one of the classes: `InvalidRequestResponse`, `Cryptogram3dSecureAuthRequiredResponse`, `CryptogramTransactionRejectedResponse`, `CryptogramTransactionAcceptedResponse`
-
-The `$response` (an instance of `ResponseInterface`) also has its own data model. Use the `getModel` method and getters to access the data.
-
-
-Checking the type of response and accessing the response data model fields:
-```php
-<?php
-
-use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
-
-if ($response instanceof CryptogramTransactionAcceptedResponse) {
-    $transaction_id = $response->getModel()->getTransactionId();
-    $status_code = $response->getModel()->getStatusCode();
-    $token = $response->getModel()->getToken();
-}
-```
-
-#### 3-D Secure Processing
-
-[3-D Secure Processing docs here](https://developers.cloudpayments.ru/#obrabotka-3-d-secure).
-
-`CompletionOf3dSecureRequest` - for to complete the 3-D Secure payment.
-
-Possible answers: `InvalidRequestResponse`, `Cryptogram3dSecureAuthRequiredResponse`, `CryptogramTransactionRejectedResponse`, `CryptogramTransactionAcceptedResponse`
-
-#### Token Payment
-
-[Token Payment docs here](https://developers.cloudpayments.ru/#oplata-po-tokenu-rekarring).
-
-
-`TokenPaymentOneStepRequest` - for one-step payment;
-`TokenPaymentTwoStepRequest` - for two-step payment.
-
-Possible answers: `InvalidRequestResponse`, `CryptogramTransactionRejectedResponse`, `CryptogramTransactionAcceptedResponse`
-
-#### Cancel payment
-
-[Cancel payment docs here](https://developers.cloudpayments.ru/#otmena-oplaty).
-
-`CancelPaymentRequest` - сancel payment for two-step payment request
-
-Possible answers: `InvalidRequestResponse`, `SuccessResponse`
-
-#### Refund payment
-
-[Refund payment docs here](https://developers.cloudpayments.ru/#vozvrat-deneg).
-
-`RefundPaymentRequest` - refund for payment made
-
-Possible answers: `InvalidRequestResponse`, `RefundPaymentResponse`
-
-#### Create a recurring payment subscription
-
-[Create a recurring payment subscription docs here](https://developers.cloudpayments.ru/#sozdanie-podpiski-na-rekurrentnye-platezhi).
-
-`CreateSubscriptionRequest` - creating a subscription for payments that will be made in the future
-
-Possible answers: `InvalidRequestResponse`, `SubscriptionResponse`
-
-#### Request Subscription Information
-
-[Request Subscription Information docs here](https://developers.cloudpayments.ru/#zapros-informatsii-o-podpiske).
-
-`GetSubscriptionRequest`
-
-Possible answers: `InvalidRequestResponse`, `SubscriptionResponse`
-
-#### Search Subscriptions
-
-[Search Subscriptions docs here](https://developers.cloudpayments.ru/#poisk-podpisok).
-
-`FindSubscriptionRequest`
-
-Possible answers: `InvalidRequestResponse`, `SubscriptionsResponse`
-
-#### Change subscription
-
-[Change subscription docs here](https://developers.cloudpayments.ru/#izmenenie-podpiski-na-rekurrentnye-platezhi).
-
-`UpdateSubscriptionRequest`
-
-Possible answers: `InvalidRequestResponse`, `SubscriptionResponse`
-
-#### Cancel subscription
-
-[Cancel subscription docs here](https://developers.cloudpayments.ru/#otmena-podpiski-na-rekurrentnye-platezhi).
-
-`CancelSubscriptionRequest`
-
-
-Possible answers: `InvalidRequestResponse`, `SuccessResponse`
-
-#### Usage example without Laravel framework:
-
-```php
-<?php
-
-use GuzzleHttp\Client as GuzzleHttpClient;
-use AvtoDev\CloudPayments\Client\Client;
-use AvtoDev\CloudPayments\Message\Request\CryptogramPaymentOneStepRequest;
-use AvtoDev\CloudPayments\Message\Response\CryptogramTransactionAcceptedResponse;
-use AvtoDev\CloudPayments\Message\Response\InvalidRequestResponse;
-
-$public_key  = '';
-$private_key = '';
-
-$client = new Client(
-    new GuzzleHttpClient(),
-    $public_key,
-    $private_key
-);
-
-$request = CryptogramPaymentOneStepRequest::create();
-$request
-    ->getModel()
-    ->setAmount(100.0)
-    ->setCurrency('RUB')
-    ->setIpAddress('127.0.0.1')
-    ->setName('CARDHOLDER NAME')
-    ->setCardCryptogramPacket('CARD_CRYPTOGRAM_PACKET');
-
-$response = $request->setClient($client)->send();
-
-if ($response instanceof CryptogramTransactionAcceptedResponse) {
-    $transaction_id = $response->getModel()->getTransactionId();
-} elseif ($response instanceof InvalidRequestResponse) {
-    $error_message = $response->getMessage();
-}
-```
-
-How to get [CARD_CRYPTOGRAM_PACKET](https://developers.cloudpayments.ru/#skript-checkout)?
-
-### Testing
+return [
+    // ...
+    /*
+    |--------------------------------------------------------------------------
+    | CloudPayments Settings
+    |--------------------------------------------------------------------------
+    | - `public_id` (string) - Public ID  (You can find it in personal area)
+    | - `api_key`   (string) - API Secret (You can find it in personal area)
+    |
+    */
+    'cloud_payments' => [
+        'public_id' => env('CLOUD_PAYMENTS_PUBLIC_ID', 'some id'),
+        'api_key'   => env('CLOUD_PAYMENTS_API_KEY', 'some api key'),
+    ],
+];
+``` 
+
+## Testing
 
 For package testing we use `phpunit` framework. Just write into your terminal:
 
 ```shell
 $ git clone ... && cd $_
 $ make build
-$ make composer-install
-$ make unit-tests
+$ make install
+$ make test
 ```
 
 ## Changes log

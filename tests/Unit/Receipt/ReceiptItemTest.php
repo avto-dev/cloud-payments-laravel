@@ -24,7 +24,7 @@ class ReceiptItemTest extends AbstractTestCase
         $this->receipt_item = new Item;
     }
 
-    public function testGettersAndSetters(): void
+    public function testSetters(): void
     {
         $properties = [
             'label'           => Str::random(),
@@ -47,11 +47,8 @@ class ReceiptItemTest extends AbstractTestCase
         $method_postfix = Str::studly($property_name);
 
         $this->assertTrue(\method_exists($this->receipt_item, 'set' . $method_postfix));
-        $this->assertTrue(\method_exists($this->receipt_item, 'get' . $method_postfix));
 
         $this->receipt_item->{'set' . $method_postfix}($value);
-
-        $this->assertSame($value, $this->receipt_item->{'get' . $method_postfix}());
 
         $this->assertArrayHasKey($property_name, $this->receipt_item->toArray());
 

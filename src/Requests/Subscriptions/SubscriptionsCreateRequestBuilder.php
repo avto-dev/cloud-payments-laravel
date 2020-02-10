@@ -105,16 +105,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return string|null
-     */
-    public function getToken(): ?string
-    {
-        return $this->token;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $token
      *
      * @return $this
@@ -124,16 +114,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->token = $token;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return string|null
-     */
-    public function getAccountId(): ?string
-    {
-        return $this->account_id;
     }
 
     /**
@@ -153,16 +133,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return string|null
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $description
      *
      * @return $this
@@ -172,16 +142,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->description = $description;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
     }
 
     /**
@@ -201,16 +161,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return float|null
-     */
-    public function getAmount(): ?float
-    {
-        return $this->amount;
-    }
-
-    /**
-     * Required.
-     *
      * @param float $amount
      *
      * @return $this
@@ -220,16 +170,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->amount = $amount;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
     }
 
     /**
@@ -249,16 +189,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return bool|null
-     */
-    public function getRequireConfirmation(): ?bool
-    {
-        return $this->require_confirmation;
-    }
-
-    /**
-     * Required.
-     *
      * @param bool $require_confirmation
      *
      * @return $this
@@ -268,16 +198,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->require_confirmation = $require_confirmation;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return Carbon|null
-     */
-    public function getStartDate(): ?Carbon
-    {
-        return $this->start_date;
     }
 
     /**
@@ -301,16 +221,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return string|null
-     */
-    public function getInterval(): ?string
-    {
-        return $this->interval;
-    }
-
-    /**
-     * Required.
-     *
      * @param string $interval
      *
      * @return $this
@@ -320,16 +230,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->interval = $interval;
 
         return $this;
-    }
-
-    /**
-     * Required.
-     *
-     * @return int|null
-     */
-    public function getPeriod(): ?int
-    {
-        return $this->period;
     }
 
     /**
@@ -347,14 +247,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
-     * @return int|null
-     */
-    public function getMaxPeriods(): ?int
-    {
-        return $this->max_periods;
-    }
-
-    /**
      * @param int $max_periods
      *
      * @return $this
@@ -364,14 +256,6 @@ class SubscriptionsCreateRequestBuilder extends AbstractRequestBuilder
         $this->max_periods = $max_periods;
 
         return $this;
-    }
-
-    /**
-     * @return Receipt|null
-     */
-    public function getCustomerReceipt(): ?Receipt
-    {
-        return $this->customer_receipt;
     }
 
     /**

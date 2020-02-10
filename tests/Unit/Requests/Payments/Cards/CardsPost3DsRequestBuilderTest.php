@@ -24,7 +24,6 @@ class CardsPost3DsRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('', $this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setTransactionId(1);
-        $this->assertSame(1, $this->request_builder->getTransactionId());
 
         $this->assertSame('{"TransactionId":1}', $this->request_builder->buildRequest()->getBody()->getContents());
     }
@@ -34,7 +33,6 @@ class CardsPost3DsRequestBuilderTest extends AbstractRequestBuilderTestCase
         $this->assertSame('', $this->request_builder->buildRequest()->getBody()->getContents());
 
         $this->request_builder->setPaRes('some');
-        $this->assertSame('some', $this->request_builder->getPaRes());
 
         $this->assertSame('{"PaRes":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
     }

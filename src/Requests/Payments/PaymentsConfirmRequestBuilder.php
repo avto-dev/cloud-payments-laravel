@@ -40,16 +40,6 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return int
-     */
-    public function getTransactionId(): int
-    {
-        return $this->transaction_id;
-    }
-
-    /**
-     * Required.
-     *
      * @param int $transaction_id
      *
      * @return $this
@@ -64,16 +54,6 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     /**
      * Required.
      *
-     * @return float
-     */
-    public function getAmount(): float
-    {
-        return $this->amount;
-    }
-
-    /**
-     * Required.
-     *
      * @param float $amount
      *
      * @return $this
@@ -83,14 +63,6 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
         $this->amount = $amount;
 
         return $this;
-    }
-
-    /**
-     * @return array<mixed>
-     */
-    public function getJsonData(): array
-    {
-        return $this->json_data ?? [];
     }
 
     /**
