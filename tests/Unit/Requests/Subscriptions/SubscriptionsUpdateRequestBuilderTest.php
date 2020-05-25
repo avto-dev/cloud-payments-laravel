@@ -70,7 +70,7 @@ class SubscriptionsUpdateRequestBuilderTest extends AbstractRequestBuilderTestCa
         $this->request_builder->setCustomerReceipt($receipt);
 
         $this->assertSame(
-            Json::encode(['CustomerReceipt' => Json::encode($receipt->toArray())]),
+            Json::encode(['CustomerReceipt' => $receipt->toArray()]),
             $this->request_builder->buildRequest()->getBody()->getContents()
         );
     }

@@ -231,7 +231,7 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
             'Period'              => $this->period,
             'MaxPeriods'          => $this->max_periods,
             'CustomerReceipt'     => $this->customer_receipt instanceof Receipt
-                ? Json::encode($this->customer_receipt->toArray())
+                ? $this->customer_receipt->toArray()
                 : null,
         ];
     }
