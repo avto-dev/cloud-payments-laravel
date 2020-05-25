@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v0.1.0
+
+### Fixed
+
+- Remove json encoding from `CustomerReceipt` field in `SubscriptionsCreateRequestBuilder` and `SubscriptionsUpdateRequestBuilder` ([#7])
+
+[#7]: https://github.com/avto-dev/cloud-payments-laravel/issues/7
+
 ## v0.0.2
 
 ### Changed
