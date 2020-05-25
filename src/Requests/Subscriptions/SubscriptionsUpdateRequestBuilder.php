@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
 use DateTime;
-use Psy\Util\Json;
 use DateTimeInterface;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
@@ -231,7 +230,7 @@ class SubscriptionsUpdateRequestBuilder extends AbstractRequestBuilder
             'Period'              => $this->period,
             'MaxPeriods'          => $this->max_periods,
             'CustomerReceipt'     => $this->customer_receipt instanceof Receipt
-                ? Json::encode($this->customer_receipt->toArray())
+                ? $this->customer_receipt->toArray()
                 : null,
         ];
     }
