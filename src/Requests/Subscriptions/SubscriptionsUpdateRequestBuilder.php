@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace AvtoDev\CloudPayments\Requests\Subscriptions;
 
 use DateTime;
-use Psy\Util\Json;
 use DateTimeInterface;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
