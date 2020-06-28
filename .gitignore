@@ -18,4 +18,3 @@ composer.lock
 clover-file
 .DS_Store
 *.cache
-.php_cs.cache

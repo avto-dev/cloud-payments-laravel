@@ -13,10 +13,10 @@ use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Client as GuzzleClient;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Testing\TestCase;
 use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
-use AvtoDev\Tests\Traits\CreatesApplicationTrait;
 use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 
 /**
@@ -24,8 +24,6 @@ use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
  */
 class ServiceProviderTest extends TestCase
 {
-    use CreatesApplicationTrait;
-
     /**
      * @var UrlsMockHandler
      */
@@ -35,6 +33,21 @@ class ServiceProviderTest extends TestCase
      * @var array
      */
     protected $config;
+
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        /** @var \Illuminate\Foundation\Application $app */
+        $app = require __DIR__ . '/../../../../vendor/laravel/laravel/bootstrap/app.php';
+
+        $app->make(Kernel::class)->bootstrap();
+
+        return $app;
+    }
 
     protected function setUp(): void
     {
