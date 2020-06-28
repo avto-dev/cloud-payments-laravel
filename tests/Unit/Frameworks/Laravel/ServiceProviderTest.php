@@ -34,21 +34,6 @@ class ServiceProviderTest extends TestCase
      */
     protected $config;
 
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
-    {
-        /** @var \Illuminate\Foundation\Application $app */
-        $app = require __DIR__ . '/../../../../vendor/laravel/laravel/bootstrap/app.php';
-
-        $app->make(Kernel::class)->bootstrap();
-
-        return $app;
-    }
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -68,6 +53,21 @@ class ServiceProviderTest extends TestCase
             GuzzleClient::class,
             new GuzzleClient(['handler' => HandlerStack::create($this->handler)])
         );
+    }
+
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        /** @var \Illuminate\Foundation\Application $app */
+        $app = require __DIR__ . '/../../../../vendor/laravel/laravel/bootstrap/app.php';
+
+        $app->make(Kernel::class)->bootstrap();
+
+        return $app;
     }
 
     public function testRegister(): void
