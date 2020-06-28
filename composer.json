@@ -8,18 +8,18 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": ">=7.1.3",
+        "php": "^7.2",
         "ext-json": "*",
         "guzzlehttp/guzzle": "~6.4.1",
         "guzzlehttp/psr7": "^1.4",
         "psr/http-client": "~1.0",
-        "tarampampam/wrappers-php": "^1.2"
+        "tarampampam/wrappers-php": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9",
-        "laravel/laravel": "^5.5 || ^6.0",
+        "laravel/laravel": "^5.5 || ~6.0 || ~7.0",
         "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit": "^6.4 || ~7.5",
+        "phpunit/phpunit": "~7.5",
         "tarampampam/guzzle-url-mock": "^1.1"
     },
     "autoload": {
@@ -55,9 +55,5 @@
     "support": {
         "issues": "https://github.com/avto-dev/cloud-payments-laravel/issues",
         "source": "https://github.com/avto-dev/cloud-payments-laravel"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "prefer-stable": true
+    }
 }

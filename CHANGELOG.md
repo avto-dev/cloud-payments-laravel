@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v1.0.0
+
+### Changed
+
+- Maximal `illuminate/*` packages version now is `7.*`
+- CI completely moved from "Travis CI" to "Github Actions" _(travis builds disabled)_
+
 ## v0.1.0
 
 ### Fixed

@@ -5,12 +5,12 @@
 # Cloud Payments PHP-client
 
 [![Version][badge_packagist_version]][link_packagist]
-[![Version][badge_php_version]][link_packagist]
+[![PHP Version][badge_php_version]][link_packagist]
 [![Build Status][badge_build_status]][link_build_status]
 [![Coverage][badge_coverage]][link_coverage]
 [![Downloads count][badge_downloads_count]][link_packagist]
-[![License][badge_license]][link_license] 
- 
+[![License][badge_license]][link_license]
+
 The package provides easy way to use [Cloud Payments API](https://developers.cloudpayments.ru/#api).
 
 ## Install
@@ -18,7 +18,7 @@ The package provides easy way to use [Cloud Payments API](https://developers.clo
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/cloud-payments-laravel
+$ composer require avto-dev/cloud-payments-laravel "^1.0"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
@@ -41,12 +41,14 @@ $config = new Config('pk_some_key', 'some_api_key');
 Select one of [requset builders](#request-builders):
 
 ```php
-$request_builder = new CardsAuthRequestBuilder;
+$request_builder = new \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder;
 ```
 
 Set all necessary parameters through the setters:
 
 ```php
+/** @var $request_builder \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder */
+
 $request_builder->setAccountId('some_id');
 $request_builder->setName('name');
 ```
@@ -54,23 +56,21 @@ $request_builder->setName('name');
 Get PSR7 request:
 
 ```php
-use Psr\Http\Message\RequestInterface;
+/** @var \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder $request_builder */
+/** @var \Psr\Http\Message\RequestInterface $request */
 
-/** @var RequestInterface $request **/
 $request = $request_builder->buildRequest();
 ```
 
 Set up client, and send the request:
 
 ```php
-use AvtoDev\CloudPayments\Config;
-use AvtoDev\CloudPayments\Clinet;
-use GuzzleHttp\Client as GuzzleClient;
-use Psr\Http\Message\ResponseInterface;
+$client = new \AvtoDev\CloudPayments\Client(
+    new \GuzzleHttp\Client,
+    new \AvtoDev\CloudPayments\Config('public_id', 'api_key')
+);
 
-$clinet = new Client(new GuzzleClient, new Config('public_id', 'api_key'));
-
-/** @var ResponseInterface $response **/
+/** @var \Psr\Http\Message\RequestInterface $request */
 $response = $client->send($request);
 ```
 
@@ -81,6 +81,8 @@ $response = $client->send($request);
 Constructor requires any `GuzzleHttp\ClientInterface` instance and `Config` instance
 
 ```php
+/** @var \AvtoDev\CloudPayments\Config $config */
+
 use AvtoDev\CloudPayments\Client;
 use GuzzleHttp\Client as GuzzleClient;
 
@@ -90,15 +92,14 @@ $client = new Client(new GuzzleClient, $config);
 ### Sending
 
 This method allows to send any `Psr\Http\Message\RequestInterface` and returns only `Psr\Http\Message\ResponseInterface`,
-that allow you to build own requests as you want or use one of provided requests builders. 
+that allow you to build own requests as you want or use one of provided requests builders.
 
 This client does only one thing: authorizes requests for CloudPayments and sends them.
 
 ```php
-use GuzzleHttp\Psr7\Request;
+$request = new \GuzzleHttp\Psr7\Request('POST','https://api',[],'{"foo":"bar"}');
 
-$request = new Request('POST','https://api',[],'{"foo":"bar"}');
-
+/** @var \AvtoDev\CloudPayments\Client $client */
 $response = $client->send($request);
 ```
 
@@ -106,21 +107,21 @@ $response = $client->send($request);
 
 Supported builders:
 
-Builder | Description | Documentation link
-:----- | :---------- | :----:
-`TestRequestBuilder` | The method to test the interaction with the API | [Link][method_test_doc]
-`CardsAuthRequestBuilder` | The method to make a payment by a cryptogram | [Link][method_payment_by_cryptogram]
-`CardsChargeRequestBuilder` | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram]
-`CardsPost3DsRequestBuilder` | 3-D Secure Processing | [Link][method_payment_3ds]
-`TokensAuthRequestBuilder` | The method to make a payment by a token | [Link][method_payment_token]
-`TokensChargeRequestBuilder` | The method to make a payment by a token. Charge only | [Link][method_payment_token] 
-`PaymentsConfirmRequestBuilder` | Payment Confirmation | [Link][method_payment_confirm]
-`PaymentsVoidRequestBuilder` | Payment Cancellation | [Link][method_payment_cancel]
-`SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments | [Link][method_subscription_create]
-`SubscriptionsGetRequestBuilder` | Subscription Details | [Link][method_subscription_get]
-`SubscriptionsFindRequestBuilder` | Subscriptions Search | [Link][method_subscription_find]
-`SubscriptionsUpdateRequestBuilder` | Recurrent Payments Subscription Change | [Link][method_subscription_update]
-`SubscriptionsCancelRequestBuilder` | Subscription on Recurrent Payments Cancellation | [Link][method_subscription_cancel]
+Builder                             | Description                                          | Documentation link
+:---------------------------------- | :--------------------------------------------------- | :-------------------------:
+`TestRequestBuilder`                | The method to test the interaction with the API      | [Link][method_test_doc]
+`CardsAuthRequestBuilder`           | The method to make a payment by a cryptogram         | [Link][method_payment_by_cryptogram]
+`CardsChargeRequestBuilder`         | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram]
+`CardsPost3DsRequestBuilder`        | 3-D Secure Processing                                | [Link][method_payment_3ds]
+`TokensAuthRequestBuilder`          | The method to make a payment by a token              | [Link][method_payment_token]
+`TokensChargeRequestBuilder`        | The method to make a payment by a token. Charge only | [Link][method_payment_token]
+`PaymentsConfirmRequestBuilder`     | Payment Confirmation                                 | [Link][method_payment_confirm]
+`PaymentsVoidRequestBuilder`        | Payment Cancellation                                 | [Link][method_payment_cancel]
+`SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments      | [Link][method_subscription_create]
+`SubscriptionsGetRequestBuilder`    | Subscription Details                                 | [Link][method_subscription_get]
+`SubscriptionsFindRequestBuilder`   | Subscriptions Search                                 | [Link][method_subscription_find]
+`SubscriptionsUpdateRequestBuilder` | Recurrent Payments Subscription Change               | [Link][method_subscription_update]
+`SubscriptionsCancelRequestBuilder` | Subscription on Recurrent Payments Cancellation      | [Link][method_subscription_cancel]
 
 > How to get [card cryptogram packet](https://developers.cloudpayments.ru/#skript-checkout)?
 
@@ -157,9 +158,7 @@ Laravel 5.5 and above uses Package Auto-Discovery, so doesn't require you to man
 
 #### Laravel configuration
 
-Service provider pick configuration from `services.cloud_payments` config. So you need to put it into
-`config/services.php` file.  
-For example:
+Service provider pick configuration from `services.cloud_payments` config. So you need to put it into `config/services.php` file. For example:
 
 ```php
 return [
@@ -177,7 +176,7 @@ return [
         'api_key'   => env('CLOUD_PAYMENTS_API_KEY', 'some api key'),
     ],
 ];
-``` 
+```
 
 ## Testing
 
@@ -209,7 +208,7 @@ This is open-sourced software licensed under the [MIT License][link_license].
 
 [badge_packagist_version]:https://img.shields.io/packagist/v/avto-dev/cloud-payments-laravel.svg?maxAge=180
 [badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/cloud-payments-laravel.svg?longCache=true
-[badge_build_status]:https://travis-ci.org/avto-dev/cloud-payments-laravel.svg?branch=master
+[badge_build_status]:https://img.shields.io/github/workflow/status/avto-dev/cloud-payments-laravel/tests/master
 [badge_coverage]:https://img.shields.io/codecov/c/github/avto-dev/cloud-payments-laravel/master.svg?maxAge=60
 [badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/cloud-payments-laravel.svg?maxAge=180
 [badge_license]:https://img.shields.io/packagist/l/avto-dev/cloud-payments-laravel.svg?longCache=true
