@@ -32,14 +32,14 @@ class PaymentRequestTraitTest extends AbstractTestCase
     public function testRequiredGettersAndSetters(): void
     {
         $properties = [
-            'Amount'      => (float) random_int(0, 100),
+            'Amount'      => (float) \random_int(1, 100),
             'Currency'    => Str::random(),
             'IpAddress'   => Str::random(),
             'InvoiceId'   => Str::random(),
             'Description' => Str::random(),
             'AccountId'   => Str::random(),
             'Email'       => Str::random(),
-            //'JsonData'    => [Str::random()], testJsonData
+            //'JsonData'  => [Str::random()], testJsonData
         ];
 
         foreach ($properties as $key => $value) {

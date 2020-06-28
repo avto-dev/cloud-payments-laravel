@@ -5,12 +5,12 @@
 # Cloud Payments PHP-client
 
 [![Version][badge_packagist_version]][link_packagist]
-[![Version][badge_php_version]][link_packagist]
+[![PHP Version][badge_php_version]][link_packagist]
 [![Build Status][badge_build_status]][link_build_status]
 [![Coverage][badge_coverage]][link_coverage]
 [![Downloads count][badge_downloads_count]][link_packagist]
-[![License][badge_license]][link_license] 
- 
+[![License][badge_license]][link_license]
+
 The package provides easy way to use [Cloud Payments API](https://developers.cloudpayments.ru/#api).
 
 ## Install
@@ -66,7 +66,7 @@ Set up client, and send the request:
 
 ```php
 $client = new \AvtoDev\CloudPayments\Client(
-    new \GuzzleHttp\Client, 
+    new \GuzzleHttp\Client,
     new \AvtoDev\CloudPayments\Config('public_id', 'api_key')
 );
 
@@ -92,7 +92,7 @@ $client = new Client(new GuzzleClient, $config);
 ### Sending
 
 This method allows to send any `Psr\Http\Message\RequestInterface` and returns only `Psr\Http\Message\ResponseInterface`,
-that allow you to build own requests as you want or use one of provided requests builders. 
+that allow you to build own requests as you want or use one of provided requests builders.
 
 This client does only one thing: authorizes requests for CloudPayments and sends them.
 
@@ -114,7 +114,7 @@ Builder                             | Description                               
 `CardsChargeRequestBuilder`         | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram]
 `CardsPost3DsRequestBuilder`        | 3-D Secure Processing                                | [Link][method_payment_3ds]
 `TokensAuthRequestBuilder`          | The method to make a payment by a token              | [Link][method_payment_token]
-`TokensChargeRequestBuilder`        | The method to make a payment by a token. Charge only | [Link][method_payment_token] 
+`TokensChargeRequestBuilder`        | The method to make a payment by a token. Charge only | [Link][method_payment_token]
 `PaymentsConfirmRequestBuilder`     | Payment Confirmation                                 | [Link][method_payment_confirm]
 `PaymentsVoidRequestBuilder`        | Payment Cancellation                                 | [Link][method_payment_cancel]
 `SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments      | [Link][method_subscription_create]
@@ -176,7 +176,7 @@ return [
         'api_key'   => env('CLOUD_PAYMENTS_API_KEY', 'some api key'),
     ],
 ];
-``` 
+```
 
 ## Testing
 
