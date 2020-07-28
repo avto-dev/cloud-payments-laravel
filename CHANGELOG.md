@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v1.0.1
+
+### Fixed
+
+- Package version of `guzzlehttp/guzzle` from `~6.4.1` to `~6.1` [#10]
+
+[#10]:https://github.com/avto-dev/cloud-payments-laravel/issues/10
+
 ## v1.0.0
 
 ### Changed
