@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v1.1.0
+
+### Changed
+
+- Laravel 8 is supported
+- Minimal Laravel version now is `6.0` (Laravel `5.5` LTS got last security update August 30th, 2020)
+- Guzzle 7 (`guzzlehttp/guzzle`) is supported
+- Dependency `tarampampam/wrappers-php` version `~2.0` is supported
+
 ## v1.0.1
 
 ### Fixed

@@ -18,7 +18,7 @@ The package provides easy way to use [Cloud Payments API](https://developers.clo
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/cloud-payments-laravel "^1.0"
+$ composer require avto-dev/cloud-payments-laravel "^1.1"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
@@ -27,8 +27,7 @@ $ composer require avto-dev/cloud-payments-laravel "^1.0"
 
 > You can find laravel framework integration [here](#frameworks-integration)
 
-For client configuration use `Config` instance. It constructor require **Public ID** and **API Secret**
-that you can find in ClodPayments personal area.
+For client configuration use `Config` instance. Client constructor requires **Public ID** and **API Secret** that you can find in ClodPayments personal area.
 
 ```php
 use AvtoDev\CloudPayments\Config;
