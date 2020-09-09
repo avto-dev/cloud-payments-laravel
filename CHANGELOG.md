@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Changed
 
 - Laravel 8 is supported
+- Minimal Laravel version now is `6.0` (Laravel `5.5` LTS got last security update August 30th, 2020)
 - Guzzle 7 (`guzzlehttp/guzzle`) is supported
 - Dependency `tarampampam/wrappers-php` version `~2.0` is supported
 
