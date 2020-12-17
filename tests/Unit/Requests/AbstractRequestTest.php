@@ -12,7 +12,7 @@ use Psr\Http\Message\RequestInterface;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder
  */
 class AbstractRequestTest extends AbstractTestCase
 {
@@ -44,10 +44,6 @@ class AbstractRequestTest extends AbstractTestCase
         };
     }
 
-    /**
-     * @covers ::buildRequest
-     * @covers ::setRequestId
-     */
     public function testRequestId(): void
     {
         $request = $this->request_builder->buildRequest();
@@ -63,9 +59,6 @@ class AbstractRequestTest extends AbstractTestCase
         $this->assertSame($request_id, $request->getHeader('X-Request-ID')[0]);
     }
 
-    /**
-     * @covers ::buildRequest
-     */
     public function testUriResolve(): void
     {
         $request = $this->request_builder->buildRequest();
@@ -81,9 +74,6 @@ class AbstractRequestTest extends AbstractTestCase
         $this->assertSame('example.com', $request->getUri()->getHost());
     }
 
-    /**
-     * @covers ::buildRequest
-     */
     public function testBuildRequest(): void
     {
         $request = $this->request_builder->buildRequest();

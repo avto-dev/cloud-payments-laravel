@@ -28,9 +28,6 @@ abstract class AbstractRequestBuilderTestCase extends AbstractTestCase
         $this->uri             = $this->getUri();
     }
 
-    /**
-     * @covers ::getUri
-     */
     public function testUri(): void
     {
         $uri = $this->request_builder->buildRequest()->getUri();

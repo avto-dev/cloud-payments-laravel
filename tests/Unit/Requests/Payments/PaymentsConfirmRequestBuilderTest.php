@@ -11,7 +11,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder
  */
 class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
 {

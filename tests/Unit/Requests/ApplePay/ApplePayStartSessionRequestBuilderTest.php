@@ -12,7 +12,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder
  */
 class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
@@ -21,10 +21,6 @@ class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTestC
      */
     protected $request_builder;
 
-    /**
-     * @covers ::getRequestPayload
-     * @covers ::setValidationUrl
-     */
     public function testSetValidationUrl(): void
     {
         $request_builder = $this->getRequestBuilder();

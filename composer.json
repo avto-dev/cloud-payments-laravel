@@ -8,7 +8,7 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 || ^8.0",
         "ext-json": "*",
         "guzzlehttp/guzzle": "~6.1 || ~7.0",
         "guzzlehttp/psr7": "^1.4",
@@ -16,11 +16,11 @@
         "tarampampam/wrappers-php": "^1.5 || ~2.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.9",
         "laravel/laravel": "~6.0 || ~7.0 || ~8.0",
-        "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit": "^8.0",
-        "tarampampam/guzzle-url-mock": "^1.3"
+        "phpunit/phpunit": "^8.0 || ^9.3",
+        "tarampampam/guzzle-url-mock": "^1.3",
+        "fakerphp/faker": "^1.12",
+        "phpstan/phpstan": "~0.12.34"
     },
     "autoload": {
         "psr-4": {

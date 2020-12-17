@@ -10,7 +10,7 @@ use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensAuthRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\Tokens\TokensChargeRequestBuilder
  */
 class TokensChargeRequestBuilderTest extends TokensAuthRequestBuilderTest
 {
