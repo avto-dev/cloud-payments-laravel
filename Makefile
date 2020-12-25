@@ -32,7 +32,7 @@ test-cover: ## Execute php tests with coverage
 	docker-compose run --rm --user "0:0" -e 'XDEBUG_MODE=coverage' app sh -c 'docker-php-ext-enable xdebug && su $(shell whoami) -s /bin/sh -c "composer phpunit-cover"'
 
 shell: ## Start shell into container with php
-	docker-compose run $(RUN_APP_ARGS) app shAbstractRequestTest::testRequestId
+	docker-compose run $(RUN_APP_ARGS) app sh
 
 clean: ## Remove all dependencies and unimportant files
 	-rm -Rf ./composer.lock ./vendor ./coverage
