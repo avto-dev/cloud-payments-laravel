@@ -10,7 +10,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsFindRequestBuilder
  */
 class SubscriptionsFindRequestBuilderTest extends AbstractRequestBuilderTestCase
 {

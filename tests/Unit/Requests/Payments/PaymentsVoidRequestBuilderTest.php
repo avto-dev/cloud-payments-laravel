@@ -10,7 +10,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\PaymentsVoidRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\PaymentsVoidRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\PaymentsVoidRequestBuilder
  */
 class PaymentsVoidRequestBuilderTest extends AbstractRequestBuilderTestCase
 {

@@ -10,7 +10,7 @@ use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsAuthRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsChargeRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsChargeRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsChargeRequestBuilder
  */
 class CardsChargeRequestBuilderTest extends CardsAuthRequestBuilderTest
 {

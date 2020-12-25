@@ -9,7 +9,7 @@ use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Requests\TestRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\TestRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\TestRequestBuilder
  */
 class TestRequestBuilderTest extends AbstractRequestBuilderTestCase
 {

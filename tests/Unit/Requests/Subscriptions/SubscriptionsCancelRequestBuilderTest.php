@@ -10,7 +10,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsCancelRequestBuilder
  */
 class SubscriptionsCancelRequestBuilderTest extends AbstractRequestBuilderTestCase
 {

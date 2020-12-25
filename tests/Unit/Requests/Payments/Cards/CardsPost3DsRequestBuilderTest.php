@@ -10,7 +10,7 @@ use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder;
 
 /**
- * @coversDefaultClass \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\Cards\CardsPost3DsRequestBuilder
  */
 class CardsPost3DsRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
