@@ -77,6 +77,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
 
     /**
      * {@inheritdoc}
+     * @throws \JsonException
      */
     protected function getRequestPayload(): array
     {
@@ -86,7 +87,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
             'TransactionId' => $this->transaction_id,
             'Amount'        => $this->amount,
             'JsonData'      => $this->json_data !== null && $this->json_data !== []
-                ? \json_encode($this->json_data)
+                ? \json_encode($this->json_data, JSON_THROW_ON_ERROR)
                 : null,
         ];
     }

@@ -35,6 +35,8 @@ abstract class AbstractRequestBuilder
     }
 
     /**
+     * @throws \JsonException
+     *
      * @return RequestInterface
      */
     public function buildRequest(): RequestInterface
@@ -58,7 +60,7 @@ abstract class AbstractRequestBuilder
 
         if ($request_data !== []) {
             /** @var RequestInterface $request */
-            $request = $request->withBody(stream_for(\json_encode($request_data)));
+            $request = $request->withBody(stream_for(\json_encode($request_data,JSON_THROW_ON_ERROR)));
         }
 
         return $request;
