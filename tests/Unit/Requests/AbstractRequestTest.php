@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace Unit\Requests;
 
 use GuzzleHttp\Psr7\Uri;
-use Tarampampam\Wrappers\Json;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Message\RequestInterface;
@@ -80,7 +79,7 @@ class AbstractRequestTest extends AbstractTestCase
 
         $this->assertInstanceOf(RequestInterface::class, $request);
 
-        $this->assertSame($this->request_builder->params, Json::decode((string) $request->getBody()));
+        $this->assertSame($this->request_builder->params, \json_decode((string) $request->getBody(), true));
         $this->assertSame('application/json', $request->getHeader('Content-Type')[0]);
     }
 }

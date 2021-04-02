@@ -7,7 +7,6 @@ namespace AvtoDev\Tests\Unit\Requests\Subscriptions;
 use Carbon\Carbon;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Str;
-use Tarampampam\Wrappers\Json;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Receipts\Receipt;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
@@ -42,7 +41,7 @@ class SubscriptionsUpdateRequestBuilderTest extends AbstractRequestBuilderTestCa
         foreach ($fields as $field => $value) {
             $this->request_builder->{'set' . $field}($value);
 
-            $request_data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
+            $request_data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
             $this->assertArrayHasKey($field, $request_data);
             $this->assertSame($value, $request_data[$field]);
         }
@@ -55,7 +54,7 @@ class SubscriptionsUpdateRequestBuilderTest extends AbstractRequestBuilderTestCa
 
         $this->request_builder->setStartDate($carbon_now);
 
-        $request_data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
+        $request_data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
 
         $this->assertArrayHasKey('StartDate', $request_data);
 
@@ -70,7 +69,7 @@ class SubscriptionsUpdateRequestBuilderTest extends AbstractRequestBuilderTestCa
         $this->request_builder->setCustomerReceipt($receipt);
 
         $this->assertSame(
-            Json::encode(['CustomerReceipt' => $receipt->toArray()]),
+            \json_encode(['CustomerReceipt' => $receipt->toArray()]),
             $this->request_builder->buildRequest()->getBody()->getContents()
         );
     }

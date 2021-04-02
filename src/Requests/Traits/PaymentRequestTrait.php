@@ -4,9 +4,6 @@ declare(strict_types = 1);
 
 namespace AvtoDev\CloudPayments\Requests\Traits;
 
-use Tarampampam\Wrappers\Json;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
-
 trait PaymentRequestTrait
 {
     /**
@@ -174,8 +171,6 @@ trait PaymentRequestTrait
     }
 
     /**
-     * @throws JsonEncodeDecodeException
-     *
      * @return array<string, float|string>
      */
     protected function getCommonPaymentParams(): array
@@ -189,7 +184,7 @@ trait PaymentRequestTrait
             'AccountId'   => $this->account_id,
             'Email'       => $this->email,
             'JsonData'    => $this->json_data !== null && $this->json_data !== []
-                ? Json::encode($this->json_data)
+                ? \json_encode($this->json_data)
                 : null,
         ]);
     }

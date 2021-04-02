@@ -5,11 +5,9 @@ declare(strict_types = 1);
 namespace AvtoDev\CloudPayments\Requests\Payments;
 
 use GuzzleHttp\Psr7\Uri;
-use Tarampampam\Wrappers\Json;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 /**
  * @see https://developers.cloudpayments.ru/#podtverzhdenie-oplaty
@@ -79,8 +77,6 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
 
     /**
      * {@inheritdoc}
-     *
-     * @throws JsonEncodeDecodeException
      */
     protected function getRequestPayload(): array
     {
@@ -90,7 +86,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
             'TransactionId' => $this->transaction_id,
             'Amount'        => $this->amount,
             'JsonData'      => $this->json_data !== null && $this->json_data !== []
-                ? Json::encode($this->json_data)
+                ? \json_encode($this->json_data)
                 : null,
         ];
     }

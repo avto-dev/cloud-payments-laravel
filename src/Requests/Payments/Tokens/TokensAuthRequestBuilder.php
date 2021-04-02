@@ -9,7 +9,6 @@ use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
-use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
 /**
  * @see https://developers.cloudpayments.ru/#oplata-po-tokenu-rekarring
@@ -41,8 +40,6 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
 
     /**
      * {@inheritdoc}
-     *
-     * @throws JsonEncodeDecodeException
      */
     protected function getRequestPayload(): array
     {
