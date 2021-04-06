@@ -186,7 +186,7 @@ trait PaymentRequestTrait
             'AccountId'   => $this->account_id,
             'Email'       => $this->email,
             'JsonData'    => $this->json_data !== null && $this->json_data !== []
-                ? \json_encode($this->json_data,JSON_THROW_ON_ERROR)
+                ? \json_encode($this->json_data, JSON_THROW_ON_ERROR)
                 : null,
         ]);
     }

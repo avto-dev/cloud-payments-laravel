@@ -77,6 +77,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
 
     /**
      * {@inheritdoc}
+     *
      * @throws \JsonException
      */
     protected function getRequestPayload(): array
