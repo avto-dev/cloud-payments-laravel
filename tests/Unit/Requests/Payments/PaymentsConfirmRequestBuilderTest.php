@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace Unit\Requests\Payments;
 
 use GuzzleHttp\Psr7\Uri;
-use Tarampampam\Wrappers\Json;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder;
@@ -26,7 +25,7 @@ class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
 
         $this->request_builder->setTransactionId(123);
 
-        $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
+        $data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
 
         $this->assertArrayHasKey('TransactionId', $data);
         $this->assertSame(123, $data['TransactionId']);
@@ -36,7 +35,7 @@ class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
     {
         $this->request_builder->setAmount(32.1);
 
-        $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
+        $data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
 
         $this->assertArrayHasKey('Amount', $data);
         $this->assertSame(32.1, $data['Amount']);
@@ -46,7 +45,7 @@ class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
     {
         $this->request_builder->setJsonData(['some']);
 
-        $data = Json::decode($this->request_builder->buildRequest()->getBody()->getContents());
+        $data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
 
         $this->assertArrayHasKey('JsonData', $data);
         $this->assertSame('["some"]', $data['JsonData']);

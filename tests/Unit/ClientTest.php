@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Response;
 use AvtoDev\CloudPayments\Client;
 use AvtoDev\CloudPayments\Config;
 use AvtoDev\Tests\AbstractTestCase;
-use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
+use AvtoDev\GuzzleUrlMock\UrlsMockHandler;
 use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
 
 /**

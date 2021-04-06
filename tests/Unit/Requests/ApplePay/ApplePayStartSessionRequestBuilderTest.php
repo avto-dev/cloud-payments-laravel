@@ -6,7 +6,6 @@ namespace Unit\Requests\ApplePay;
 
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Str;
-use Tarampampam\Wrappers\Json;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\ApplePay\ApplePayStartSessionRequestBuilder;
@@ -29,7 +28,7 @@ class ApplePayStartSessionRequestBuilderTest extends AbstractRequestBuilderTestC
         $request = $request_builder->buildRequest();
 
         $this->assertJsonStringEqualsJsonString(
-            Json::encode(['ValidationUrl' => $validation_uri]),
+            \json_encode(['ValidationUrl' => $validation_uri]),
             $request->getBody()->getContents()
         );
     }

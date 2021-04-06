@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Testing\TestCase;
-use Tarampampam\GuzzleUrlMock\UrlsMockHandler;
+use AvtoDev\GuzzleUrlMock\UrlsMockHandler;
 use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 
 /**

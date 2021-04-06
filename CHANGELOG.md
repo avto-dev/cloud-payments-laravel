@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Removed
+
+- Dependency `tarampampam/wrappers-php` because this package was deprecated and removed
+
+### Changed
+
+- Minimal require PHP version now is `7.3`
+- Package `tarampampam/guzzle-url-mock` replaced with `avto-dev/guzzle-url-mock` version `^1.5`
+
 ## v1.2.0
 
 ### Added
