@@ -6,6 +6,7 @@ namespace AvtoDev\CloudPayments\Requests\Payments\Cards;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use AvtoDev\CloudPayments\Requests\DTO\Payer;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
@@ -36,6 +37,13 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
     protected $card_cryptogram_packet;
 
     /**
+     * Information about the payer.
+     *
+     * @var Payer
+     */
+    protected $payer;
+
+    /**
      * @param string $name
      *
      * @return CardsAuthRequestBuilder
@@ -60,6 +68,18 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
+     * @param Payer $payer
+     *
+     * @return $this
+     */
+    public function setPayer(Payer $payer): self
+    {
+        $this->payer = $payer;
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getRequestPayload(): array
@@ -69,6 +89,7 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
         return \array_merge($this->getCommonPaymentParams(), [
             'Name'                 => $this->name,
             'CardCryptogramPacket' => $this->card_cryptogram_packet,
+            'Payer'                => isset($this->payer) ?$this->payer->toArray() : null,
         ]);
     }
 

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- The `Payer` parameter to the method for payment by cryptogram [#15]
+
+[#15]:https://github.com/avto-dev/cloud-payments-laravel/issues/15
+
 ## v1.4.0
 
 ### Added
