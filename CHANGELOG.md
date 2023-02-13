@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v1.5.0
+
+### Changed
+
+- Minimal require PHP version now is `8.0`
+- Package `guzzlehttp/psr7` up to `^2.4`
+- Minimal `phpstan/phpstan` version now is `1.8`
+- Version of `composer` in docker container updated up to `2.5.3`
+
 ## v1.4.0
 
 ### Added

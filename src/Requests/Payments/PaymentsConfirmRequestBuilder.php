@@ -33,7 +33,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
     /**
      * @var array<mixed>
      */
-    protected $json_data;
+    protected array $json_data = [];
 
     /**
      * Required.
@@ -82,7 +82,7 @@ class PaymentsConfirmRequestBuilder extends AbstractRequestBuilder
      */
     protected function getRequestPayload(): array
     {
-        $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
+        $this->json_data = \array_merge($this->json_data, $this->getReceiptData());
 
         return [
             'TransactionId' => $this->transaction_id,

@@ -28,8 +28,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->app->bind(Client::class, function (Container $app) {
             if ($app->bound(ClientInterface::class)) {
+                /** @var GuzzleClient $client */
                 $client = $app->make(ClientInterface::class);
             } else {
+                /** @var GuzzleClient $client */
                 $client = $app->make(GuzzleClient::class);
             }
 
@@ -46,6 +48,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             /** @var Repository $config_repository */
             $config_repository = $app->make(Repository::class);
 
+            /** @var string[] $config_data */
             $config_data = $config_repository->get('services.cloud_payments');
 
             return new Config($config_data['public_id'], $config_data['api_key']);
