@@ -5,11 +5,11 @@ declare(strict_types = 1);
 namespace AvtoDev\CloudPayments\Requests;
 
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\Utils;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\UriResolver;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\RequestInterface;
-use function GuzzleHttp\Psr7\stream_for;
 
 abstract class AbstractRequestBuilder
 {
@@ -60,7 +60,7 @@ abstract class AbstractRequestBuilder
 
         if ($request_data !== []) {
             /** @var RequestInterface $request */
-            $request = $request->withBody(stream_for(\json_encode($request_data, JSON_THROW_ON_ERROR)));
+            $request = $request->withBody(Utils::streamFor(\json_encode($request_data, JSON_THROW_ON_ERROR)));
         }
 
         return $request;
