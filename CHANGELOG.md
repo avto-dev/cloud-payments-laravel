@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 - Request builders for working with `SBP`
 
+### Changed
+
+- Up minimal `avto-dev/guzzle-url-mock` version to `1.6`
+
 ## v1.5.0
 
 ### Changed
