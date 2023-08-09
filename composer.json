@@ -20,7 +20,7 @@
         "fakerphp/faker": "^1.12",
         "phpstan/phpstan": "^1.8",
         "nesbot/carbon": "^2.66",
-        "avto-dev/guzzle-url-mock": "^1.5"
+        "avto-dev/guzzle-url-mock": "^1.6"
     },
     "autoload": {
         "psr-4": {
