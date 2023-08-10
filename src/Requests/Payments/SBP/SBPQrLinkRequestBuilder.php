@@ -19,6 +19,8 @@ class SBPQrLinkRequestBuilder extends AbstractRequestBuilder
      */
     protected function getRequestPayload(): array
     {
+        $this->setJsonData(\array_merge($this->json_data ?? [], $this->getReceiptData()));
+
         return $this->getCommonPaymentParams();
     }
 
