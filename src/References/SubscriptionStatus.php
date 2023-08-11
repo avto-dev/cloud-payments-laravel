@@ -10,7 +10,7 @@ namespace AvtoDev\CloudPayments\References;
 interface SubscriptionStatus
 {
     /**
-     * Taxation systems.
+     * Subscription statuses.
      */
     public const
         ACTIVE = 'Active', // When subscription is created and/or payment by subscription is done

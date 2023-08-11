@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- Request builders for working with `SBP`
+
+### Changed
+
+- Up minimal `avto-dev/guzzle-url-mock` version to `1.6`
+
 ## v1.5.0
 
 ### Changed

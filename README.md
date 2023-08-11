@@ -106,21 +106,21 @@ $response = $client->send($request);
 
 Supported builders:
 
-Builder                             | Description                                          | Documentation link
-:---------------------------------- | :--------------------------------------------------- | :-------------------------:
-`TestRequestBuilder`                | The method to test the interaction with the API      | [Link][method_test_doc]
-`CardsAuthRequestBuilder`           | The method to make a payment by a cryptogram         | [Link][method_payment_by_cryptogram]
-`CardsChargeRequestBuilder`         | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram]
-`CardsPost3DsRequestBuilder`        | 3-D Secure Processing                                | [Link][method_payment_3ds]
-`TokensAuthRequestBuilder`          | The method to make a payment by a token              | [Link][method_payment_token]
-`TokensChargeRequestBuilder`        | The method to make a payment by a token. Charge only | [Link][method_payment_token]
-`PaymentsConfirmRequestBuilder`     | Payment Confirmation                                 | [Link][method_payment_confirm]
-`PaymentsVoidRequestBuilder`        | Payment Cancellation                                 | [Link][method_payment_cancel]
-`SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments      | [Link][method_subscription_create]
-`SubscriptionsGetRequestBuilder`    | Subscription Details                                 | [Link][method_subscription_get]
-`SubscriptionsFindRequestBuilder`   | Subscriptions Search                                 | [Link][method_subscription_find]
-`SubscriptionsUpdateRequestBuilder` | Recurrent Payments Subscription Change               | [Link][method_subscription_update]
-`SubscriptionsCancelRequestBuilder` | Subscription on Recurrent Payments Cancellation      | [Link][method_subscription_cancel]
+| Builder                             | Description                                               | Documentation link                   |
+|:------------------------------------|:----------------------------------------------------------|:-------------------------------------|
+| `TestRequestBuilder`                | The method to test the interaction with the API           | [Link][method_test_doc]              |
+| `CardsAuthRequestBuilder`           | The method to make a payment by a cryptogram              | [Link][method_payment_by_cryptogram] |
+| `CardsChargeRequestBuilder`         | The method to make a payment by a cryptogram. Charge only | [Link][method_payment_by_cryptogram] |
+| `CardsPost3DsRequestBuilder`        | 3-D Secure Processing                                     | [Link][method_payment_3ds]           |
+| `TokensAuthRequestBuilder`          | The method to make a payment by a token                   | [Link][method_payment_token]         |
+| `TokensChargeRequestBuilder`        | The method to make a payment by a token. Charge only      | [Link][method_payment_token]         |
+| `PaymentsConfirmRequestBuilder`     | Payment Confirmation                                      | [Link][method_payment_confirm]       |
+| `PaymentsVoidRequestBuilder`        | Payment Cancellation                                      | [Link][method_payment_cancel]        |
+| `SubscriptionsCreateRequestBuilder` | Creation of Subscriptions on Recurrent Payments           | [Link][method_subscription_create]   |
+| `SubscriptionsGetRequestBuilder`    | Subscription Details                                      | [Link][method_subscription_get]      |
+| `SubscriptionsFindRequestBuilder`   | Subscriptions Search                                      | [Link][method_subscription_find]     |
+| `SubscriptionsUpdateRequestBuilder` | Recurrent Payments Subscription Change                    | [Link][method_subscription_update]   |
+| `SubscriptionsCancelRequestBuilder` | Subscription on Recurrent Payments Cancellation           | [Link][method_subscription_cancel]   |
 
 > How to get [card cryptogram packet](https://developers.cloudpayments.ru/#skript-checkout)?
 
