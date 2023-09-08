@@ -19,7 +19,7 @@ class TokensChargeRequestBuilderTest extends TokensAuthRequestBuilderTest
      */
     protected function getRequestBuilder(): TokensAuthRequestBuilder
     {
-        return new TokensChargeRequestBuilder;
+        return (new TokensChargeRequestBuilder)->setToken('some')->setTransactionInitiatorCode(1);
     }
 
     /**

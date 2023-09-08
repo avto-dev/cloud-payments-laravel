@@ -18,11 +18,22 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
     use PaymentRequestTrait, HasReceipt;
 
     /**
-     * Required.
+     * Card tokens issued by the CloudPayments. You get it with the first successful payment.
      *
-     * @var string|null
+     * @var string
      */
-    protected $token;
+    protected string $token;
+
+    /**
+     * Integer flag of the initiator of the transaction.
+     *
+     * Possible values:
+     *   0 - transaction initiated by the merchant based on previously saved credentials;
+     *   1 - transaction initiated by the cardholder (customer) based on previously saved credentials.
+     *
+     * @var int
+     */
+    protected int $tr_initiator_code;
 
     /**
      * Required.
@@ -39,6 +50,16 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
     }
 
     /**
+     * Set the integer flag of the initiator of the transaction.
+     */
+    public function setTransactionInitiatorCode(int $tr_initiator_code): self
+    {
+        $this->tr_initiator_code = $tr_initiator_code;
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getRequestPayload(): array
@@ -46,7 +67,8 @@ class TokensAuthRequestBuilder extends AbstractRequestBuilder
         $this->json_data = \array_merge($this->json_data ?? [], $this->getReceiptData());
 
         return \array_merge($this->getCommonPaymentParams(), [
-            'Token' => $this->token,
+            'Token'           => $this->token,
+            'TrInitiatorCode' => $this->tr_initiator_code,
         ]);
     }
 

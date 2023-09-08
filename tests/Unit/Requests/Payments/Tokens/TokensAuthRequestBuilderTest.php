@@ -21,9 +21,9 @@ class TokensAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
 
     public function testToken(): void
     {
-        $this->request_builder->setToken('some');
+        $this->request_builder->setToken('some')->setTransactionInitiatorCode(1);
 
-        $this->assertSame('{"Token":"some"}', $this->request_builder->buildRequest()->getBody()->getContents());
+        $this->assertSame('{"Token":"some","TrInitiatorCode":1}', $this->request_builder->buildRequest()->getBody()->getContents());
     }
 
     /**
@@ -31,7 +31,7 @@ class TokensAuthRequestBuilderTest extends AbstractRequestBuilderTestCase
      */
     protected function getRequestBuilder(): TokensAuthRequestBuilder
     {
-        return new TokensAuthRequestBuilder;
+        return (new TokensAuthRequestBuilder)->setToken('some')->setTransactionInitiatorCode(1);
     }
 
     /**
