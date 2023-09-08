@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- Property `TrInitiatorCode` in `TokensAuthRequestBuilder`
+
+### Changed
+
+- Mark property `token` as required for payment by token in `TokensAuthRequestBuilder`
+
 ## v1.6.0
 
 ### Added
