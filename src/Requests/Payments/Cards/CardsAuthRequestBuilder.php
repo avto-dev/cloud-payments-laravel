@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace AvtoDev\CloudPayments\Requests\Payments\Cards;
 
@@ -27,6 +27,42 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
     protected $name;
 
     /**
+     * Save card.
+     *
+     * Card token saving flag for making payment using saved card
+     *
+     * @var bool
+     */
+    protected $save_card;
+
+    /**
+     * Payment Url.
+     *
+     * The address of the site from which the checkout script is called
+     *
+     * @var string
+     */
+    protected $payment_url;
+
+    /**
+     * The primary language in which the API issues messages to the user.
+     *
+     * Default is Russian.
+     * 
+     * @see CultureName
+     *
+     * @var string
+     */
+    protected $culture_name;
+
+    /**
+     * @see Payer
+     * 
+     * @var array<mixed>
+     */
+    protected array $payer = [];
+
+    /**
      * Cryptogram.
      *
      * Required
@@ -46,6 +82,57 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
 
         return $this;
     }
+
+    /**
+     * @param string $save_card
+     *
+     * @return CardsAuthRequestBuilder
+     */
+    public function setSaveCard(bool $save_card): self
+    {
+        $this->save_card = $save_card;
+
+        return $this;
+    }
+
+    /**
+     * @param string $payment_url
+     *
+     * @return CardsAuthRequestBuilder
+     */
+    public function setPaymentUrl(string $payment_url): self
+    {
+        $this->payment_url = $payment_url;
+
+        return $this;
+    }
+
+    /**
+     * Required.
+     *
+     * @param string $culture_name
+     *
+     * @return CardsAuthRequestBuilder
+     */
+    public function setCultureName(string $culture_name): self
+    {
+        $this->culture_name = $culture_name;
+
+        return $this;
+    }
+
+    /**
+     * @param array<mixed> $payer
+     *
+     * @return CardsAuthRequestBuilder
+     */
+    public function setPayer(array $payer): self
+    {
+        $this->payer = $payer;
+
+        return $this;
+    }
+
 
     /**
      * @param string $card_cryptogram_packet
@@ -68,7 +155,11 @@ class CardsAuthRequestBuilder extends AbstractRequestBuilder
 
         return \array_merge($this->getCommonPaymentParams(), [
             'Name'                 => $this->name,
+            'SaveCard'             => $this->save_card,
+            'PaymentUrl'           => $this->payment_url,
+            'CultureName'          => $this->culture_name,
             'CardCryptogramPacket' => $this->card_cryptogram_packet,
+            'Payer'                => !empty($this->payer) ? $this->payer : null,
         ]);
     }
 
