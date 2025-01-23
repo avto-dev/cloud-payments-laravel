@@ -4,18 +4,25 @@ declare(strict_types = 1);
 
 namespace AvtoDev\Tests\Unit\Requests\Payments\SBP;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\Attributes\TestWith;
 use AvtoDev\CloudPayments\References\PayersDevice;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
 use AvtoDev\CloudPayments\Requests\Payments\SBP\AbstractSBPPaymentRequestBuilder;
 
 abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestBuilderTestCase
 {
+    use InteractsWithExceptionHandling;
+
     /**
      * @var AbstractSBPPaymentRequestBuilder
      */
     protected $request_builder;
 
-    public function testOptionalFields(): void
+    #[Test, TestDox('Checking the use of optional parameters in a request')]
+    public function successfullySetOptionalRequestParameters(): void
     {
         $redirect_url   = $this->faker->url();
         $os             = $this->faker->randomElement(['Android', 'iOS', 'Windows']);
@@ -47,5 +54,19 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
         $this->assertSame($is_web_view, $request_data['Webview']);
         $this->assertSame($need_save_card, $request_data['SaveCard']);
         $this->assertSame($is_test, $request_data['IsTest']);
+    }
+
+    #[
+        Test,
+        TestDox('The TTL parameter value must be in the range from 1 to 129600'),
+        TestWith([0]),
+        TestWith([129601])
+    ]
+    public function throwExceptionWhenTtlValueIsInvalid(int $ttl_in_minutes): void
+    {
+        $this->assertThrows(
+            fn () => $this->request_builder->setTtlInMinutes($ttl_in_minutes),
+            \InvalidArgumentException::class,
+        );
     }
 }
