@@ -6,13 +6,13 @@ namespace AvtoDev\Tests\Unit\Requests\Payments\SBP;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\SBP\SBPQrImageRequestBuilder;
 
 /**
+ * @covers \AvtoDev\CloudPayments\Requests\Payments\SBP\AbstractSBPPaymentRequestBuilder
  * @covers \AvtoDev\CloudPayments\Requests\Payments\SBP\SBPQrImageRequestBuilder
  */
-class SBPQrImageRequestBuilderTest extends AbstractRequestBuilderTestCase
+class SBPQrImageRequestBuilderTest extends AbstractSBPPaymentRequestBuilderTestCase
 {
     /**
      * @inheritdoc
