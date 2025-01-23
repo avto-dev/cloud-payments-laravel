@@ -16,6 +16,9 @@ abstract class AbstractSBPPaymentRequestBuilder extends AbstractRequestBuilder
 {
     use PaymentRequestTrait, HasReceipt;
 
+    private const MIN_LINK_TTL_IN_MINUTES = 1;
+    private const MAX_LINK_TTL_IN_MINUTES = 129_600;
+
     private ?string $success_redirect_url = null;
     private ?string $os = null;
     private ?PayersDevice $device = null;
@@ -68,7 +71,7 @@ abstract class AbstractSBPPaymentRequestBuilder extends AbstractRequestBuilder
      */
     public function setTtlInMinutes(?int $ttl_in_minutes): self
     {
-        if (\is_int($ttl_in_minutes) && ($ttl_in_minutes < 1 || $ttl_in_minutes > 129_600)) {
+        if (\is_int($ttl_in_minutes) && ($ttl_in_minutes < self::MIN_LINK_TTL_IN_MINUTES || $ttl_in_minutes > self::MAX_LINK_TTL_IN_MINUTES)) {
             throw new \InvalidArgumentException('TTL must be between 1 and 129600 minutes');
         }
 
