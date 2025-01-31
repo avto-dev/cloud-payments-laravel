@@ -7,14 +7,16 @@ namespace AvtoDev\CloudPayments\Requests\Payments\SBP;
 use AvtoDev\CloudPayments\References\PayersDevice;
 use AvtoDev\CloudPayments\Requests\Traits\HasReceipt;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
+use AvtoDev\CloudPayments\ValueObjects\SubscriptionParams;
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
+use AvtoDev\CloudPayments\Requests\Traits\HasInstructionsForCreatingSubscription;
 
 /**
  * @link https://developers.cloudpayments.ru/#sbp-poluchenie-ssylki-dlya-oplaty
  */
 abstract class AbstractSBPPaymentRequestBuilder extends AbstractRequestBuilder
 {
-    use PaymentRequestTrait, HasReceipt;
+    use PaymentRequestTrait, HasReceipt, HasInstructionsForCreatingSubscription;
 
     private const MIN_LINK_TTL_IN_MINUTES = 1;
     private const MAX_LINK_TTL_IN_MINUTES = 129_600;
@@ -106,7 +108,20 @@ abstract class AbstractSBPPaymentRequestBuilder extends AbstractRequestBuilder
      */
     protected function getRequestPayload(): array
     {
-        $this->setJsonData(\array_merge($this->json_data ?? [], $this->getReceiptData()));
+        $subscription_params      = $this->getSubscriptionParams();
+        $subscription_params_data = $subscription_params instanceof SubscriptionParams
+            ? [
+                'cloudPayments' => [
+                    'recurrent' => $subscription_params->toArray(),
+                ],
+            ]
+            : [];
+
+        $this->setJsonData(\array_merge_recursive(
+            $this->json_data ?? [],
+            $this->getReceiptData(),
+            $subscription_params_data,
+        ));
 
         return array_merge(
             $this->getCommonPaymentParams(),
