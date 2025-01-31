@@ -15,7 +15,7 @@ class SubscriptionParams
     private ?int $maximum_payments_number;
     private ?float $amount;
 
-    private ?\DateTime $start_date;
+    private ?\DateTimeInterface $start_date;
 
     private ?Receipt $receipt;
 
@@ -59,7 +59,7 @@ class SubscriptionParams
         return $this;
     }
 
-    public function setStartDate(\DateTime $date): self
+    public function setStartDate(\DateTimeInterface $date): self
     {
         if ($date <= new \DateTime()) {
             throw new \InvalidArgumentException('Date value must be in the future');
@@ -87,7 +87,7 @@ class SubscriptionParams
             'Period'          => $this->period,
             'MaxPeriods'      => $this->maximum_payments_number,
             'Amount'          => $this->amount,
-            'StartDate'       => $this->start_date,
+            'StartDate'       => $this->start_date?->format(\DateTimeInterface::RFC3339),
             'CustomerReceipt' => $this->receipt?->toArray(),
         ]);
     }

@@ -7,7 +7,9 @@ namespace AvtoDev\Tests\Unit\Requests\Payments\SBP;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\TestWith;
+use AvtoDev\CloudPayments\References\Interval;
 use AvtoDev\CloudPayments\References\PayersDevice;
+use AvtoDev\CloudPayments\ValueObjects\SubscriptionParams;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
 use AvtoDev\CloudPayments\Requests\Payments\SBP\AbstractSBPPaymentRequestBuilder;
@@ -34,6 +36,11 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
         $need_save_card = $this->faker->boolean();
         $is_test        = $this->faker->boolean();
 
+        $subscription_params = new SubscriptionParams(
+            $interval = $this->faker->randomElement(Interval::INTERVALS_LIST),
+            $period   = $this->faker->randomDigitNotNull(),
+        );
+
         $this->request_builder
             ->setSuccessRedirectUrl($redirect_url)
             ->setOs($os)
@@ -42,9 +49,12 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
             ->setTtlInMinutes($ttl)
             ->setIsWebview($is_web_view)
             ->setNeedSaveCard($need_save_card)
-            ->setIsTest($is_test);
+            ->setIsTest($is_test)
+            ->setSubscriptionParams($subscription_params);
 
         $request_data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
+
+        $json_data = \json_decode($request_data['JsonData'], true);
 
         $this->assertSame($redirect_url, $request_data['SuccessRedirectUrl']);
         $this->assertSame($os, $request_data['Os']);
@@ -54,6 +64,10 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
         $this->assertSame($is_web_view, $request_data['Webview']);
         $this->assertSame($need_save_card, $request_data['SaveCard']);
         $this->assertSame($is_test, $request_data['IsTest']);
+        $this->assertEqualsCanonicalizing(
+            ['Interval' => $interval, 'Period' => $period],
+            $json_data['cloudPayments']['recurrent'] ?? [],
+        );
     }
 
     #[
