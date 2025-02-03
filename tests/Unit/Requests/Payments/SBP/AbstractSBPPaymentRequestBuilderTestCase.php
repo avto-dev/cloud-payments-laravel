@@ -7,6 +7,7 @@ namespace AvtoDev\Tests\Unit\Requests\Payments\SBP;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\TestWith;
+use AvtoDev\CloudPayments\Receipts\Receipt;
 use AvtoDev\CloudPayments\References\Interval;
 use AvtoDev\CloudPayments\References\PayersDevice;
 use AvtoDev\CloudPayments\ValueObjects\SubscriptionParams;
@@ -41,6 +42,8 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
             $period   = $this->faker->randomDigitNotNull(),
         );
 
+        $receipt = new Receipt();
+
         $this->request_builder
             ->setSuccessRedirectUrl($redirect_url)
             ->setOs($os)
@@ -50,7 +53,8 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
             ->setIsWebview($is_web_view)
             ->setNeedSaveCard($need_save_card)
             ->setIsTest($is_test)
-            ->setSubscriptionParams($subscription_params);
+            ->setSubscriptionParams($subscription_params)
+            ->setReceipt($receipt);
 
         $request_data = \json_decode($this->request_builder->buildRequest()->getBody()->getContents(), true);
 
@@ -68,6 +72,7 @@ abstract class AbstractSBPPaymentRequestBuilderTestCase extends AbstractRequestB
             ['Interval' => $interval, 'Period' => $period],
             $json_data['cloudPayments']['recurrent'] ?? [],
         );
+        $this->assertArrayHasKey('customerReceipt', $json_data['cloudPayments'] ?? []);
     }
 
     #[

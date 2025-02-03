@@ -126,15 +126,15 @@ abstract class AbstractSBPPaymentRequestBuilder extends AbstractRequestBuilder
         return array_merge(
             $this->getCommonPaymentParams(),
             [
-                'Scheme' => 'charge', // charge - single-stage payment
+                'Scheme'             => 'charge', // charge - single-stage payment
                 'SuccessRedirectUrl' => $this->success_redirect_url,
-                'Os' => $this->os,
-                'Device' => $this->device,
-                'Browser' => $this->browser,
-                'TtlMinutes' => $this->ttl_in_minutes,
-                'Webview' => $this->is_webview,
-                'SaveCard' => $this->need_save_card,
-                'IsTest' => $this->is_test,
+                'Os'                 => $this->os,
+                'Device'             => $this->device,
+                'Browser'            => $this->browser,
+                'TtlMinutes'         => $this->ttl_in_minutes,
+                'Webview'            => $this->is_webview,
+                'SaveCard'           => $this->need_save_card,
+                'IsTest'             => $this->is_test,
             ],
         );
     }

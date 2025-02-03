@@ -13,6 +13,7 @@ use AvtoDev\CloudPayments\References\Interval;
 class SubscriptionParams
 {
     private ?int $maximum_payments_number;
+
     private ?float $amount;
 
     private ?\DateTimeInterface $start_date;
