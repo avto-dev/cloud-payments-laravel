@@ -6,13 +6,15 @@ namespace AvtoDev\Tests\Unit\Requests\Payments\SBP;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
-use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Requests\Payments\SBP\SBPQrImageRequestBuilder;
+use AvtoDev\CloudPayments\Requests\Payments\SBP\AbstractSBPPaymentRequestBuilder;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\Payments\SBP\SBPQrImageRequestBuilder
- */
-class SBPQrImageRequestBuilderTest extends AbstractRequestBuilderTestCase
+#[
+    CoversClass(AbstractSBPPaymentRequestBuilder::class),
+    CoversClass(SBPQrImageRequestBuilder::class),
+]
+class SBPQrImageRequestBuilderTest extends AbstractSBPPaymentRequestBuilderTestCase
 {
     /**
      * @inheritdoc
@@ -22,9 +24,6 @@ class SBPQrImageRequestBuilderTest extends AbstractRequestBuilderTestCase
         return new SBPQrImageRequestBuilder();
     }
 
-    /**
-     * @inheritdoc
-     */
     protected function getUri(): UriInterface
     {
         return new Uri('https://api.cloudpayments.ru/payments/qr/sbp/image');
