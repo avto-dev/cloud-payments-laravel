@@ -7,10 +7,9 @@ namespace AvtoDev\Tests\Unit;
 use Illuminate\Support\Str;
 use AvtoDev\CloudPayments\Config;
 use AvtoDev\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @covers \AvtoDev\CloudPayments\Config
- */
+#[CoversClass(Config::class)]
 class ConfigTest extends AbstractTestCase
 {
     public function test(): void

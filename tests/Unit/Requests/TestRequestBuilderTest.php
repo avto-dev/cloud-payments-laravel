@@ -6,11 +6,10 @@ namespace AvtoDev\Tests\Unit\Requests;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Requests\TestRequestBuilder;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\TestRequestBuilder
- */
+#[CoversClass(TestRequestBuilder::class)]
 class TestRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**

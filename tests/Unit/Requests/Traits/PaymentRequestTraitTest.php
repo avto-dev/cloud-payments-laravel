@@ -6,11 +6,10 @@ namespace AvtoDev\Tests\Unit\Requests\Traits;
 
 use Illuminate\Support\Str;
 use AvtoDev\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\Traits\PaymentRequestTrait
- */
+#[CoversClass(PaymentRequestTrait::class)]
 class PaymentRequestTraitTest extends AbstractTestCase
 {
     protected $request_builder;

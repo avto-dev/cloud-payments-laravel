@@ -9,12 +9,11 @@ use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Str;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\CloudPayments\Receipts\Receipt;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsUpdateRequestBuilder;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\Subscriptions\SubscriptionsUpdateRequestBuilder
- */
+#[CoversClass(SubscriptionsUpdateRequestBuilder::class)]
 class SubscriptionsUpdateRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**

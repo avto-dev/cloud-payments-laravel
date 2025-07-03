@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- Laravel `12.x` support
+
+### Changed
+
+- Minimal PHP version now is `8.2`
+- Minimal Laravel version now is `11.0`
+- Version of `composer` in `Dockerfile` updated up to `2.8.9`
+- Update dev dependencies
+
 ## v1.8.0
 
 ### Added
