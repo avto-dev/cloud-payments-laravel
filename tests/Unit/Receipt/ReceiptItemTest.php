@@ -7,10 +7,9 @@ namespace AvtoDev\Tests\Unit\Receipt;
 use Illuminate\Support\Str;
 use AvtoDev\Tests\AbstractTestCase;
 use AvtoDev\CloudPayments\Receipts\Item;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @covers \AvtoDev\CloudPayments\Receipts\Item
- */
+#[CoversClass(Item::class)]
 class ReceiptItemTest extends AbstractTestCase
 {
     /**

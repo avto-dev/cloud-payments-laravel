@@ -8,11 +8,10 @@ use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Message\RequestInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\AbstractRequestBuilder
- */
+#[CoversClass(AbstractRequestBuilder::class)]
 class AbstractRequestTest extends AbstractTestCase
 {
     /**

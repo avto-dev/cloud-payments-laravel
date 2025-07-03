@@ -6,12 +6,11 @@ namespace Unit\Requests\Payments;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\Tests\Unit\Requests\AbstractRequestBuilderTestCase;
 use AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder;
 
-/**
- * @covers \AvtoDev\CloudPayments\Requests\Payments\PaymentsConfirmRequestBuilder
- */
+#[CoversClass(PaymentsConfirmRequestBuilder::class)]
 class PaymentsConfirmRequestBuilderTest extends AbstractRequestBuilderTestCase
 {
     /**

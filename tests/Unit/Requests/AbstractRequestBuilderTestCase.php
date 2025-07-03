@@ -7,6 +7,7 @@ namespace AvtoDev\Tests\Unit\Requests;
 use Psr\Http\Message\UriInterface;
 use AvtoDev\Tests\AbstractTestCase;
 use Psr\Http\Message\RequestInterface;
+use PHPUnit\Framework\Attributes\CoversNothing;
 use AvtoDev\CloudPayments\Requests\AbstractRequestBuilder;
 
 abstract class AbstractRequestBuilderTestCase extends AbstractTestCase
@@ -37,9 +38,7 @@ abstract class AbstractRequestBuilderTestCase extends AbstractTestCase
         $this->assertSame($uri->getPath(), $this->getUri()->getPath());
     }
 
-    /**
-     * @coversNothing
-     */
+    #[CoversNothing]
     public function testHeaders(): void
     {
         /** @var RequestInterface $request */

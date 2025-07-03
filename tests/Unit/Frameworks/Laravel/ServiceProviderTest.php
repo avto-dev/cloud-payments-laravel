@@ -14,14 +14,13 @@ use GuzzleHttp\Client as GuzzleClient;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Illuminate\Contracts\Console\Kernel;
+use AvtoDev\GuzzleUrlMock\UrlsMockHandler;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Testing\TestCase;
-use AvtoDev\GuzzleUrlMock\UrlsMockHandler;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider;
 
-/**
- * @covers \AvtoDev\CloudPayments\Frameworks\Laravel\ServiceProvider
- */
+#[CoversClass(ServiceProvider::class)]
 class ServiceProviderTest extends TestCase
 {
     /**

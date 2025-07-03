@@ -12,11 +12,10 @@ use AvtoDev\CloudPayments\Client;
 use AvtoDev\CloudPayments\Config;
 use AvtoDev\Tests\AbstractTestCase;
 use AvtoDev\GuzzleUrlMock\UrlsMockHandler;
+use PHPUnit\Framework\Attributes\CoversClass;
 use AvtoDev\CloudPayments\Exceptions\CloudPaymentsRequestException;
 
-/**
- * @covers \AvtoDev\CloudPayments\Client
- */
+#[CoversClass(Client::class)]
 class ClientTest extends AbstractTestCase
 {
     /**
